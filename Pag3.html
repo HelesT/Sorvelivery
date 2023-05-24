@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erick1</title>
+    <link rel="icon" href="Logo2.png" type="image/png">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Kanit&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Pag3.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="fale_conoscodiv" id="fale_conoscodiv">
+        <div class="row100">
+            <input type="text" id="mensagem" class="caixadetexto">
+            <button onclick="Enviar();" class="enviartexto">Enviar</button>
+        </div>
+        <div id="resposta" class="resposta"></div>
+    </div>
+
+
+
+    <div class="cabecalho">
+        <div class="cabecalho1">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="Pag3.html" width="40px">
+                <img src="Linha.png" width="350px">
+            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="Pag3.html" width="40px">
+                <img src="Logo2.png" width="105px" style="margin-top: 25px;">
+            </a>
+        </div>
+        <div class="cabecalho2">
+            <input type="checkbox" id="chec">
+            <nav>
+                <ul>
+                    <a href="Pag3.html">Produtos e serviços gerais</a><font color="red">//</font>
+                    <a href="Cardapio.html">Cardápio</a><font color="red">//</font>
+                    <a href="lojas.html">Lojas</a><font color="red">//</font>
+
+
+                    <div class="fale_conosco_texto" id="fale_conosco_texto">
+                    Fale Conosco
+                    </div>
+
+
+                </ul>
+            </nav>
+                <label for="chec">
+                    <img src="3barra.png" width="40px">
+                </label>
+        </div>
+
+        <div class="cabecalho3">
+            <a href="Pag5.html" width="40px">
+                <img src="carrinho.png" width="40px">
+            </a>
+        </div>
+        </div>
+<div class="div0">
+
+
+
+
+
+
+
+
+<div class="div1">
+       
+    <div class="div2">
+        <a href="Produtos_sorvetes.html" style="width: 100%;height: 100%;">
+        <img src="Sorvete1.png" width="100px" height="100px">&nbsp;<font style="color: black;">Sorvetes</font>
+        </a>
+    </div>
+        <div class="div2">
+            <a href="Produtos_milkshakes.html" style="width: 100%;height: 100%;">
+            <img src="milk.png" width="100px" height="100px">&nbsp;<font style="color: black;">Milkshakes</font>
+            </a>
+        </div>
+        <div class="div2">
+            <a href="Produtos_chocolate.html" style="width: 100%;height: 100%;" >
+            <img src="Chocolate.png" width="100px" height="100px">&nbsp;<font style="color: black;">Chocolate&nbspQuente</font>
+            </a>
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+    <div class="div3">
+        <fieldset class="div3int">
+            <legend> Procure a loja mais próxima:</legend>
+            Estado:<input type="text" class="caixa_larga" id="nome">
+            Cidade:<input type=”text” class=”caixa_larga” id=”cidade” >
+           
+       
+            </fieldset>
+        <div id="DIV_MAPA"></div>
+        
+   
+            
+                
+
+
+       
+       
+    </div>
+</div>
+
+
+</body>
+<script>
+    function CRIAR_MAPA() {
+        var PROPRIEDADES= {
+        center:new google.maps.LatLng(40.885564,-73.928411),
+        zoom:18,
+        mapTypeId: google.maps.MapTypeId.HYBRID};	
+        var map = new google.maps.Map(document.getElementById("DIV_MAPA"),PROPRIEDADES);
+        
+        var MARCADOR1 = {lat: 40.885564,lng:-73.928411};
+        
+        var MARCA1 = new google.maps.Marker({position: MARCADOR1,
+        animation:google.maps.Animation.BOUNCE,
+        icon:{url:'seta.png',scaledSize: new google.maps.Size(30, 30)},});
+        MARCA1.setMap(map);
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXlg-UheeFvXNuGdat0w-R5L0cVxoTr34&callback=CRIAR_MAPA"
+    }
+
+    var fale_conosco_texto = document.querySelector("#fale_conosco_texto");
+    fale_conosco_texto.addEventListener("click", function() {
+    var div = document.querySelector("#fale_conoscodiv");
+   
+  if(div.style.display === "none") {
+        div.style.display = "flex";
+    } else {
+      div.style.display = "none";
+  }
+   
+});
+
+
+topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
+ 
+  // Conexão:
+  client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), "");
+
+
+  // Funções executadas quando a conexão é perdida e quando uma mensagem chega:
+  client.onConnectionLost = ConexaoPerdida;
+  client.onMessageArrived = MensagemRecebida;
+
+
+  // Função chamada quando a conexão for realizada:
+  client.connect({onSuccess:Conectar});
+
+
+  // A função Conectar deve criar a variável (tópico) no computador remoto:
+  function Conectar() {
+   
+    client.subscribe(topico);  // Tópico (variável) criado no servidor MQTT
+   
+  }
+ 
+  function ConexaoPerdida(responseObject) {
+    if (responseObject.errorCode !== 0) {
+      resposta.innerHTML += "Desconectado";
+    }
+  }
+
+
+  // Função executada quando a variável (tópico) no servidor receber uma mensagem:
+  function MensagemRecebida(message) {
+      resposta.innerHTML += "<br><br>" + message.payloadString;
+      resposta.scrollTo(0, document.body.scrollHeight);
+  }
+
+
+  function Enviar()
+  {
+    texto = mensagem.value;
+
+
+    message = new Paho.MQTT.Message(texto);
+    message.destinationName = topico;
+    client.send(message);
+  }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXlg-UheeFvXNuGdat0w-R5L0cVxoTr34&callback=CRIAR_MAPA"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

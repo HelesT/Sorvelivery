@@ -1,0 +1,54 @@
+body
+{
+    background-color: black;
+    overflow: hidden;
+}
+
+.tela
+{
+    animation: bounceOut 1s;
+    animation-delay: 3s;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center
+}
+
+.roda
+{
+    animation: girar 4s, fadeIn 2s, bounceIn 2s;
+    position: absolute;
+    width: 195px;
+    height: 177px;
+    text-align: center;
+    top: 250px;
+    z-index: 10;
+}
+
+.circulo
+{   
+    animation: bounceIn 2s;
+    position: absolute;
+    width: 135px;
+    height: 125px;
+    text-align: center;
+    top: 275px;
+    z-index: 11;
+}
+
+.casquinha
+{
+    animation: bounceIn 2s, fadeIn 2s;
+    position: absolute;
+    width: 120px;
+    height: 165px;
+    text-align: center;
+    top: 245px;
+    z-index: 12;
+}
+
+@keyframes girar
+{
+    0% {rotate: 0deg;}
+    100% {rotate: 1800deg;}
+}

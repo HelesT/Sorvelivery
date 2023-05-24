@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorvelivery</title>
+    <link rel="stylesheet" href="confirmação_endereco.css" type="text/css">
+   
+</head>
+<body>
+    <div class="cabecalho">
+        <div class="cabecalho1">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="Pag3.html" width="100%">
+                <img src="Linha.png" width="300px">
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="Pag3.html" width="40px">
+                <img src="Logo2.png" width="60px" style="margin-top: 10px;">
+            </a>
+        </div>
+        <div style="width: 45%;"></div>
+        <div class="cabecalho3">
+            <a href="Pag5.html" width="40px">
+                <img src="carrinho.png" width="40px" style="margin-left: 0px;">
+            </a>
+        </div>
+    </div>
+    <div class="confirmacompra">
+        
+        <div class="infocompra">
+            <form action="inserir.php" method="post">
+                <div style="margin: 50px; background-color: rgb(255, 255, 255);">
+                Nome Completo<br>
+                <div class="linhacompra"><input type="text" name="Nome"></div><br>
+                CEP<br>
+                <div class="linhacompra"><input type="text" name="CEP"></div><br>
+                <div class="linhacompradupla">
+                    Estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cidade<br>
+                    <input type="text" style="margin-right: 40px;">
+                    <input type="text">
+                </div><br>
+
+                Bairro<br>
+                <div class="linhacompra"><input type="text"></div><br>
+
+                <div class="linhacompradupla" style="height: 40px;">
+                    Rua/Avenida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Número<br>
+                    <input type="text" style="margin-right: 40px;">
+                    <input type="text" name="NumeroCasa">
+                </div><br><br>
+                Complemento(opcional)<br>
+                <div class="linhacompra"><input type="text" name="Complemento"></div><br><br>
+
+                Esse é seu trabalho ou casa?<br><br>
+                <input type="radio" style="width: 17px; height: 17px;"><img src="maleta.png" width="20px">
+                Trabalho&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" style="width: 17px; height: 17px;"><img src="casa.png" width="20px">Casa<br><br><br>
+
+                Telefone de Contato<br>
+                <div class="linhacompra"><input type="text" name="TelefoneContato" ></div><br><br>
+
+                Informações adicionais desse endereço(opcional)<br>
+                <div class="linhacompra"><input type="text" style="width: 2000px;height: 45px;" name="InfoAdd"></div><br><br>
+                <a href="confirmação_cartão.html" style="width: 100px;">
+                <input type="" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);" value="Continuar">
+                </a>
+            </div>
+        </div>
+    </form>
+    <div class="producompra" style="overflow-y: scroll;display: flex;flex-direction: column;">
+        <div style="margin: 15px;">
+            <div style="font-size: 20px;">Taixa de Envio: </div>
+            <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
+            <div style="font-size: 20px;">Total: </div>
+            <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
+            <div style="display: flex;flex-direction: row;margin-left: 5px;">
+                <img src="reidoll.png" width="75px">
+                <font style="margin: 30px;">REI CHUKITA(PROMOÇÃO!!)</font>
+            </div>
+            <div style="font-size: 20px;">Metodo de Pagamento: </div>
+            <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="cartao.png" width="35px"></div>
+            <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="pix.jpeg" width="50px"></div>
+            <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="boleto.png" width="35px"></div>
+            <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="cartao.png" width="35px"></div>
+            <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="Visaicon.png" width="35px"></div>
+            <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="payálicon.png" width="35px"></div>
+
+        </div>
+    </div>
+</body>
+</html>
