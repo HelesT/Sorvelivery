@@ -126,6 +126,18 @@ nav
     justify-content: center;
     justify-items: center;
 }
+.lin 
+{
+    width: 100%;
+    height: 5px;
+    background-color:#00ffea;
+}
+.lin2 
+{
+    width: 93%;
+    height: 5px;
+    background-color:#067a70;
+}
 .novo
 {
     width: 100%;
@@ -220,7 +232,7 @@ justify-items: center;
 align-items: center;
 align-content: center;
 animation: descer 2s forwards;
-z-index: 2;
+z-index: 98;
 }
 @keyframes descer {
 0% {top: -40%; left: 70%;}
