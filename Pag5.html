@@ -14,14 +14,6 @@
     </head>
 
 <body>
-    <div class="fale_conoscodiv" id="fale_conoscodiv">
-        <div class="row100">
-            <input type="text" id="mensagem" class="caixadetexto">
-            <button onclick="Enviar();" class="enviartexto">Enviar</button>
-        </div>
-        <div id="resposta" class="resposta"></div>
-    </div>
-
     <div class="cabecalho">
         <div class="cabecalho1">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -39,8 +31,18 @@
                         <a href="Pag3.html">Produtos e serviços gerais</a><font color="red">//</font>
                         <a href="Cardapio.html">Cardápio</a><font color="red">//</font>
                         <a href="lojas.css">Lojas</a><font color="red">//</font>
-                        <div class="fale_conosco_texto" id="fale_conosco_texto">
-                        Fale Conosco
+                        <div>
+                            <input type="checkbox" id="conosco">
+                            <div class="fale_conoscodiv" id="fale_conoscodiv">
+                                <div class="row100">
+                                    <input type="text" id="mensagem" class="caixadetexto">
+                                    <button onclick="Enviar();" class="enviartexto">Enviar</button>
+                                </div>
+                            <div id="resposta" class="resposta"></div>
+                            </div>
+                            <label>
+                                <font>Fale Conosco</font>
+                            </label>
                         </div>
 
                     </ul>
@@ -110,18 +112,6 @@
    </div>
 </body>
 <script>
-    var fale_conosco_texto = document.querySelector("#fale_conosco_texto");
-    fale_conosco_texto.addEventListener("click", function() {
-    var div = document.querySelector("#fale_conoscodiv");
-    
-  if(div.style.display === "none") {
-        div.style.display = "flex";
-    } else {
-      div.style.display = "none";
-  }
-    
-});
-
 topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
   
   // Conexão:
