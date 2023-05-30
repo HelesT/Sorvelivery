@@ -11,9 +11,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script src="jquery-3.7.0.min.js"></script>
     </head>
 
 <body>
+    <div class="fale_conoscodiv" id="fale_conoscodiv">
+        <div class="row100">
+            <input type="text" id="mensagem" class="caixadetexto">
+            <button onclick="Enviar();" class="enviartexto">Enviar</button>
+        </div>
+    <div id="resposta" class="resposta"></div>
+    </div>
     <div class="cabecalho">
         <div class="cabecalho1">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -31,19 +39,12 @@
                         <a href="Pag3.html">Produtos e serviços gerais</a><font color="red">//</font>
                         <a href="Cardapio.html">Cardápio</a><font color="red">//</font>
                         <a href="lojas.css">Lojas</a><font color="red">//</font>
-                        <div>
-                            <input type="checkbox" id="conosco">
-                            <div class="fale_conoscodiv" id="fale_conoscodiv">
-                                <div class="row100">
-                                    <input type="text" id="mensagem" class="caixadetexto">
-                                    <button onclick="Enviar();" class="enviartexto">Enviar</button>
-                                </div>
-                            <div id="resposta" class="resposta"></div>
-                            </div>
-                            <label>
-                                <font>Fale Conosco</font>
-                            </label>
-                        </div>
+                        
+                            <input type="button" onclick="animar()">
+                            
+                                Fale Conosco
+                            
+                        
 
                     </ul>
                 </nav>
@@ -151,5 +152,18 @@ topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
     message.destinationName = topico;
     client.send(message);
   }
+
+function animar(){
+    clique=clique + 1
+    if(clique==1)
+    {
+        $(".fale_conoscodiv").animate({top:'50%'},1000);
+    }
+    if(clique==2)
+    {
+        clique = 0
+        $(".fale_conoscodiv").animate({top:'-50%'},1000);
+    }
+}
 </script>
 </html>
