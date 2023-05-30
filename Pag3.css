@@ -134,42 +134,37 @@ body
             z-index: 1;
 		}
         .fale_conoscodiv
-    {
+        {
         position: absolute;
-        top: -400px;
-        left: 1100px;
-        background-color: black;
+        top: 50%;
+        left: 70%;
+        background-color:black;
         width: 300px;
         height: 450px;
-        border-bottom: 10px;
-        display: none;
+        display: flex;
         color: white;
         flex-direction: column-reverse;
         justify-content: center;
         justify-items: center;
         align-items: center;
         align-content: center;
-        animation: descer 2s forwards;
-        z-index: 2;
-    }
-    @keyframes descer {
-        0% {top: -40%; left: 70%;}
-        100% {top: 10%;left: 70%;}
-    }
-    .fale_conosco_texto
-    {
+        z-index: 0;
+        }
+        
+        .fale_conosco_texto
+        {
         width: 110px;
         height: 22px;
         color: rgb(35, 200, 200) ;
-    }
-    .caixadetexto
-    {
+        }
+        .caixadetexto
+        {
         width: 75%;
         height: 100%;
         margin-bottom: 5px;
-    }
-    .enviartexto
-    {
+        }
+        .enviartexto
+        {
         width: 15%;
         height: 125%;
         margin-bottom: 5px;
@@ -178,9 +173,9 @@ body
         justify-items: center;
         align-items: center;
         align-content: center;
-    }
-    .resposta
-    {
+        }
+        .resposta
+        {
         background-color: rgb(41, 41, 41);
         width: 90%;
         height: 85%;
@@ -190,9 +185,9 @@ body
         overflow-y: scroll;
         display: flex;
         margin-bottom: 5px;
-    }
-    .row100
-    {
+        }
+        .row100
+        {
         display: flex;
         margin-top: 5px;
         flex-direction: row;
@@ -202,7 +197,7 @@ body
         align-content: center;
         width: 100%;
         height: 20px;
-    }
+        }
         ::-webkit-scrollbar
         {
         width: 20px;

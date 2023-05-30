@@ -11,19 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Kanit&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Pag3.css" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script src="jquery-3.7.0.min.js"></script>
 </head>
 <body>
+    <a href="Login.html"><font style="color: black;position: absolute;top: 95%;left: 90%;text-decoration: none;">Sair da conta</font></a>
 
-    <div class="fale_conoscodiv" id="fale_conoscodiv">
+    <div class="fale_conoscodiv" id="fale_conoscodiv" style="top: -100%;">
         <div class="row100">
             <input type="text" id="mensagem" class="caixadetexto">
             <button onclick="Enviar();" class="enviartexto">Enviar</button>
         </div>
         <div id="resposta" class="resposta"></div>
     </div>
-
-
-
     <div class="cabecalho">
         <div class="cabecalho1">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -41,26 +40,19 @@
                     <a href="Pag3.html">Produtos e serviços gerais</a><font color="red">//</font>
                     <a href="Cardapio.html">Cardápio</a><font color="red">//</font>
                     <a href="lojas.html">Lojas</a><font color="red">//</font>
-
-
-                    <div class="fale_conosco_texto" id="fale_conosco_texto">
-                    Fale Conosco
-                    </div>
-
-
+                    <button onclick="animar();" style="background: none;border: none;padding: 0;font: inherit;cursor: pointer;text-decoration: none;color: rgb(35, 200, 200);">Fale Conosco</button>
                 </ul>
             </nav>
-                <label for="chec">
-                    <img src="3barra.png" width="40px">
-                </label>
+            <label for="chec">
+                <img src="3barra.png" width="40px">
+            </label>
         </div>
-
         <div class="cabecalho3">
             <a href="Pag5.html" width="40px">
-                <img src="carrinho.png" width="40px">
+                <img src="carrinho.png" width="40px" >
             </a>
         </div>
-        </div>
+    </div>
 <div class="div0">
 
 
@@ -89,7 +81,56 @@
 
 </body>
 <script>
-    function CRIAR_MAPA() {
+topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
+  
+  // Conexão:
+  client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), "");
+
+  // Funções executadas quando a conexão é perdida e quando uma mensagem chega:
+  client.onConnectionLost = ConexaoPerdida;
+  client.onMessageArrived = MensagemRecebida;
+
+  // Função chamada quando a conexão for realizada:
+  client.connect({onSuccess:Conectar});
+
+  // A função Conectar deve criar a variável (tópico) no computador remoto:
+  function Conectar() {
+      client.subscribe(topico);  // Tópico (variável) criado no servidor MQTT
+  }
+
+  function ConexaoPerdida(responseObject) {
+      if (responseObject.errorCode !== 0) {
+          resposta.innerHTML += "Desconectado";
+      }
+  }
+
+  // Função executada quando a variável (tópico) no servidor receber uma mensagem:
+  function MensagemRecebida(message) {
+      resposta.innerHTML += "<br><br>" + message.payloadString; 
+      resposta.scrollTo(0, document.body.scrollHeight);
+  }
+
+  function Enviar() {
+      texto = mensagem.value;
+
+      message = new Paho.MQTT.Message(texto);
+      message.destinationName = topico;
+      client.send(message);
+  }
+
+  var clique = 0;
+
+  function animar() {
+      clique = clique + 1;
+      if (clique == 1) {
+          $(".fale_conoscodiv").animate({top:'10%'}, 500);
+      }
+      if (clique == 2) {
+          clique = 0;
+          $(".fale_conoscodiv").animate({top:'-50%'}, 500);
+      }
+  }
+  function CRIAR_MAPA() {
         var PROPRIEDADES= {
         center:new google.maps.LatLng(40.885564,-73.928411),
         zoom:18,
@@ -104,66 +145,6 @@
         MARCA1.setMap(map);
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXlg-UheeFvXNuGdat0w-R5L0cVxoTr34&callback=CRIAR_MAPA"
     }
-
-    var fale_conosco_texto = document.querySelector("#fale_conosco_texto");
-    fale_conosco_texto.addEventListener("click", function() {
-    var div = document.querySelector("#fale_conoscodiv");
-   
-  if(div.style.display === "none") {
-        div.style.display = "flex";
-    } else {
-      div.style.display = "none";
-  }
-   
-});
-
-
-topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
- 
-  // Conexão:
-  client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), "");
-
-
-  // Funções executadas quando a conexão é perdida e quando uma mensagem chega:
-  client.onConnectionLost = ConexaoPerdida;
-  client.onMessageArrived = MensagemRecebida;
-
-
-  // Função chamada quando a conexão for realizada:
-  client.connect({onSuccess:Conectar});
-
-
-  // A função Conectar deve criar a variável (tópico) no computador remoto:
-  function Conectar() {
-   
-    client.subscribe(topico);  // Tópico (variável) criado no servidor MQTT
-   
-  }
- 
-  function ConexaoPerdida(responseObject) {
-    if (responseObject.errorCode !== 0) {
-      resposta.innerHTML += "Desconectado";
-    }
-  }
-
-
-  // Função executada quando a variável (tópico) no servidor receber uma mensagem:
-  function MensagemRecebida(message) {
-      resposta.innerHTML += "<br><br>" + message.payloadString;
-      resposta.scrollTo(0, document.body.scrollHeight);
-  }
-
-
-  function Enviar()
-  {
-    texto = mensagem.value;
-
-
-    message = new Paho.MQTT.Message(texto);
-    message.destinationName = topico;
-    client.send(message);
-  }
-
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXlg-UheeFvXNuGdat0w-R5L0cVxoTr34&callback=CRIAR_MAPA"></script>
 </html>

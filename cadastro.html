@@ -5,223 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cadastro</title>
-<style>
-    body
-    {
-        background-image: linear-gradient(45deg,rgb(255, 22, 255), rgb(3, 255, 171));
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        justify-items: center;
-        align-items: center;
-        flex-direction: column;
-    }
-   
-    .div1
-        {
+    <style>
+        body {
+            background-image: linear-gradient(45deg, rgb(255, 22, 255), rgb(3, 255, 171));
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+       
+        .div1 {
             width: 600px;
             height: 700px;
-            margin: -20px;
             background-color: purple;
             display: flex;
-            flex-direction:column;
-            justify-content: space-around;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            align-content: center;
-            justify-items: center;
-         
-           
+            z-index: 1;
         }
-    .fundo
-    {
-        width: 100%;
-        height: 1200px;
-        margin: -10px;
-        display: flex;
-        flex-direction: center;
-        justify-content: space-around;
-        align-items: center;
-       
-    }
-    .fundop
-    {
-        width: 100%;
-        height: 950px;
-        margin: -1050px;
-        display: flex;
-        flex-direction: center;
-        justify-content: space-around;
-        align-items: center;
-        align-content: center;
-    }
-    .titulo
-    {
-        width: 300px;
-        height: 70px;
-        display: flex;
-        flex-direction: center;
-        justify-content: space-around;
-        align-items: center;
-        align-content: center;
-        position: absolute;
-        margin-bottom: 620px;
-
-    }
-    .caixa1
-    {
+        
+        .titulo {
+            width: 300px;
+            height: 70px;
+            margin-bottom: 20px;
+        }
+        
+        .caixa1,
+        .caixa2,
+        .caixa3,
+        .caixa4 {
             width: 370px;
             height: 50px;
             background-color: white;
-            display: flex;
-            flex-direction:column;
-            justify-content: space-around;
-            align-items: center;
-            align-content: center;
-            margin-bottom:450px ;
-            position:absolute; 
-            font-size: 22px;   
-    }
-    .caixa2
-    {
-            width: 370px;
-            height: 50px;
-            background-color: white;
-            display: flex;
-            flex-direction:column;
-            justify-content: space-around;
-            align-items: center;
-            align-content: center;
-            margin-bottom:260px ;
-            position:absolute;    
-            font-size: 22PX;
-    }
-    .caixa3
-    {
-            width: 370px;
-            height: 50px;
-            background-color: white;
-            display: flex;
-            flex-direction:column;
-            justify-content: space-around;
-            align-items: center;
-            align-content: center;
-            margin-bottom:70px ;
-            position:absolute;   
-            font-size: 22px; 
-    }
-    .caixa4
-    {
-            width: 370px;
-            height: 50px;
-            background-color: white;
-            display: flex;
-            flex-direction:column;
-            justify-content: space-around;
-            align-items: center;
-            align-content: center;
-            margin-bottom:-120px ;
-            position:absolute;  
-            font-size:22px;  
-    }
-    .entrar
-    {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .entrar {
             width: 190px;
             height: 50px;
             background-color: green;
             border-radius: 15%;
-            display: flex;
-            flex-direction:column;
-            justify-content: space-around;
-            align-items: center;
-            align-content: center;
-            margin-bottom:-310px ;
-            position:absolute; 
-               
-    }
-    .limpar
-    {
+            margin-bottom: 20px;
+        }
+        
+        .limpar {
             width: 190px;
             height: 50px;
             background-color: rgb(255, 24, 24);
             border-radius: 15%;
-            display: flex;
-            flex-direction:column;
-            justify-content: space-around;
-            align-items: center;
-            align-content: center;
-            margin-bottom:-500px ;
-            position:absolute; 
-    }
-    .limpar:hover{
-        background-color: rgba(255, 0, 0, 0.719);
-    }
-    .entrar:hover{
-        background-color: rgba(0, 128, 0, 0.795);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</style>
+        }
+        
+        .limpar:hover {
+            background-color: rgba(255, 0, 0, 0.719);
+        }
+        
+        .entrar:hover {
+            background-color: rgba(0, 128, 0, 0.795);
+        }
+    </style>
 </head>
 <body>
-<img src="cima.png" class="fundo">
-<img src="1.png" class="fundop">
-
-
-
-
-
-
-<div class="div1">
-    <img src="titulo.png" class="titulo">
-    <input type="text" class="caixa1" placeholder="NOME">
+    <img src="1.png" style="width: 100%;height: 100%;position: absolute;z-index: 0;">
+    <img src="cima.png" style="width: 100%;position: absolute;">
+    <div class="div1">
+        <img src="titulo.png" class="titulo">
+        <input type="text" class="caixa1" placeholder="NOME">
+        <input type="text" class="caixa2" placeholder="TELEFONE">
+        <input type="text" class="caixa3" placeholder="E-MAIL">
+        <input type="text" class="caixa4" placeholder="SENHA">
+        <a href="Pag3.html" style="text-decoration: none;">
+            <button class="entrar">
+                <font style="font-size: 30px;">ENTRAR</font>
+            </button>
+        </a>
+        <button class="limpar">
+            <font style="font-size: 30px;">LIMPAR</font>
+        </button>
     </div>
-    <input type="text" class="caixa2" placeholder="TELEFONE">
-    </div>
-    <input type="text" class="caixa3" placeholder="E-MAIL">
-    </div>
-    <input type="text" class="caixa4" placeholder="SENHA" >
-    </div>
-    <a href="Pag3.html" style="text-decoration: none;"><button class="entrar"><font style="font-size: 30px;">ENTRAR</font></a>
-    </div>
-    <button class="limpar" ><font style="font-size: 30px;">LIMPAR</font>
-    </div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
