@@ -18,22 +18,19 @@
                 <button onclick="Enviar();" class="enviartexto">Enviar</button>
             </div>
             <div id="resposta" class="resposta"></div>
-        </div>
-
-        
-    
+        </div>   
         <div class="q1">
             <img src="Logo2.png" class="logo">
+                <form action="verifica.php" method="post">
                 <div class="q2">
                     <input type="text" class="Caixa1"  placeholder="E-mail">
                     <input type="password" class="Caixa1"  placeholder="Senha">
                 </div>
             <div class="q3">
                 <div class="q7">
-                    <a class="a2" href="Pag3.html">
-                    <div  class="q4" >ENTRAR
-                    </div>
-                    </a>
+                    <button type="submit"  class="q4" >ENTRAR
+                    </button>
+                </form>
                     <a class="a2" href="cadastro.html">
                     <div class="q5">CADASTRAR-SE</div>
                     </a>
@@ -42,15 +39,12 @@
                     <div class="q9"><img src="google.png" width="50px"></div>
                     <div class="q10"><img src="Face.png" width="50px"></div>
                 </div>
-                
                 </div>
             </div>
         </div>
-
             <div  class="botao_ajuda" id="botao_ajuda">
                 <img src="Ajuda.png" width="100%">
-            </div>  
-            
+            </div>     
 </body>
 <script>
     var botao_ajuda = document.querySelector("#botao_ajuda");
@@ -62,7 +56,6 @@
     } else {
       div.style.display = "none";
   }
-    
 });
 
 topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
