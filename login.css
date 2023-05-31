@@ -131,8 +131,8 @@ body
 .q5
 {
     cursor: pointer;
-    height: 50%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
     background-color:purple;
     display: flex;
     flex-direction: row;
@@ -154,7 +154,7 @@ body
 .a2
 {
     text-decoration: none;
-    width: 400px;
+    width: 290px;
     height: 50px;
     display: flex;
     justify-content:center;
@@ -186,17 +186,6 @@ body
     justify-content: center;
 
 
-}
-.q9
-{
-    width: 5%;
-    height: 90%;
-}
-.q10
-{
-    width: 5%;
-    height: 90%;
-    margin-left: 50px;
 }
 .botao_ajuda
 {
