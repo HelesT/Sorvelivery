@@ -13,7 +13,7 @@ $admin = "n";
 while($linhas = $comando->fetch())
 {
     $n = 1;
-    $admin = $linhas["admin_usuario"];
+    $admin = $linhas["admim_usuario"];
  }
 
 if($n == 0)
