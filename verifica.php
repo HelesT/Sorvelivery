@@ -1,11 +1,11 @@
 <?php
 // $_POST pega as informações do input
-$login = $_POST["login"];
+$login = $_POST["email"];
 $senha = $_POST["senha"];
 
 include("conecta.php"); //conecta com o bando de dados
 
-$comando = $pdo->prepare("SELECT * FROM usuario WHERE login = '$login' and senha = '$senha' ");
+$comando = $pdo->prepare("SELECT * FROM login WHERE email_usuario = '$login' and senha_usuario = '$senha' ");
 $resultado = $comando->execute();
 $n = 0;
 $admin = "n";
@@ -13,21 +13,21 @@ $admin = "n";
 while($linhas = $comando->fetch())
 {
     $n = 1;
-    $admin = $linhas["Admin"];
+    $admin = $linhas["admin_usuario"];
  }
 
 if($n == 0)
 {
-    header("location:index.html");
+    header("location:login.html");
 }
 if($n == 1)
 {
     if($admin == "s")
     {
-        header("location:admin.html");
+        header("location:pag3.html");
     } 
     else{
-        header("location:usuario.html");
+        header("location:cadastro.html");
     }
 }
 ?>
