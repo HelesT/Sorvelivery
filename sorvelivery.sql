@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31/05/2023 às 17:06
+-- Tempo de geração: 01/06/2023 às 00:30
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,23 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `login`
+-- Estrutura para tabela `cadastro`
 --
 
-CREATE TABLE `login` (
-  `senha_usuario` varchar(11) NOT NULL,
-  `email_usuario` varchar(11) NOT NULL,
-  `admim_usuario` varchar(11) NOT NULL
+CREATE TABLE `cadastro` (
+  `nome_cadastro` varchar(45) NOT NULL,
+  `telefone_cadastro` varchar(45) DEFAULT NULL,
+  `email_cadastro` varchar(45) DEFAULT NULL,
+  `senha_cadastro` varchar(45) DEFAULT NULL,
+  `admim_cadastro` varchar(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `login`
+-- Despejando dados para a tabela `cadastro`
 --
 
-INSERT INTO `login` (`senha_usuario`, `email_usuario`, `admim_usuario`) VALUES
-('123', 'Nylton', 's'),
-('123', 'Mateus', 's'),
-('123', 'Erick', 's');
+INSERT INTO `cadastro` (`nome_cadastro`, `telefone_cadastro`, `email_cadastro`, `senha_cadastro`, `admim_cadastro`) VALUES
+('Nylton', '47989130277', 'nyltondudu29@gmail.com', '123', 's'),
+('Nylton2', '47989130277', 'nyltondudu29@gmail.com', '123', 'n');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices de tabela `cadastro`
+--
+ALTER TABLE `cadastro`
+  ADD PRIMARY KEY (`nome_cadastro`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

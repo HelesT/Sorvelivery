@@ -13,18 +13,40 @@
     <img src="cima.png" style="width: 100%;position: absolute;">
     <div class="div1">
         <img src="titulo.png" class="titulo">
-        <input type="text" class="caixa1" placeholder="NOME">
-        <input type="text" class="caixa2" placeholder="TELEFONE">
-        <input type="text" class="caixa3" placeholder="E-MAIL">
-        <input type="text" class="caixa4" placeholder="SENHA">
-        <a href="Pag3.html" style="text-decoration: none;">
-            <button class="entrar">
-                <font style="font-size: 30px;">ENTRAR</font>
-            </button>
-        </a>
+        <form action="verificacadastro.php" method="post" style="display: flex; flex-direction: column;align-items: center;">
+            <div id="mensagem-erro" style="color: aqua;"></div>
+            <input type="text" class="caixa1" placeholder="NOME" name="nome_cadastro">
+            <input type="text" class="caixa2" placeholder="TELEFONE" name="telefone_cadastro">
+            <input type="text" class="caixa3" placeholder="E-MAIL" name="email_cadastro">
+            <input type="text" class="caixa4" placeholder="SENHA" name="senha_cadastro"><br>
+                <button type="submit" class="entrar">
+                    <font style="font-size: 30px;">ENTRAR</font>
+                </button>
+        </form>
         <button class="limpar">
             <font style="font-size: 30px;">LIMPAR</font>
         </button>
     </div>
 </body>
+<script>
+    // Função para obter o valor de um parâmetro na URL
+    function getParametroURL(nome_cadastro) {
+        const parametros = new URLSearchParams(window.location.search);
+        return parametros.get(nome_cadastro);
+    }
+
+    // Função para exibir a mensagem de erro no carregamento da página
+    function exibirMensagemErro() {
+        const mensagem = getParametroURL("mensagem");
+        if (mensagem === "nomeexistente") {
+            const mensagemErro = document.getElementById("mensagem-erro");
+            mensagemErro.innerHTML = "O nome já está em uso. Por favor, escolha outro nome.";
+        }
+    }
+
+    // Chamada da função de exibir mensagem de erro no carregamento da página
+    window.onload = function() {
+        exibirMensagemErro();
+    };
+</script>
 </html>
