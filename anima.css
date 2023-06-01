@@ -16,7 +16,7 @@ body
 
 .roda
 {
-    animation: girar 4s, fadeIn 2s, bounceIn 2s;
+    animation: girar 2s, fadeIn 2s, bounceIn 2s;
     position: absolute;
     width: 195px;
     height: 177px;
