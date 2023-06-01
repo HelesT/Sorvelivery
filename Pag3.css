@@ -9,6 +9,7 @@ body
             align-items: center;
             align-content: center;
             zoom: 0.9;
+            overflow-x: hidden;
         }
         .div0
         {
