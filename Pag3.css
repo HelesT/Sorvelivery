@@ -10,6 +10,13 @@ body
             align-content: center;
             zoom: 0.9;
         }
+        .pmd
+        {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
         .div0
         {
             width: 100%;
