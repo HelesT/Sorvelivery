@@ -360,9 +360,9 @@ a:hover
 
 .carousel-control 
     {
-    background: rgba(255, 255, 255, 0.328);
+    background: rgb(66, 66, 66);
     border-radius: 50%;
-    color: #fff;
+    color:#00ffea;
     cursor: pointer;
     display: none;
     font-size: 40px;
