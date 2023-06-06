@@ -16,7 +16,7 @@ body
 
 .roda
 {
-    animation: girar 2s, fadeIn 2s, bounceIn 2s;
+    animation: girar 5s, fadeIn 2s, bounceIn 2s;
     position: absolute;
     width: 195px;
     height: 177px;
@@ -50,5 +50,5 @@ body
 @keyframes girar
 {
     0% {rotate: 0deg;}
-    100% {rotate: 1800deg;}
+    100% {rotate: 3600deg;}
 }
