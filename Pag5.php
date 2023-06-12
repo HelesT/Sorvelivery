@@ -57,35 +57,33 @@
             <font style="color: black;font-family: 'Source Sans Pro', sans-serif;font-size: 60px;margin-left: 10%;">Carrinho</font>
         </div>
         <div class="D1">
-            <div class="aba_produtos">
-                <div class="bloco">
-                    <div class="bloco2">
-                        <div class="Partição1"><img src="Casquinha.png" class="sorvete-produto-exemplo" width="176px"></div>
-                        <div class="Partição2">
-                            <font color="white" style="font-size: 22px;">Casquinha Hot Chilly Pappers</font><br><br>
-                            <font color="white" style="font-size: 15px;">Tamanho:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 12px;">
-                                <option style="font-size: 12;">Pequeno</option>
-                                <option style="font-size: 12">Normal</option>
-                                <option style="font-size: 12">Grande</option>
-                                <option style="font-size: 12">Gigante</option>
-                            </select><br><br>
-                            <font color="white" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 12px;">
-                                <option style="font-size: 12;">Leite em pó</option>
-                                <option style="font-size: 12">Canudo de chocolate</option>
-                                <option style="font-size: 12">Nozes</option>
-                                <option style="font-size: 12">Creme</option>
-                            </select><br><br><br>
-                            <div class="preco_compra">
-                                <font color="white" style="font-size: 15px;">R$17,00</font>
-                                <div class="compra" style="color: white;">
-                                    + | +
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="aba_produtos" style="width: 65%;">
+            
+            <?php
+include("conecta.php");
+
+// Recupera o conteúdo do banco de dados
+$sql = "SELECT id, texto FROM conteudos";
+$result = $pdo->query($sql);
+
+// Inicia a variável para armazenar o conteúdo
+$conteudo = "";
+
+if ($result->rowCount() > 0) {
+    // Exibe o conteúdo recuperado
+    while ($row = $result->fetch()) {
+        $conteudo .= "<p>" . $row["texto"] . "</p>";
+        $conteudo .= "<form action='excluir.php' method='post'>";
+        $conteudo .= "<input type='hidden' name='id' value='" . $row["id"] . "'>";
+        $conteudo .= "<input type='submit' name='excluir_" . $row["id"] . "' value='Excluir'>";
+        $conteudo .= "</form>";
+    }
+} else {
+    $conteudo = "Você não possui itens no carrinho.";
+}
+?>
+<?php echo $conteudo; ?>
+
             </div>
             <div class="aba_compra">
                 <a href="confirmação_endereço.html">
