@@ -52,24 +52,73 @@
             </a>
         </div>
     </div>
-    <img src="Dia.png" class="pmd">
-<div class="div0">
-
-
+    <div class="carousel">
+        <div class="carousel-inner">
+            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+            <div class="carousel-item">
+                <img src="prom.png">
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item">
+                <img src="Dia.png">
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item">
+                <img src="descmilk.png">   
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item">
+                <img src="Pdw.png">
+            </div>
+            <label for="carousel-4" class="carousel-control prev control-1">‹</label>
+            <label for="carousel-2" class="carousel-control next control-1">›</label>
+            <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+            <label for="carousel-3" class="carousel-control next control-2">›</label>
+            <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+            <label for="carousel-4" class="carousel-control next control-3">›</label>
+            <label for="carousel-3" class="carousel-control prev control-4">‹</label>
+            <label for="carousel-1" class="carousel-control next control-4">›</label>
+            <ol class="carousel-indicators">
+                <li>
+                    <label for="carousel-1" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-2" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-3" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-4" class="carousel-bullet">•</label>
+                </li>
+            </ol>
         </div>
     </div>
+
+    <div class="div2">
+        <img src="ddet.png">
+    </div>
+
     <div class="div3">
-        <fieldset class="div3int">
-            <legend> Procure a loja mais próxima:</legend>
-            Estado:<input type="text" class="caixa_larga" id="nome">
-            Localização atual:<input type=”text” class=”caixa_larga” id=”cidade” >
-           
-       
-            </fieldset>
-        <div id="DIV_MAPA"></div>
-        
-   
-            
+        <h2>Formulário de Entrega</h2>
+	<form action="enviar.php" method="post">
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome"><br><br>
+
+		<label for="endereco">Endereço:</label>
+		<input type="text" id="endereco" name="endereco"><br><br>
+
+		<label for="cidade">Cidade:</label>
+		<input type="text" id="cidade" name="cidade"><br><br>
+
+		<label for="estado">Estado:</label>
+		<input type="text" id="estado" name="estado"><br><br>
+
+		<label for="cep">CEP:</label>
+		<input type="text" id="cep" name="cep"><br><br>
+
+		<input type="submit" value="Enviar">
+	</form>
                 
 
 
@@ -130,27 +179,6 @@ topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
           $(".fale_conoscodiv").animate({top:'-50%'}, 500);
       }
   }
-  function CRIAR_MAPA() {
-        var PROPRIEDADES= {
-        center:new google.maps.LatLng(40.885564,-73.928411),
-        zoom:18,
-        mapTypeId: google.maps.MapTypeId.HYBRID};	
-        var map = new google.maps.Map(document.getElementById("DIV_MAPA"),PROPRIEDADES);
-        
-        var MARCADOR1 = {lat: 40.885564,lng:-73.928411};
-        
-        var MARCA1 = new google.maps.Marker({position: MARCADOR1,
-        animation:google.maps.Animation.BOUNCE,
-        icon:{url:'seta.png',scaledSize: new google.maps.Size(30, 30)},});
-        MARCA1.setMap(map);
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXlg-UheeFvXNuGdat0w-R5L0cVxoTr34&callback=CRIAR_MAPA"
-    }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXlg-UheeFvXNuGdat0w-R5L0cVxoTr34&callback=CRIAR_MAPA"></script>
-</html>
-
-
-
 
 
 

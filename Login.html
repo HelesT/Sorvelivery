@@ -37,11 +37,7 @@
                     <a class="a2" href="cadastro.html" style="width: 288px;height: 45px;">
                     <div class="q5" style="width: 100%;height: 100%;">CADASTRAR-SE</div>
                     </a>
-                    <div style="flex-direction: row;justify-content: space-around;width: 200px;display: flex;margin-top: 15px;">
-                        <img src="google.png" width="50px">
-                        <img src="Face.png" width="50px">
-                    </div>
-                    <button onclick="startGoogleSignIn()">Login com Google</button>
+                    <button  onclick="startGoogleSignIn()" style="margin: 30px; width: 40%; height: 20%; border-radius: 20px; background-color: purple; color: aquamarine; ">Login com Google</button>
                                
                    
                 
@@ -52,7 +48,6 @@
             </div>     
 </body>
 <script>
-    <script>
     function handleCredentialResponse(response) {
         // Aqui você recebe a resposta contendo o token de acesso
         // para autenticar o usuário no seu backend
@@ -63,7 +58,6 @@
         const auth2 = gapi.auth2.getAuthInstance();
         auth2.grantOfflineAccess().then(handleCredentialResponse);
     }
-</script>
 
     var botao_ajuda = document.querySelector("#botao_ajuda");
     botao_ajuda.addEventListener("click", function() {
