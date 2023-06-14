@@ -1,47 +1,19 @@
 <?php
-include("conecta.php"); // Inclua o arquivo de conexão com o banco de dados
+include("conecta.php");
 
-// Execute a consulta para obter os valores da coluna "carrinho_produto" e "nome_produto"
-$query = "SELECT carrinho_produto, nome_produto FROM produtos";
-$result = mysqli_query($con, $query);
+$query = "SELECT nome_produto FROM produtos";
+$result = mysqli_query($conexao, $query);
 
-// Verifique cada linha retornada da consulta
-while ($row = mysqli_fetch_assoc($result)) {
-    $carrinho_produtos = $row['carrinho_produto'];
-    $nome_produtos = $row['nome_produto'];
-
-    // Verifique se o valor da coluna "carrinho_produtos" é "s"
-    if ($carrinho_produtos == 's') {
-        // Construa a div com a classe correspondente ao valor da coluna "nome_produto"
-        echo '<div class="bloco ' . $nome_produtos . '">';
-        echo '    <div class="bloco2">';
-        echo '        <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="175px"></div>';
-        echo '        <div class="Partição2">';
-        echo '            <font color="white" style="font-size: 22px;">' . $nome_produtos . '</font><br><br>';
-        echo '            <font color="white" style="font-size: 15px;">Tamanho:</font>';
-        echo '            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">';
-        echo '                <option style="font-size: 15px;">Pequeno</option>';
-        echo '                <option style="font-size: 15px">Normal</option>';
-        echo '                <option style="font-size: 15px">Grande</option>';
-        echo '                <option style="font-size: 15px">Gigante</option>';
-        echo '            </select><br><br>';
-        echo '            <font color="white" style="font-size: 15px;">Acompanhamento:</font>';
-        echo '            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">';
-        echo '                <option style="font-size: 15px;">Leite em pó</option>';
-        echo '                <option style="font-size: 15px">Canudo de chocolate</option>';
-        echo '                <option style="font-size: 15px">Nozes</option>';
-        echo '                <option style="font-size: 15px">Creme</option>';
-        echo '            </select><br><br>';
-        echo '            <font color="white" style="font-size: 30px;">R$17,00</font>';
-        echo '        </div>';
-        echo '        <div class="partição3"><img src="retirar.png" width="20px"></div>';
-        echo '    </div>';
-        echo '</div>';
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $nome_produto = $row['nome_produto'];
+        echo '<style>.', $nome_produto, ' { display: flex; }</style>';
     }
 }
 
-mysqli_close($con); // Feche a conexão com o banco de dados
+mysqli_close($conexao);
 ?>
+
 
 
 <!DOCTYPE html>

@@ -4,7 +4,7 @@ include("conecta.php");
 $mensagem = ""; // Mensagem inicial vazia
 
 if (isset($_POST['adicionarChococream'])) {
-  $nomeProduto = 'chococream'; // Nome do produto a ser inserido
+  $nomeProduto = 'bloco chococream'; // Nome do produto a ser inserido
 
   // Verificar se já existe um registro com o mesmo nome na tabela 'produtos'
   $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = :nome";
