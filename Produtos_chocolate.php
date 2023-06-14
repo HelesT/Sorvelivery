@@ -1,3 +1,39 @@
+<?php
+include("conecta.php");
+
+$mensagem = ""; // Mensagem inicial vazia
+
+if (isset($_POST['adicionarChococream'])) {
+  $nomeProduto = 'chococream'; // Nome do produto a ser inserido
+
+  // Verificar se já existe um registro com o mesmo nome na tabela 'produtos'
+  $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = :nome";
+  $stmtVerifica = $pdo->prepare($sqlVerifica);
+  $stmtVerifica->bindParam(':nome', $nomeProduto);
+  $stmtVerifica->execute();
+
+  if ($stmtVerifica->rowCount() > 0) {
+    // Se já existir registro, exibir mensagem
+    $mensagem = "Você já adicionou esse produto no carrinho.";
+  } else {
+    // Se não existir registro, realizar a inserção na tabela 'produtos'
+    $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto) VALUES ('s', :nome)";
+    $stmtInserir = $pdo->prepare($sqlInserir);
+    $stmtInserir->bindParam(':nome', $nomeProduto);
+
+    if ($stmtInserir->execute()) {
+      // Inserção realizada com sucesso
+      // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    } else {
+      // Erro ao inserir
+      $mensagem = "Erro ao adicionar o produto no carrinho.";
+    }
+  }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -75,7 +111,7 @@
                         <div class="Partição2">
                             <font color="white" style="font-size: 35px;">chococream</font><br><br><br>
                             <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
@@ -91,8 +127,8 @@
                             <font color="white" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">                           
-                            <form method="POST">
-                                <button type="submit" name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png"></button>
+                            <form method="POST" action="">
+                                <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit" id="adicionarChococream" name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
                             </form>
                         </div>
                     </div>
