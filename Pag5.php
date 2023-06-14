@@ -1,3 +1,49 @@
+<?php
+include("conecta.php"); // Inclua o arquivo de conexão com o banco de dados
+
+// Execute a consulta para obter os valores da coluna "carrinho_produto" e "nome_produto"
+$query = "SELECT carrinho_produto, nome_produto FROM produtos";
+$result = mysqli_query($con, $query);
+
+// Verifique cada linha retornada da consulta
+while ($row = mysqli_fetch_assoc($result)) {
+    $carrinho_produtos = $row['carrinho_produto'];
+    $nome_produtos = $row['nome_produto'];
+
+    // Verifique se o valor da coluna "carrinho_produtos" é "s"
+    if ($carrinho_produtos == 's') {
+        // Construa a div com a classe correspondente ao valor da coluna "nome_produto"
+        echo '<div class="bloco ' . $nome_produtos . '">';
+        echo '    <div class="bloco2">';
+        echo '        <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="175px"></div>';
+        echo '        <div class="Partição2">';
+        echo '            <font color="white" style="font-size: 22px;">' . $nome_produtos . '</font><br><br>';
+        echo '            <font color="white" style="font-size: 15px;">Tamanho:</font>';
+        echo '            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">';
+        echo '                <option style="font-size: 15px;">Pequeno</option>';
+        echo '                <option style="font-size: 15px">Normal</option>';
+        echo '                <option style="font-size: 15px">Grande</option>';
+        echo '                <option style="font-size: 15px">Gigante</option>';
+        echo '            </select><br><br>';
+        echo '            <font color="white" style="font-size: 15px;">Acompanhamento:</font>';
+        echo '            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">';
+        echo '                <option style="font-size: 15px;">Leite em pó</option>';
+        echo '                <option style="font-size: 15px">Canudo de chocolate</option>';
+        echo '                <option style="font-size: 15px">Nozes</option>';
+        echo '                <option style="font-size: 15px">Creme</option>';
+        echo '            </select><br><br>';
+        echo '            <font color="white" style="font-size: 30px;">R$17,00</font>';
+        echo '        </div>';
+        echo '        <div class="partição3"><img src="retirar.png" width="20px"></div>';
+        echo '    </div>';
+        echo '</div>';
+    }
+}
+
+mysqli_close($con); // Feche a conexão com o banco de dados
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -47,7 +93,7 @@
             </label>
         </div>
         <div class="cabecalho3">
-            <a href="Pag5.html" width="40px">
+            <a href="Pag5.php" width="40px">
                 <img src="carrinho.png" width="40px" >
             </a>
         </div>
@@ -58,32 +104,30 @@
         </div>
         <div class="D1">
             <div class="aba_produtos" style="width: 65%;">
-            
-            <?php
-include("conecta.php");
-
-// Recupera o conteúdo do banco de dados
-$sql = "SELECT id, texto FROM conteudos";
-$result = $pdo->query($sql);
-
-// Inicia a variável para armazenar o conteúdo
-$conteudo = "";
-
-if ($result->rowCount() > 0) {
-    // Exibe o conteúdo recuperado
-    while ($row = $result->fetch()) {
-        $conteudo .= "<p>" . $row["texto"] . "</p>";
-        $conteudo .= "<form action='excluir.php' method='post'>";
-        $conteudo .= "<input type='hidden' name='id' value='" . $row["id"] . "'>";
-        $conteudo .= "<input type='submit' name='excluir_" . $row["id"] . "' value='Excluir'>";
-        $conteudo .= "</form>";
-    }
-} else {
-    $conteudo = "Você não possui itens no carrinho.";
-}
-?>
-<?php echo $conteudo; ?>
-
+            <div class="bloco chococream" style="display:none">
+                    <div class="bloco2">
+                        <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="175px"></div>
+                        <div class="Partição2">
+                            <font color="white" style="font-size: 22px;">chococream</font><br><br>
+                            <font color="white" style="font-size: 15px;">Tamanho:</font>
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Pequeno</option>
+                                <option style="font-size: 15px">Normal</option>
+                                <option style="font-size: 15px">Grande</option>
+                                <option style="font-size: 15px">Gigante</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Leite em pó</option>
+                                <option style="font-size: 15px">Canudo de chocolate</option>
+                                <option style="font-size: 15px">Nozes</option>
+                                <option style="font-size: 15px">Creme</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                        </div>
+                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                    </div>
+                </div>
             </div>
             <div class="aba_compra">
                 <a href="confirmação_endereço.html">
