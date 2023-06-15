@@ -113,7 +113,7 @@ if (isset($_POST['adicionarCasquinhahot'])) {
             </label>
         </div>
         <div class="cabecalho3">
-            <a href="Pag5.html" width="40px">
+            <a href="Pag5.php" width="40px">
                 <img src="carrinho.png" width="40px" >
             </a>
         </div>
