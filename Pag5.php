@@ -1,21 +1,3 @@
-<?php
-include("conecta.php");
-
-$query = "SELECT nome_produto FROM produtos";
-$result = mysqli_query($conexao, $query);
-
-if ($result) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $nome_produto = $row['nome_produto'];
-        echo '<style>.', $nome_produto, ' { display: flex; }</style>';
-    }
-}
-
-mysqli_close($conexao);
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,8 +12,118 @@ mysqli_close($conexao);
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
     <script src="jquery-3.7.0.min.js"></script>
+    <style>
+    .chococream
+        {
+            background-color: rgb(35, 200, 200);
+            width: 90%;
+            margin-left: auto   ;
+            margin-right: auto;
+            margin-top: 20px;
+            height: 200px;
+            display: none;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            border-color: purple;
+            border: 1px 1px;
+            border-radius: 2%;
+            border-style: solid;
+            padding: 15px;
+        }
+        .chocomalti
+        {
+            background-color: rgb(35, 200, 200);
+            width: 90%;
+            margin-left: auto   ;
+            margin-right: auto;
+            margin-top: 20px;
+            height: 200px;
+            display: none;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            border-color: purple;
+            border: 1px 1px;
+            border-radius: 2%;
+            border-style: solid;
+            padding: 15px;
+        }
+        .dalmaflocos
+        {
+            background-color: rgb(35, 200, 200);
+            width: 90%;
+            margin-left: auto   ;
+            margin-right: auto;
+            margin-top: 20px;
+            height: 200px;
+            display: none;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            border-color: purple;
+            border: 1px 1px;
+            border-radius: 2%;
+            border-style: solid;
+            padding: 15px;
+        }
+        .burguerqueen
+        {
+            background-color: rgb(35, 200, 200);
+            width: 90%;
+            margin-left: auto   ;
+            margin-right: auto;
+            margin-top: 20px;
+            height: 200px;
+            display: none;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            border-color: purple;
+            border: 1px 1px;
+            border-radius: 2%;
+            border-style: solid;
+            padding: 15px;
+        }
+        .hotchillypapers
+        {
+            background-color: rgb(35, 200, 200);
+            width: 90%;
+            margin-left: auto   ;
+            margin-right: auto;
+            margin-top: 20px;
+            height: 200px;
+            display: none;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            border-color: purple;
+            border: 1px 1px;
+            border-radius: 2%;
+            border-style: solid;
+            padding: 15px;
+        }
+        .saborpinkfloyd
+        {
+            background-color: rgb(35, 200, 200);
+            width: 90%;
+            margin-left: auto   ;
+            margin-right: auto;
+            margin-top: 20px;
+            height: 200px;
+            display: none;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            border-color: purple;
+            border: 1px 1px;
+            border-radius: 2%;
+            border-style: solid;
+            padding: 15px;
+        }
+    </style>
+     <?php include("carrinho.php"); ?>
 </head>
-
 <body>
     <div class="fale_conoscodiv" id="fale_conoscodiv" style="top: -100%;">
         <div class="row100">
@@ -76,7 +168,7 @@ mysqli_close($conexao);
         </div>
         <div class="D1">
             <div class="aba_produtos" style="width: 65%;">
-            <div class="bloco chococream" style="display:none">
+            <div class="chococream">
                     <div class="bloco2">
                         <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="175px"></div>
                         <div class="Partição2">
@@ -100,6 +192,134 @@ mysqli_close($conexao);
                         <div class="partição3"><img src="retirar.png" width="20px"></div>
                     </div>
                 </div>
+
+                <div class="chocomalti">
+                    <div class="bloco2">
+                        <div class="Partição1"><img src="chocomalti.png" class="sorvete-produto-exemplo" width="175px"></div>
+                        <div class="Partição2">
+                            <font color="white" style="font-size: 22px;">chocomalti</font><br><br>
+                            <font color="white" style="font-size: 15px;">Tamanho:</font>
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Pequeno</option>
+                                <option style="font-size: 15px">Normal</option>
+                                <option style="font-size: 15px">Grande</option>
+                                <option style="font-size: 15px">Gigante</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Leite em pó</option>
+                                <option style="font-size: 15px">Canudo de chocolate</option>
+                                <option style="font-size: 15px">Nozes</option>
+                                <option style="font-size: 15px">Creme</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                        </div>
+                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                    </div>
+                </div>
+            
+                <div class="dalmaflocos">
+                    <div class="bloco2">
+                        <div class="Partição1"><img src="dalmaflocos.png" class="sorvete-produto-exemplo" width="175px"></div>
+                        <div class="Partição2">
+                            <font color="white" style="font-size: 22px;">dalmaflocos</font><br><br>
+                            <font color="white" style="font-size: 15px;">Tamanho:</font>
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Pequeno</option>
+                                <option style="font-size: 15px">Normal</option>
+                                <option style="font-size: 15px">Grande</option>
+                                <option style="font-size: 15px">Gigante</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Leite em pó</option>
+                                <option style="font-size: 15px">Canudo de chocolate</option>
+                                <option style="font-size: 15px">Nozes</option>
+                                <option style="font-size: 15px">Creme</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                        </div>
+                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                    </div>
+                </div>
+
+                <div class="burguerqueen">
+                    <div class="bloco2">
+                        <div class="Partição1"><img src="burguerqueen.png" class="sorvete-produto-exemplo" width="175px"></div>
+                        <div class="Partição2">
+                            <font color="white" style="font-size: 22px;">burguerqueen</font><br><br>
+                            <font color="white" style="font-size: 15px;">Tamanho:</font>
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Pequeno</option>
+                                <option style="font-size: 15px">Normal</option>
+                                <option style="font-size: 15px">Grande</option>
+                                <option style="font-size: 15px">Gigante</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Leite em pó</option>
+                                <option style="font-size: 15px">Canudo de chocolate</option>
+                                <option style="font-size: 15px">Nozes</option>
+                                <option style="font-size: 15px">Creme</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                        </div>
+                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                    </div>
+                </div>
+
+                <div class="hotchillypapers">
+                    <div class="bloco2">
+                        <div class="Partição1"><img src="Casquinha.png" class="sorvete-produto-exemplo" width="175px"></div>
+                        <div class="Partição2">
+                            <font color="white" style="font-size: 22px;">casquinha hot chilly papers</font><br><br>
+                            <font color="white" style="font-size: 15px;">Tamanho:</font>
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Pequeno</option>
+                                <option style="font-size: 15px">Normal</option>
+                                <option style="font-size: 15px">Grande</option>
+                                <option style="font-size: 15px">Gigante</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Leite em pó</option>
+                                <option style="font-size: 15px">Canudo de chocolate</option>
+                                <option style="font-size: 15px">Nozes</option>
+                                <option style="font-size: 15px">Creme</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                        </div>
+                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                    </div>
+                </div>
+
+                <div class="saborpinkfloyd">
+                    <div class="bloco2">
+                        <div class="Partição1"><img src="sorvete-produto-exemplo.png" class="sorvete-produto-exemplo" width="175px"></div>
+                        <div class="Partição2">
+                            <font color="white" style="font-size: 22px;">sabor pink floyd</font><br><br>
+                            <font color="white" style="font-size: 15px;">Tamanho:</font>
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Pequeno</option>
+                                <option style="font-size: 15px">Normal</option>
+                                <option style="font-size: 15px">Grande</option>
+                                <option style="font-size: 15px">Gigante</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;">Leite em pó</option>
+                                <option style="font-size: 15px">Canudo de chocolate</option>
+                                <option style="font-size: 15px">Nozes</option>
+                                <option style="font-size: 15px">Creme</option>
+                            </select><br><br>
+                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                        </div>
+                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                    </div>
+                </div>
+
+                
+
             </div>
             <div class="aba_compra">
                 <a href="confirmação_endereço.html">

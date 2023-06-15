@@ -1,27 +1,29 @@
 <?php
+
+
 include("conecta.php");
 
-$mensagem = ""; // Mensagem inicial vazia
-
 if (isset($_POST['adicionarChococream'])) {
-  $nomeProduto = 'bloco chococream'; // Nome do produto a ser inserido
+  $nomeProduto = 'chococream'; // Nome do produto a ser inserido
 
   // Verificar se já existe um registro com o mesmo nome na tabela 'produtos'
-  $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = :nome";
-  $stmtVerifica = $pdo->prepare($sqlVerifica);
-  $stmtVerifica->bindParam(':nome', $nomeProduto);
-  $stmtVerifica->execute();
+  $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = ?";
+  $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
+  mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
+  mysqli_stmt_execute($stmtVerifica);
 
-  if ($stmtVerifica->rowCount() > 0) {
+  mysqli_stmt_store_result($stmtVerifica);
+
+  if (mysqli_stmt_num_rows($stmtVerifica) > 0) {
     // Se já existir registro, exibir mensagem
-    $mensagem = "Você já adicionou esse produto no carrinho.";
+    $mensagem = "";
   } else {
     // Se não existir registro, realizar a inserção na tabela 'produtos'
-    $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto) VALUES ('s', :nome)";
-    $stmtInserir = $pdo->prepare($sqlInserir);
-    $stmtInserir->bindParam(':nome', $nomeProduto);
+    $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto) VALUES ('s', ?)";
+    $stmtInserir = mysqli_prepare($conexao, $sqlInserir);
+    mysqli_stmt_bind_param($stmtInserir, "s", $nomeProduto);
 
-    if ($stmtInserir->execute()) {
+    if (mysqli_stmt_execute($stmtInserir)) {
       // Inserção realizada com sucesso
       // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
     } else {
@@ -29,9 +31,42 @@ if (isset($_POST['adicionarChococream'])) {
       $mensagem = "Erro ao adicionar o produto no carrinho.";
     }
   }
+
 }
 
+if (isset($_POST['adicionarChocomalti'])) {
+    $nomeProduto = 'chocomalti'; // Nome do produto a ser inserido
+  
+    // Verificar se já existe um registro com o mesmo nome na tabela 'produtos'
+    $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = ?";
+    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
+    mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
+    mysqli_stmt_execute($stmtVerifica);
+  
+    mysqli_stmt_store_result($stmtVerifica);
+  
+    if (mysqli_stmt_num_rows($stmtVerifica) > 0) {
+      // Se já existir registro, exibir mensagem
+      $mensagem = "";
+    } else {
+      // Se não existir registro, realizar a inserção na tabela 'produtos'
+      $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto) VALUES ('s', ?)";
+      $stmtInserir = mysqli_prepare($conexao, $sqlInserir);
+      mysqli_stmt_bind_param($stmtInserir, "s", $nomeProduto);
+  
+      if (mysqli_stmt_execute($stmtInserir)) {
+        // Inserção realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+      } else {
+        // Erro ao inserir
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
+      }
+    }
+  
+  }
+  
 ?>
+
 
 
 <!DOCTYPE html>
@@ -127,14 +162,14 @@ if (isset($_POST['adicionarChococream'])) {
                             <font color="white" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">                           
-                            <form method="POST" action="">
-                                <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit" id="adicionarChococream" name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
+                            <form method="POST" action="" >
+                                <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
                             </form>
                         </div>
                     </div>
                 </div>
 
-                <div class="bloco">
+                <div class="bloco chocomalti">
                     <div class="bloco2">
                         <div class="Partição1"><img src="chocomalti.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
@@ -157,9 +192,9 @@ if (isset($_POST['adicionarChococream'])) {
                             <font color="white" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">
-                            <a href="" width="40px">
-                                <img src="Adicionar.png" width="50px" class="adicionar">
-                            </a>
+                        <form method="POST" action="" >
+                                <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChocomalti" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -218,55 +253,8 @@ function animar() {
         $(".fale_conoscodiv").animate({top:'-50%'}, 500);
     }
 }
+
+
     </script>
 </html>
-<?php
-date_default_timezone_set('America/Sao_Paulo');
 
-// Verificar se o botão foi clicado
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionarChococream'])) {
-    // Conteúdo HTML a ser adicionado
-    $conteudo = '<div class="bloco chococream">
-        <div class="bloco2">
-            <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="300px"></div>
-            <div class="Partição2">
-                <font color="white" style="font-size: 35px;">chococream</font><br><br><br>
-                <font color="white" style="font-size: 22px;">Tamanho:</font>
-                <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
-                    <option style="font-size: 22px;">Pequeno</option>
-                    <option style="font-size: 22px">Normal</option>
-                    <option style="font-size: 22px">Grande</option>
-                    <option style="font-size: 22px">Gigante</option>
-                </select><br><br>
-                <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
-                    <option style="font-size: 22px;">Leite em pó</option>
-                    <option style="font-size: 22px">Canudo de chocolate</option>
-                    <option style="font-size: 22px">Nozes</option>
-                    <option style="font-size: 22px">Creme</option>
-                </select><br><br><br>
-                <font color="white" style="font-size: 35px;">R$17,00</font>
-            </div>
-            <div class="Partição3"></div>
-        </div>
-    </div>';
-
-    // Aqui você pode adicionar o código para conectar ao banco de dados e executar a inserção
-    // Substitua 'seu_host', 'seu_banco_de_dados', 'seu_usuario' e 'sua_senha' pelas informações corretas de conexão
-
-    try {
-        $pdo = new PDO("mysql:dbname=sorvelivery;host=localhost;charset=utf8", "root", "");
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        // Preparar a consulta SQL para inserir o conteúdo na tabela
-        $consulta = "INSERT INTO conteudos (texto) VALUES (?)";
-        $stmt = $pdo->prepare($consulta);
-        $stmt->execute([$conteudo]);
-
-        // Fechar a conexão com o banco de dados
-        $pdo = null;
-    } catch (PDOException $erro) {
-        echo "ERRO NA CONEXÃO: <br>" . $erro->getMessage();
-    }
-}
-?>

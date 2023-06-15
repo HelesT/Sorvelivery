@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/06/2023 às 00:30
+-- Tempo de geração: 16/06/2023 às 00:36
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -40,8 +40,20 @@ CREATE TABLE `cadastro` (
 --
 
 INSERT INTO `cadastro` (`nome_cadastro`, `telefone_cadastro`, `email_cadastro`, `senha_cadastro`, `admim_cadastro`) VALUES
+('Aberyo', 'Aberyo', 'Aberyo', 'Aberyo', 's'),
 ('Nylton', '47989130277', 'nyltondudu29@gmail.com', '123', 's'),
 ('Nylton2', '47989130277', 'nyltondudu29@gmail.com', '123', 'n');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `produtos`
+--
+
+CREATE TABLE `produtos` (
+  `nome_produto` varchar(255) NOT NULL,
+  `carrinho_produto` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas
@@ -52,6 +64,12 @@ INSERT INTO `cadastro` (`nome_cadastro`, `telefone_cadastro`, `email_cadastro`, 
 --
 ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`nome_cadastro`);
+
+--
+-- Índices de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`nome_produto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

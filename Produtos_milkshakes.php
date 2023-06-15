@@ -1,3 +1,71 @@
+<?php
+
+
+include("conecta.php");
+
+if (isset($_POST['adicionarDalmaflocos'])) {
+  $nomeProduto = 'dalmaflocos'; // Nome do produto a ser inserido
+
+  // Verificar se já existe um registro com o mesmo nome na tabela 'produtos'
+  $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = ?";
+  $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
+  mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
+  mysqli_stmt_execute($stmtVerifica);
+
+  mysqli_stmt_store_result($stmtVerifica);
+
+  if (mysqli_stmt_num_rows($stmtVerifica) > 0) {
+    // Se já existir registro, exibir mensagem
+    $mensagem = "";
+  } else {
+    // Se não existir registro, realizar a inserção na tabela 'produtos'
+    $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto) VALUES ('s', ?)";
+    $stmtInserir = mysqli_prepare($conexao, $sqlInserir);
+    mysqli_stmt_bind_param($stmtInserir, "s", $nomeProduto);
+
+    if (mysqli_stmt_execute($stmtInserir)) {
+      // Inserção realizada com sucesso
+      // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    } else {
+      // Erro ao inserir
+      $mensagem = "Erro ao adicionar o produto no carrinho.";
+    }
+  }
+
+}
+
+if (isset($_POST['adicionarBurguerqueen'])) {
+    $nomeProduto = 'burguerqueen'; // Nome do produto a ser inserido
+  
+    // Verificar se já existe um registro com o mesmo nome na tabela 'produtos'
+    $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = ?";
+    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
+    mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
+    mysqli_stmt_execute($stmtVerifica);
+  
+    mysqli_stmt_store_result($stmtVerifica);
+  
+    if (mysqli_stmt_num_rows($stmtVerifica) > 0) {
+      // Se já existir registro, exibir mensagem
+      $mensagem = "";
+    } else {
+      // Se não existir registro, realizar a inserção na tabela 'produtos'
+      $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto) VALUES ('s', ?)";
+      $stmtInserir = mysqli_prepare($conexao, $sqlInserir);
+      mysqli_stmt_bind_param($stmtInserir, "s", $nomeProduto);
+  
+      if (mysqli_stmt_execute($stmtInserir)) {
+        // Inserção realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+      } else {
+        // Erro ao inserir
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
+      }
+    }
+  
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -68,7 +136,7 @@
                     <input type="text" class="pesquisar2" id="pesquisar" placeholder="Filtro"> &nbsp;&nbsp;
                     <img src="Lupa.png" class="lupa" width="30px">
                 </div>
-                <div class="bloco">
+                <div class="bloco dalmaflocos">
                     <div class="bloco2">
                         <div class="Partição1"><img src="dalmaflocos.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
@@ -90,9 +158,9 @@
                             <font color="white" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">
-                            <a href="" width="40px">
-                                <img src="Adicionar.png" width="50px" class="adicionar">
-                            </a>
+                        <form method="POST" action="" >
+                                <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarDalmaflocos" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -120,9 +188,9 @@
                             <font color="white" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">
-                            <a href="" width="40px">
-                                <img src="Adicionar.png" width="50px" class="adicionar">
-                            </a>
+                        <form method="POST" action="" >
+                                <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarBurguerqueen" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
+                            </form>
                         </div>
                     </div>
                 </div>
