@@ -187,7 +187,7 @@
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                            <font color="white" style="font-size: 30px;">R$12,00</font>
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
                             <button type="submit"name="botaoChococream" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -215,9 +215,12 @@
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                            <font color="white" style="font-size: 30px;">R$14,00</font>
                         </div>
-                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                        <form method="Post" action="carrinho.php" class="partição3">  
+                            <button type="submit"name="botaoChocomalti" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <img src="retirar.png" width="20px"></button>
+                        </form>
                     </div>
                 </div>
             
@@ -240,9 +243,12 @@
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                            <font color="white" style="font-size: 30px;">R$10,00</font>
                         </div>
-                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                        <form method="Post" action="carrinho.php" class="partição3">  
+                            <button type="submit"name="botaoDalmaflocos" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <img src="retirar.png" width="20px"></button>
+                        </form>
                     </div>
                 </div>
 
@@ -267,7 +273,10 @@
                             </select><br><br>
                             <font color="white" style="font-size: 30px;">R$17,00</font>
                         </div>
-                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                        <form method="Post" action="carrinho.php" class="partição3">  
+                            <button type="submit"name="botaoBurguerqueen" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <img src="retirar.png" width="20px"></button>
+                        </form>
                     </div>
                 </div>
 
@@ -290,9 +299,12 @@
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                            <font color="white" style="font-size: 30px;">R$8,00</font>
                         </div>
-                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                        <form method="Post" action="carrinho.php" class="partição3">  
+                            <button type="submit"name="botaoHotchillypapers" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <img src="retirar.png" width="20px"></button>
+                        </form>
                     </div>
                 </div>
 
@@ -315,9 +327,12 @@
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                            <font color="white" style="font-size: 30px;">R$13,00</font>
                         </div>
-                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                        <form method="Post" action="carrinho.php" class="partição3">  
+                            <button type="submit"name="botaoSaborpinkfloyd" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <img src="retirar.png" width="20px"></button>
+                        </form>
                     </div>
                 </div>
 
@@ -331,7 +346,7 @@
                     </div>
                 </a>
                 <div class="total_compra">
-                    <font style="color: black;font-family: 'Source Sans Pro', sans-serif;font-size: 40px;color: white;">R$17,00</font>
+                <font style="color: black; font-family: 'Source Sans Pro', sans-serif; font-size: 40px; color: white;">R$<?php echo number_format($soma, 2, ',', '.'); ?></font>
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@ if (isset($_POST['adicionarChococream'])) {
     $mensagem = "";
   } else {
     // Se não existir registro, realizar a inserção na tabela 'produtos'
-    $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto) VALUES ('s', ?)";
+    $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto, preco_produto) VALUES ('s', ? , 12)";
     $stmtInserir = mysqli_prepare($conexao, $sqlInserir);
     mysqli_stmt_bind_param($stmtInserir, "s", $nomeProduto);
 
@@ -49,7 +49,7 @@ if (isset($_POST['adicionarChocomalti'])) {
       $mensagem = "";
     } else {
       // Se não existir registro, realizar a inserção na tabela 'produtos'
-      $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto) VALUES ('s', ?)";
+      $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto, preco_produto) VALUES ('s', ? , 14)";
       $stmtInserir = mysqli_prepare($conexao, $sqlInserir);
       mysqli_stmt_bind_param($stmtInserir, "s", $nomeProduto);
   
@@ -158,7 +158,7 @@ if (isset($_POST['adicionarChocomalti'])) {
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="white" style="font-size: 35px;">R$12,00</font>
                         </div>
                         <div class="Partição3">                           
                             <form method="POST" action="" >
@@ -188,7 +188,7 @@ if (isset($_POST['adicionarChocomalti'])) {
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="white" style="font-size: 35px;">R$14,00</font>
                         </div>
                         <div class="Partição3">
                         <form method="POST" action="" >
