@@ -7,7 +7,7 @@ body
 .tela
 {
     animation: bounceOut 1s;
-    animation-delay: 3s;
+    animation-delay: 4s;
     height: 100vh;
     width: 100vw;
     display: flex;
