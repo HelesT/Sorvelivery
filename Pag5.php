@@ -189,7 +189,10 @@
                             </select><br><br>
                             <font color="white" style="font-size: 30px;">R$17,00</font>
                         </div>
-                        <div class="partição3"><img src="retirar.png" width="20px"></div>
+                        <form method="Post" action="carrinho.php" class="partição3">  
+                            <button type="submit"name="botaoChococream" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <img src="retirar.png" width="20px"></button>
+                        </form>
                     </div>
                 </div>
 

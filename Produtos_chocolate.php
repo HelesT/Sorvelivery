@@ -31,7 +31,6 @@ if (isset($_POST['adicionarChococream'])) {
       $mensagem = "Erro ao adicionar o produto no carrinho.";
     }
   }
-
 }
 
 if (isset($_POST['adicionarChocomalti'])) {
