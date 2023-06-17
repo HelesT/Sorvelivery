@@ -11,6 +11,11 @@ body{
     zoom: 0.9;
 }
 .principal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -350px;
+    margin-left: -350px;
     width: 700px;
     height: 700px;
     background-color: rgb(255, 255, 255);

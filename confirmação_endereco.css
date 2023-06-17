@@ -85,3 +85,56 @@ height: 40px;
 border-radius: 10px;
 font-size: 15px;
 }
+.principal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -350px;
+    margin-left: -350px;
+    width: 700px;
+    height: 700px;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    z-index: 1000;
+}
+.linha{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 999;
+    display: none;
+  }
+  .radio-button {
+    -moz-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px; /* Ajuste o valor conforme necessário */
+    margin-bottom: 2px; /* Ajuste o valor conforme necessário */
+  }
+  
+  .radio-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background-color: #000;
+    display: none;
+  }
+  
+  .radio-button:checked::before {
+    display: block;
+  }
+  
