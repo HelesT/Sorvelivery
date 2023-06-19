@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/06/2023 às 00:36
+-- Tempo de geração: 19/06/2023 às 12:33
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -52,7 +52,8 @@ INSERT INTO `cadastro` (`nome_cadastro`, `telefone_cadastro`, `email_cadastro`, 
 
 CREATE TABLE `produtos` (
   `nome_produto` varchar(255) NOT NULL,
-  `carrinho_produto` varchar(1) NOT NULL
+  `carrinho_produto` varchar(1) NOT NULL,
+  `preco_produto` decimal(4,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
