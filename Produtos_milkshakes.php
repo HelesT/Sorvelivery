@@ -4,66 +4,41 @@
 include("conecta.php");
 
 if (isset($_POST['adicionarDalmaflocos'])) {
-  $nomeProduto = 'dalmaflocos'; // Nome do produto a ser inserido
+    $nomeProduto = 'dalmaflocos'; // Nome do produto a ser atualizado
 
-  // Verificar se já existe um registro com o mesmo nome na tabela 'produtos'
-  $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = ?";
-  $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
-  mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
-  mysqli_stmt_execute($stmtVerifica);
+    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's' WHERE nome_produto = ?";
+    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
+    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
 
-  mysqli_stmt_store_result($stmtVerifica);
-
-  if (mysqli_stmt_num_rows($stmtVerifica) > 0) {
-    // Se já existir registro, exibir mensagem
-    $mensagem = "";
-  } else {
-    // Se não existir registro, realizar a inserção na tabela 'produtos'
-    $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto, preco_produto) VALUES ('s', ? , 11)";
-    $stmtInserir = mysqli_prepare($conexao, $sqlInserir);
-    mysqli_stmt_bind_param($stmtInserir, "s", $nomeProduto);
-
-    if (mysqli_stmt_execute($stmtInserir)) {
-      // Inserção realizada com sucesso
-      // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    if (mysqli_stmt_execute($stmtAtualizar)) {
+        // Atualização realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
     } else {
-      // Erro ao inserir
-      $mensagem = "Erro ao adicionar o produto no carrinho.";
+        // Erro ao atualizar
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
     }
-  }
-
 }
 
+
+
 if (isset($_POST['adicionarBurguerqueen'])) {
-    $nomeProduto = 'burguerqueen'; // Nome do produto a ser inserido
-  
-    // Verificar se já existe um registro com o mesmo nome na tabela 'produtos'
-    $sqlVerifica = "SELECT * FROM produtos WHERE nome_produto = ?";
-    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
-    mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
-    mysqli_stmt_execute($stmtVerifica);
-  
-    mysqli_stmt_store_result($stmtVerifica);
-  
-    if (mysqli_stmt_num_rows($stmtVerifica) > 0) {
-      // Se já existir registro, exibir mensagem
-      $mensagem = "";
-    } else {
-      // Se não existir registro, realizar a inserção na tabela 'produtos'
-      $sqlInserir = "INSERT INTO produtos (carrinho_produto, nome_produto, preco_produto) VALUES ('s', ? , 17)";
-      $stmtInserir = mysqli_prepare($conexao, $sqlInserir);
-      mysqli_stmt_bind_param($stmtInserir, "s", $nomeProduto);
-  
-      if (mysqli_stmt_execute($stmtInserir)) {
-        // Inserção realizada com sucesso
+    $nomeProduto = 'burguerqueen'; // Nome do produto a ser atualizado
+
+    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's' WHERE nome_produto = ?";
+    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
+    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
+
+    if (mysqli_stmt_execute($stmtAtualizar)) {
+        // Atualização realizada com sucesso
         // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
-      } else {
-        // Erro ao inserir
+    } else {
+        // Erro ao atualizar
         $mensagem = "Erro ao adicionar o produto no carrinho.";
-      }
     }
-  
-  }
+}
+
 ?>
 
 <!DOCTYPE html>

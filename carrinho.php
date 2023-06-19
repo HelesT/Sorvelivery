@@ -1,29 +1,34 @@
 <?php
 include("conecta.php");
 
-$query = "SELECT nome_produto FROM produtos";
+$query = "SELECT nome_produto, carrinho_produto FROM produtos";
 $result = mysqli_query($conexao, $query);
 
 if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
         $nome_produto = $row['nome_produto'];
-        echo '<style>.', $nome_produto, ' { display: flex; }</style>';
+        $carrinho_produto = $row['carrinho_produto'];
+
+        if ($carrinho_produto == 's') {
+            echo '<style>.', $nome_produto, ' { display: flex; }</style>';
+        }
     }
 }
 
-$sql = "SELECT SUM(preco_produto) AS soma FROM produtos";
+$sql = "SELECT SUM(preco_produto) AS soma FROM produtos WHERE carrinho_produto = 's'";
 $result = $conexao->query($sql);
 $row = $result->fetch_assoc();
 $soma = $row['soma'];
 
+
 if (isset($_POST['botaoChococream'])) {
     $nomeProduto = 'chococream';
 
-    $sqlVerifica = "DELETE FROM produtos WHERE nome_produto = ?";
-    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
-    if ($stmtVerifica) {
-        mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
-        mysqli_stmt_execute($stmtVerifica);
+    $sqlAtualizacao = "UPDATE produtos SET carrinho_produto = 'n' WHERE nome_produto = ?";
+    $stmtAtualizacao = mysqli_prepare($conexao, $sqlAtualizacao);
+    if ($stmtAtualizacao) {
+        mysqli_stmt_bind_param($stmtAtualizacao, "s", $nomeProduto);
+        mysqli_stmt_execute($stmtAtualizacao);
 
         // Adicionar o estilo CSS para ocultar o elemento com a classe "chococream"
         echo '<style>.chococream { display: none; }</style>';
@@ -37,11 +42,11 @@ if (isset($_POST['botaoChococream'])) {
 if (isset($_POST['botaoChocomalti'])) {
     $nomeProduto = 'chocomalti';
 
-    $sqlVerifica = "DELETE FROM produtos WHERE nome_produto = ?";
-    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
-    if ($stmtVerifica) {
-        mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
-        mysqli_stmt_execute($stmtVerifica);
+    $sqlAtualizacao = "UPDATE produtos SET carrinho_produto = 'n' WHERE nome_produto = ?";
+    $stmtAtualizacao = mysqli_prepare($conexao, $sqlAtualizacao);
+    if ($stmtAtualizacao) {
+        mysqli_stmt_bind_param($stmtAtualizacao, "s", $nomeProduto);
+        mysqli_stmt_execute($stmtAtualizacao);
 
         // Adicionar o estilo CSS para ocultar o elemento com a classe "chococream"
         echo '<style>.chococream { display: none; }</style>';
@@ -55,11 +60,11 @@ if (isset($_POST['botaoChocomalti'])) {
 if (isset($_POST['botaoDalmaflocos'])) {
     $nomeProduto = 'dalmaflocos';
 
-    $sqlVerifica = "DELETE FROM produtos WHERE nome_produto = ?";
-    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
-    if ($stmtVerifica) {
-        mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
-        mysqli_stmt_execute($stmtVerifica);
+    $sqlAtualizacao = "UPDATE produtos SET carrinho_produto = 'n' WHERE nome_produto = ?";
+    $stmtAtualizacao = mysqli_prepare($conexao, $sqlAtualizacao);
+    if ($stmtAtualizacao) {
+        mysqli_stmt_bind_param($stmtAtualizacao, "s", $nomeProduto);
+        mysqli_stmt_execute($stmtAtualizacao);
 
         // Adicionar o estilo CSS para ocultar o elemento com a classe "chococream"
         echo '<style>.chococream { display: none; }</style>';
@@ -73,11 +78,11 @@ if (isset($_POST['botaoDalmaflocos'])) {
 if (isset($_POST['botaoBurguerqueen'])) {
     $nomeProduto = 'burguerqueen';
 
-    $sqlVerifica = "DELETE FROM produtos WHERE nome_produto = ?";
-    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
-    if ($stmtVerifica) {
-        mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
-        mysqli_stmt_execute($stmtVerifica);
+    $sqlAtualizacao = "UPDATE produtos SET carrinho_produto = 'n' WHERE nome_produto = ?";
+    $stmtAtualizacao = mysqli_prepare($conexao, $sqlAtualizacao);
+    if ($stmtAtualizacao) {
+        mysqli_stmt_bind_param($stmtAtualizacao, "s", $nomeProduto);
+        mysqli_stmt_execute($stmtAtualizacao);
 
         // Adicionar o estilo CSS para ocultar o elemento com a classe "chococream"
         echo '<style>.chococream { display: none; }</style>';
@@ -91,11 +96,11 @@ if (isset($_POST['botaoBurguerqueen'])) {
 if (isset($_POST['botaoHotchillypapers'])) {
     $nomeProduto = 'hotchillypapers';
 
-    $sqlVerifica = "DELETE FROM produtos WHERE nome_produto = ?";
-    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
-    if ($stmtVerifica) {
-        mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
-        mysqli_stmt_execute($stmtVerifica);
+    $sqlAtualizacao = "UPDATE produtos SET carrinho_produto = 'n' WHERE nome_produto = ?";
+    $stmtAtualizacao = mysqli_prepare($conexao, $sqlAtualizacao);
+    if ($stmtAtualizacao) {
+        mysqli_stmt_bind_param($stmtAtualizacao, "s", $nomeProduto);
+        mysqli_stmt_execute($stmtAtualizacao);
 
         // Adicionar o estilo CSS para ocultar o elemento com a classe "chococream"
         echo '<style>.chococream { display: none; }</style>';
@@ -109,11 +114,11 @@ if (isset($_POST['botaoHotchillypapers'])) {
 if (isset($_POST['botaoSaborpinkfloyd'])) {
     $nomeProduto = 'saborpinkfloyd';
 
-    $sqlVerifica = "DELETE FROM produtos WHERE nome_produto = ?";
-    $stmtVerifica = mysqli_prepare($conexao, $sqlVerifica);
-    if ($stmtVerifica) {
-        mysqli_stmt_bind_param($stmtVerifica, "s", $nomeProduto);
-        mysqli_stmt_execute($stmtVerifica);
+    $sqlAtualizacao = "UPDATE produtos SET carrinho_produto = 'n' WHERE nome_produto = ?";
+    $stmtAtualizacao = mysqli_prepare($conexao, $sqlAtualizacao);
+    if ($stmtAtualizacao) {
+        mysqli_stmt_bind_param($stmtAtualizacao, "s", $nomeProduto);
+        mysqli_stmt_execute($stmtAtualizacao);
 
         // Adicionar o estilo CSS para ocultar o elemento com a classe "chococream"
         echo '<style>.chococream { display: none; }</style>';

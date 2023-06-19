@@ -1,11 +1,9 @@
 <?php
+$host = "localhost";
+$usuario = "root";
+$senha = "";
+$banco = "sorvelivery";
 
-$host = "localhost"; // Endereço do servidor MySQL (por exemplo, "localhost")
-$usuario = "root"; // Nome de usuário do MySQL
-$senha = ""; // Senha do MySQL
-$banco = "sorvelivery"; // Nome do banco de dados
-
-// Estabelece a conexão com o banco de dados usando o PDO
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$banco", $usuario, $senha);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -13,12 +11,10 @@ try {
     die("Falha na conexão com o banco de dados: " . $e->getMessage());
 }
 
-
-// $_POST pega as informações do input
 $nome = $_POST["nome_cadastro"];
 $senha = $_POST["senha_cadastro"];
 
-$comando = $pdo->prepare("SELECT * FROM cadastro WHERE nome_cadastro = :nome and senha_cadastro = :senha");
+$comando = $pdo->prepare("SELECT * FROM cadastro WHERE nome_cadastro = :nome AND senha_cadastro = :senha");
 $comando->bindParam(":nome", $nome);
 $comando->bindParam(":senha", $senha);
 $resultado = $comando->execute();
@@ -28,14 +24,24 @@ $admin = "n";
 
 while ($linhas = $comando->fetch()) {
     $n = 1;
-    $admin = $linhas["admim_cadastro"];
+    $admin = $linhas["admin_cadastro"];
 }
 
 if ($n == 0) {
     header("location: login.html");
 } elseif ($admin == "s") {
+    // Atualiza a tabela "usuario_atual" com o valor de "nome_cadastro"
+    $comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET nome = :nome WHERE Codigo_usuario = 1");
+    $comandoAtualizacao->bindParam(":nome", $nome);
+    $comandoAtualizacao->execute();
+    
     header("location: pag3admin.html");
 } else {
+    // Atualiza a tabela "usuario_atual" com o valor de "nome_cadastro"
+    $comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET nome = :nome WHERE Codigo_usuario = 1");
+    $comandoAtualizacao->bindParam(":nome", $nome);
+    $comandoAtualizacao->execute();
+    
     header("location: pag3.html");
 }
 ?>

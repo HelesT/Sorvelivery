@@ -83,7 +83,7 @@
         
         <div class="infocompra">
             <div style="margin: 50px; background-color: rgb(255, 255, 255);">
-                    Nome Completo<br>
+                    Nome<br>
                     <div class="linhacompra"><input type="text" name="Nome"></div><br>
                     CEP<br>
                     <div class="linhacompra"><input type="text" name="CEP"></div><br>
@@ -133,17 +133,17 @@
             </div>
             <div style="font-size: 20px;">Metodo de Pagamento: </div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="cartao.png" width="35px"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="cartaoPagamento" type="radio" onclick="habilitarcartaoPagamento()" style="width: 17px;height: 17px;"><img src="cartao.png" width="35px"></div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="pix.jpeg" width="50px"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="pixPagamento" type="radio" onclick="habilitarpixPagamento()" style="width: 17px;height: 17px;"><img src="pix.jpeg" width="50px"></div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="boleto.png" width="35px"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="boletoPagamento" type="radio" onclick="habilitarboletoPagamento()" style="width: 17px;height: 17px;"><img src="boleto.png" width="35px"></div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="cartao.png" width="35px"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="cartaoPagamento1" type="radio" onclick="habilitarcartaoPagamento1()" style="width: 17px;height: 17px;"><img src="cartao.png" width="35px"></div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="Visaicon.png" width="35px"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="visaPagamento" type="radio" onclick="habilitarvisaPagamento()" style="width: 17px;height: 17px;"><img src="Visaicon.png" width="35px"></div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input type="radio" style="width: 17px;height: 17px;"><img src="payálicon.png" width="35px"></div>
+            <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="paypalPagamento" type="radio" onclick="habilitarpaypalPagamento()" style="width: 17px;height: 17px;"><img src="payálicon.png" width="35px"></div>
 
         </div>
     </div>
@@ -162,7 +162,7 @@
 
         }
 
-        function habilitarInputtrabalho() {
+function habilitarInputtrabalho() {
   var inputTrabalho = document.getElementById("inputTrabalho");
   var inputCasa = document.getElementById("inputCasa");
 
@@ -176,6 +176,102 @@ function habilitarInputcasa() {
 
   inputCasa.checked = true;
   inputTrabalho.checked = false;
+}
+
+function habilitarcartaoPagamento() {
+  var cartaoPagamento = document.getElementById("cartaoPagamento");
+  var pixPagamento = document.getElementById("pixPagamento");
+  var boletoPagamento = document.getElementById("boletoPagamento");
+  var cartaoPagamento1 = document.getElementById("cartaoPagamento1");
+  var visaPagamento = document.getElementById("visaPagamento");
+  var paypalPagamento = document.getElementById("paypalPagamento");
+
+  cartaoPagamento.checked = true;
+  pixPagamento.checked = false;
+  boletoPagamento.checked = false;
+  cartaoPagamento1.checked = false;
+  visaPagamento.checked = false;
+  paypalPagamento.checked = false;
+}
+
+function habilitarpixPagamento() {
+  var cartaoPagamento = document.getElementById("cartaoPagamento");
+  var pixPagamento = document.getElementById("pixPagamento");
+  var boletoPagamento = document.getElementById("boletoPagamento");
+  var cartaoPagamento1 = document.getElementById("cartaoPagamento1");
+  var visaPagamento = document.getElementById("visaPagamento");
+  var paypalPagamento = document.getElementById("paypalPagamento");
+
+  cartaoPagamento.checked = false;
+  pixPagamento.checked = true;
+  boletoPagamento.checked = false;
+  cartaoPagamento1.checked = false;
+  visaPagamento.checked = false;
+  paypalPagamento.checked = false;
+}
+
+function habilitarboletoPagamento() {
+  var cartaoPagamento = document.getElementById("cartaoPagamento");
+  var pixPagamento = document.getElementById("pixPagamento");
+  var boletoPagamento = document.getElementById("boletoPagamento");
+  var cartaoPagamento1 = document.getElementById("cartaoPagamento1");
+  var visaPagamento = document.getElementById("visaPagamento");
+  var paypalPagamento = document.getElementById("paypalPagamento");
+
+  cartaoPagamento.checked = false;
+  pixPagamento.checked = false;
+  boletoPagamento.checked = true;
+  cartaoPagamento1.checked = false;
+  visaPagamento.checked = false;
+  paypalPagamento.checked = false;
+}
+
+function habilitarcartaoPagamento1() {
+  var cartaoPagamento = document.getElementById("cartaoPagamento");
+  var pixPagamento = document.getElementById("pixPagamento");
+  var boletoPagamento = document.getElementById("boletoPagamento");
+  var cartaoPagamento1 = document.getElementById("cartaoPagamento1");
+  var visaPagamento = document.getElementById("visaPagamento");
+  var paypalPagamento = document.getElementById("paypalPagamento");
+
+  cartaoPagamento.checked = false;
+  pixPagamento.checked = false;
+  boletoPagamento.checked = false;
+  cartaoPagamento1.checked = true;
+  visaPagamento.checked = false;
+  paypalPagamento.checked = false;
+}
+
+function habilitarvisaPagamento() {
+  var cartaoPagamento = document.getElementById("cartaoPagamento");
+  var pixPagamento = document.getElementById("pixPagamento");
+  var boletoPagamento = document.getElementById("boletoPagamento");
+  var cartaoPagamento1 = document.getElementById("cartaoPagamento1");
+  var visaPagamento = document.getElementById("visaPagamento");
+  var paypalPagamento = document.getElementById("paypalPagamento");
+
+  cartaoPagamento.checked = false;
+  pixPagamento.checked = false;
+  boletoPagamento.checked = false;
+  cartaoPagamento1.checked = false;
+  visaPagamento.checked = true;
+  paypalPagamento.checked = false;
+}
+
+function habilitarpaypalPagamento() {
+  var cartaoPagamento = document.getElementById("cartaoPagamento");
+  var pixPagamento = document.getElementById("pixPagamento");
+  var boletoPagamento = document.getElementById("boletoPagamento");
+  var cartaoPagamento1 = document.getElementById("cartaoPagamento1");
+  var visaPagamento = document.getElementById("visaPagamento");
+  var paypalPagamento = document.getElementById("paypalPagamento");
+
+  cartaoPagamento.checked = false;
+  pixPagamento.checked = false;
+  boletoPagamento.checked = false;
+  cartaoPagamento1.checked = false;
+  visaPagamento.checked = false;
+  paypalPagamento.checked = true;
 }
 
 
