@@ -36,7 +36,7 @@ if ($resultadoConsulta > 0) {
 }
 
 // Insere os dados na base de dados
-$comando = $pdo->prepare("INSERT INTO cadastro VALUES (?, ?, ?, ?,'')");
+$comando = $pdo->prepare("INSERT INTO cadastro VALUES (?, ?,'','','','','','','','','',?,?,'n')");
 $resultado = $comando->execute([$nome, $telefone, $email, $senha]);
 
 if ($resultado) {
