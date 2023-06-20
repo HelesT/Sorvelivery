@@ -2,11 +2,38 @@
 
 include("conecta.php");
 
-$query = "SELECT usuario_atual.nome, cadastro.nome_cadastro
+$query = "SELECT usuario_atual.nome, cadastro.nome_cadastro, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional 
           FROM usuario_atual
           INNER JOIN cadastro ON usuario_atual.nome = cadastro.nome_cadastro";
 
 $resultado = mysqli_query($conexao, $query);
+
+if ($resultado && mysqli_num_rows($resultado) > 0) {
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $nomeUsuario = $row['nome'];
+        $nomeCadastro = $row['nome_cadastro'];
+        $telefoneCadastro = $row['telefone_cadastro'];
+        $cep = $row["cep"];
+        $estado = $row["estado"];
+        $cidade = $row["cidade"];
+        $bairro = $row["bairro"];
+        $ruaAvenida = $row["rua/avenida"];
+        $numeroCasa = $row["numero"];
+        $complemento = $row["complemento"];
+        $informacaoAdicional = $row["informacao_adicional"];
+        $casaTrabalho = $row["casa/trabalho"];
+
+        // Lógica para marcar os inputs corretos
+        $casaChecked = '';
+        $trabalhoChecked = '';
+
+        if ($casaTrabalho === 'casa') {
+            $casaChecked = 'checked';
+        } elseif ($casaTrabalho === 'trabalho') {
+            $trabalhoChecked = 'checked';
+        }
+    }
+}
 
 ?>
 
@@ -95,57 +122,47 @@ $resultado = mysqli_query($conexao, $query);
     <div class="confirmacompra">
         
         <div class="infocompra">
-            <div style="margin: 50px; background-color: rgb(255, 255, 255);">
-                    Nome<br>
+            <form action="confirmação_endereco1.php" method="post">
+                <div style="margin: 50px; background-color: rgb(255, 255, 255);">
+                        Nome<br>
+                        <?php echo '<input type="text" name="Nome" value="' . $nomeCadastro . '" readonly>';?><br><br>
+                        CEP<br>
+                        <div class="linhacompra"><?php echo '<input type="text" name="cep" value="' . $cep . '">'?></div><br>
+                        <div class="linhacompradupla">
+                            Estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cidade<br>
+                            <?php echo '<input type="text" name="estado" style="margin-right: 40px;" value="' . $estado . '">'?>
+                            <?php echo '<input type="text" name="cidade" value="' . $cidade . '">'?>
+                        </div><br>
 
-                    <?php
-                    if ($resultado && mysqli_num_rows($resultado) > 0) {
-                    while ($row = mysqli_fetch_assoc($resultado)) {
-                    $nomeUsuario = $row['nome'];
-                    $nomeCadastro = $row['nome_cadastro'];
+                        Bairro<br>
+                        <div class="linhacompra"> <?php echo '<input type="text" name="bairro" value="' . $bairro . '">'?></div><br>
 
-                    // Exibir o campo de entrada HTML para cada correspondência encontrada
-                    echo '<input type="text" name="Nome" value="' . $nomeCadastro . '">';
-                        }
-                    }
-                    ?><br><br>
-                    
-                    CEP<br>
-                    <div class="linhacompra"><input type="text" name="CEP"></div><br>
-                    <div class="linhacompradupla">
-                        Estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cidade<br>
-                        <input type="text" style="margin-right: 40px;">
-                        <input type="text">
-                    </div><br>
+                        <div class="linhacompradupla" style="height: 40px;">
+                            Rua/Avenida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Número<br>
+                            <?php echo '<input type="text" name="rua/avenida" style="margin-right: 40px;" value="' . $ruaAvenida . '">'?>
+                            <?php echo '<input type="text" name="numerocasa" value="' . $numeroCasa . '">'?>
+                        </div><br><br>
+                        Complemento(opcional)<br>
+                        <div class="linhacompra"><?php echo '<input type="text" name="complemento" value="' . $complemento . '">'?></div><br><br>
 
-                    Bairro<br>
-                    <div class="linhacompra"><input type="text"></div><br>
+                        Esse é seu trabalho ou casa?<br><br>
+                        <input type="radio" name="radiocasa" value="casa" <?php echo $casaChecked;?> class="radio-button" id="inputTrabalho" style="width: 17px; height: 17px;" onclick="habilitarInputtrabalho()"><img src="maleta.png" width="20px">
+                        Trabalho&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="radiotrabalho" value="trabalho" <?php echo $trabalhoChecked;?> class="radio-button" id="inputCasa" style="width: 17px; height: 17px;" onclick="habilitarInputcasa()"><img src="casa.png" width="20px">Casa<br><br><br>
 
-                    <div class="linhacompradupla" style="height: 40px;">
-                        Rua/Avenida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Número<br>
-                        <input type="text" style="margin-right: 40px;">
-                        <input type="text" name="NumeroCasa">
-                    </div><br><br>
-                    Complemento(opcional)<br>
-                    <div class="linhacompra"><input type="text" name="Complemento"></div><br><br>
+                        Telefone de Contato<br>
+                        <div class="linhacompra"><?php echo '<input type="text" name="TelefoneContato" value="' . $telefoneCadastro . '" readonly>'; ?></div><br><br>
 
-                    Esse é seu trabalho ou casa?<br><br>
-                    <input type="radio" class="radio-button" id="inputTrabalho" style="width: 17px; height: 17px;" onclick="habilitarInputtrabalho()"><img src="maleta.png" width="20px">
-                    Trabalho&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" class="radio-button" id="inputCasa" style="width: 17px; height: 17px;" onclick="habilitarInputcasa()"><img src="casa.png" width="20px">Casa<br><br><br>
-
-                    Telefone de Contato<br>
-                    <div class="linhacompra"><input type="text" name="TelefoneContato" ></div><br><br>
-
-                    Informações adicionais desse endereço(opcional)<br>
-                    <div class="linhacompra"><input type="text" style="width: 2000px;height: 45px;" name="InfoAdd"></div><br><br>
-                    <button onclick="mostrarDivPrincipal()" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);font-size: x-large;">Continuar</button>
-            </div>
-        </div>
+                        Informações adicionais desse endereço(opcional)<br>
+                        <div class="linhacompra"><?php echo '<input type="text" name="informacao_adicional" style="width: 2000px;height: 45px;" value="' . $informacaoAdicional . '">'?></div><br><br>
+                        <button onclick="mostrarDivPrincipal()" type="submit" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);font-size: x-large;">Continuar</button>
+                </div>
+            </form>
+        </div>  
     <div class="producompra" style="overflow-y: scroll;display: flex;flex-direction: column;">
         <div style="margin: 15px;">
             <div style="font-size: 20px;">Taixa de Envio: </div>

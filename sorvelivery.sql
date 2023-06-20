@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/06/2023 às 01:04
+-- Tempo de geração: 20-Jun-2023 às 17:43
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,38 +24,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `cadastro`
+-- Estrutura da tabela `cadastro`
 --
 
 CREATE TABLE `cadastro` (
   `nome_cadastro` varchar(45) NOT NULL,
   `telefone_cadastro` varchar(45) DEFAULT NULL,
-  `CEP` varchar(9) NOT NULL,
-  `Estado` varchar(45) NOT NULL,
-  `Cidade` varchar(45) NOT NULL,
-  `Bairro` varchar(45) NOT NULL,
-  `Rua/Avenida` varchar(45) NOT NULL,
-  `Numero` varchar(45) NOT NULL,
-  `Complemento` varchar(45) NOT NULL,
+  `cep` varchar(9) NOT NULL,
+  `estado` varchar(45) NOT NULL,
+  `cidade` varchar(45) NOT NULL,
+  `bairro` varchar(45) NOT NULL,
+  `rua/avenida` varchar(45) NOT NULL,
+  `numero` int(10) NOT NULL,
+  `complemento` varchar(45) NOT NULL,
   `casa/trabalho` varchar(45) NOT NULL,
-  `Informação adicional` varchar(45) NOT NULL,
+  `informacao_adicional` varchar(45) NOT NULL,
   `email_cadastro` varchar(45) DEFAULT NULL,
   `senha_cadastro` varchar(45) DEFAULT NULL,
   `admim_cadastro` varchar(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `cadastro`
+-- Extraindo dados da tabela `cadastro`
 --
 
-INSERT INTO `cadastro` (`nome_cadastro`, `telefone_cadastro`, `CEP`, `Estado`, `Cidade`, `Bairro`, `Rua/Avenida`, `Numero`, `Complemento`, `casa/trabalho`, `Informação adicional`, `email_cadastro`, `senha_cadastro`, `admim_cadastro`) VALUES
-('Nylton', '47989130277', '', '', '', '', '', '', '', '', '', 'nyltondudu29@gmail.com', '123', 's'),
-('Nylton2', '47989130277', '', '', '', '', '', '', '', '', '', 'nyltondudu29@gmail.com', '123', 'n');
+INSERT INTO `cadastro` (`nome_cadastro`, `telefone_cadastro`, `cep`, `estado`, `cidade`, `bairro`, `rua/avenida`, `numero`, `complemento`, `casa/trabalho`, `informacao_adicional`, `email_cadastro`, `senha_cadastro`, `admim_cadastro`) VALUES
+('Nylton', '47989130277', '89210-755', 'SC', 'joinville', 'Itaum', 'São Valentim', 22, 'Casa', 'casa', 'Muro branco', 'nyltondudu29@gmail.com', '123', 's'),
+('Nylton2', '47989130277', '', '', '', '', '', 0, '', '', '', 'nyltondudu29@gmail.com', '123', 'n');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `produtos`
+-- Estrutura da tabela `produtos`
 --
 
 CREATE TABLE `produtos` (
@@ -65,7 +65,7 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `produtos`
+-- Extraindo dados da tabela `produtos`
 --
 
 INSERT INTO `produtos` (`nome_produto`, `preco_produto`, `carrinho_produto`) VALUES
@@ -79,7 +79,7 @@ INSERT INTO `produtos` (`nome_produto`, `preco_produto`, `carrinho_produto`) VAL
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuario_atual`
+-- Estrutura da tabela `usuario_atual`
 --
 
 CREATE TABLE `usuario_atual` (
@@ -88,30 +88,30 @@ CREATE TABLE `usuario_atual` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuario_atual`
+-- Extraindo dados da tabela `usuario_atual`
 --
 
 INSERT INTO `usuario_atual` (`Codigo_usuario`, `nome`) VALUES
-(1, 'Nylton');
+(1, 'batata');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `cadastro`
+-- Índices para tabela `cadastro`
 --
 ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`nome_cadastro`);
 
 --
--- Índices de tabela `produtos`
+-- Índices para tabela `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`nome_produto`);
 
 --
--- Índices de tabela `usuario_atual`
+-- Índices para tabela `usuario_atual`
 --
 ALTER TABLE `usuario_atual`
   ADD PRIMARY KEY (`Codigo_usuario`);

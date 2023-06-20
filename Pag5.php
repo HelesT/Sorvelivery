@@ -340,7 +340,7 @@
 
             </div>
             <div class="aba_compra">
-                <a href="confirmação_endereço.html">
+                <a href="confirmação_endereço.php">
                     <div class="finalizar_compra">
                         <font style="color: black;font-family: 'Source Sans Pro', sans-serif;font-size: 40px;color: white;">Finalizar</font>
                     </div>
