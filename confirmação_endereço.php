@@ -1,3 +1,16 @@
+<?php
+
+include("conecta.php");
+
+$query = "SELECT usuario_atual.nome, cadastro.nome_cadastro
+          FROM usuario_atual
+          INNER JOIN cadastro ON usuario_atual.nome = cadastro.nome_cadastro";
+
+$resultado = mysqli_query($conexao, $query);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -84,13 +97,25 @@
         <div class="infocompra">
             <div style="margin: 50px; background-color: rgb(255, 255, 255);">
                     Nome<br>
-                    <div class="linhacompra"><input type="text" name="Nome"></div><br>
+
+                    <?php
+                    if ($resultado && mysqli_num_rows($resultado) > 0) {
+                    while ($row = mysqli_fetch_assoc($resultado)) {
+                    $nomeUsuario = $row['nome'];
+                    $nomeCadastro = $row['nome_cadastro'];
+
+                    // Exibir o campo de entrada HTML para cada correspondência encontrada
+                    echo '<input type="text" name="Nome" value="' . $nomeCadastro . '">';
+                        }
+                    }
+                    ?><br><br>
+                    
                     CEP<br>
                     <div class="linhacompra"><input type="text" name="CEP"></div><br>
                     <div class="linhacompradupla">
                         Estado &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cidade<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cidade<br>
                         <input type="text" style="margin-right: 40px;">
                         <input type="text">
                     </div><br>
@@ -101,7 +126,7 @@
                     <div class="linhacompradupla" style="height: 40px;">
                         Rua/Avenida &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Número<br>
+                        Número<br>
                         <input type="text" style="margin-right: 40px;">
                         <input type="text" name="NumeroCasa">
                     </div><br><br>
