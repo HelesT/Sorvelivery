@@ -35,6 +35,14 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     }
 }
 
+$sql = "SELECT SUM(preco_produto) AS soma FROM produtos WHERE carrinho_produto = 's'";
+$result = $conexao->query($sql);
+$row = $result->fetch_assoc();
+$soma = $row['soma'];
+
+// Query para buscar as imagens dos produtos no carrinho
+$query = "SELECT imagem FROM produtos WHERE carrinho_produto = 's'";
+$resultado = $conexao->query($query);
 ?>
 
 
@@ -165,14 +173,18 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         </div>  
     <div class="producompra" style="overflow-y: scroll;display: flex;flex-direction: column;">
         <div style="margin: 15px;">
-            <div style="font-size: 20px;">Taixa de Envio: </div>
+            <div style="font-size: 20px;">Taixa de Envio: R$0,00 </div>
             <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="font-size: 20px;">Total: </div>
+            <div style="font-size: 20px;">Total: R$<?php echo number_format($soma, 2, ',', '.')?> </div>
             <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="display: flex;flex-direction: row;margin-left: 5px;">
-                <img src="reidoll.png" width="75px">
-                <font style="margin: 30px;">REI CHUKITA(PROMOÇÃO!!)</font>
-            </div>
+            <div class="imagem-container"><?php
+            while ($row = $resultado->fetch_assoc()) {
+                $imagemBinaria = $row["imagem"];
+
+                // Exibe a imagem
+                echo '<img src="data:image/png;base64,' . base64_encode($imagemBinaria) . '" width="75px">';
+            }
+            ?></div>
             <div style="font-size: 20px;">Metodo de Pagamento: </div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
             <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="cartaoPagamento" type="radio" onclick="habilitarcartaoPagamento()" style="width: 17px;height: 17px;"><img src="cartao.png" width="35px"></div>
