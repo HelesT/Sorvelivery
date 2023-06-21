@@ -76,61 +76,11 @@ $resultado = $conexao->query($query);
             </a>
         </div>
     </div>
-    
-    <div class="principal" id="divPrincipal">
-        <div style="width: 650px;height:800px;margin:30px;display: flex;flex-direction: column;">
-        <div class="linha">
-            <img src="Visaicon.png" width="80px">
-            <img src="mastercardicon.png" width="65px" height="100%" style="margin-left: 20px;">
-            <img src="eloicon.png" width="80px" height="100%" style="margin-left: 20px;">
-            <img src="mericanicon.png" width="80px" height="100%" style="margin-left: 20px;">
-            <img src="hypericon.png" width="80px" height="100%" style="margin-left: 20px;">
-        </div>
-        <div style="background-color: white;">
-        <div style="margin-top:50px;width: 100%;height: 80px;display: flex;flex-direction: row;">
-            <div style="display: flex;flex-direction: column;">
-                <legend>NUMERO DO CARTÃO</legend>
-                <input type="number" minlength="16" maxlength="16" placeholder="0000 0000 0000 0000" style="width: 250px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
-            </div> 
-            <div style="display: flex;flex-direction: column;margin-left: 30px;">
-                <legend>NOME DO CARTÃO</legend>
-                <input type="text" minlength="5" maxlength="75" placeholder="" style="width: 250px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
-            </div> 
-        </div>
-        <div style="margin-top:20px;width: 100%;height: 80px;display: flex;flex-direction: row;">
-            <div style="display: flex;flex-direction: column;">
-                <legend>DATA DE VALIDADE</legend>
-                <input type="datetime" placeholder="00/00" style="width: 150px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
-            </div> 
-            <div style="display: flex;flex-direction: column;margin-left: 30px;">
-                <legend>CVV</legend>
-                <input type="number" placeholder="000" style="width: 150px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
-            </div> 
-        </div>
-        <div style="width: 100%;height: 35px;display: flex;align-items: center;"> Lembre deste cartão para uso futuro <input type="radio" style="width: 20px; height: 20px;margin-bottom: 3px;"></div>
-        </div>
-        <div style="width: 100%;height: 5px;background-color: rgb(212, 212, 212);"></div>
-        <div style="display: flex;flex-direction: column;background-color: white;margin-top: 15px;height: 100px;">
-        <legend style="margin-top: 0px;">PAGAMENTO PARCELADO</legend>
-        <div style="width: 360px;height: 60px;background-color: rgb(211, 211, 211);margin-top: 0px;display: flex;flex-direction: row;">
-            <div style="width: 60px;height: 60px;box-shadow: 0.5px 0.5px black;">&nbsp;2x Sem &nbsp; Juros</div>
-            <div style="width: 60px;height: 60px;box-shadow: 0.5px 0.5px black;">&nbsp;4x Sem &nbsp; juros</div>
-            <div style="width: 60px;height: 60px;box-shadow: 0.5px 0.5px black;">&nbsp;6x Sem &nbsp; Jutos</div>
-            <div style="width: 60px;height: 60px;box-shadow: 0.5px 0.5px black;">&nbsp;8x Sem &nbsp; Juros </div>
-            <div style="width: 60px;height: 60px;box-shadow: 0.5px 0.5px black;">&nbsp;10x Sem &nbsp; Jutos</div>
-            <div style="width: 60px;height: 60px;box-shadow: 0.5px 0.5px black;">&nbsp;12x Sem &nbsp; Juros</div>
-        </div>
-        </div>
-        <div style="width: 100%;height: 5px;background-color: rgb(212, 212, 212);"></div>
-        <div class="linha" style="font-size: 17px;margin-top: 10px;">Subtotal: 999,999R$<br> Desconto: 99,99R$<br> Total: 900,000R$</div>
-        <button type="submit" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
-        </div>
-    </div>
-
+<form action="confirmação_endereco1.php" method="post">
     <div class="confirmacompra">
         
         <div class="infocompra">
-            <form action="confirmação_endereco1.php" method="post">
+            
                 <div style="margin: 50px; background-color: rgb(255, 255, 255);">
                         Nome<br>
                         <?php echo '<input type="text" name="Nome" value="' . $nomeCadastro . '" readonly>';?><br><br>
@@ -167,10 +117,10 @@ $resultado = $conexao->query($query);
 
                         Informações adicionais desse endereço(opcional)<br>
                         <div class="linhacompra"><?php echo '<input type="text" name="informacao_adicional" style="width: 2000px;height: 45px;" value="' . $informacaoAdicional . '">'?></div><br><br>
-                        <button onclick="mostrarDivPrincipal()" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);font-size: x-large;">Continuar</button>
+                        <div onclick="mostrarDivPrincipal()" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);font-size: x-large;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;">Continuar</div>
                 </div>
         </div>  
-    <div class="producompra" style="overflow-y: scroll;display: flex;flex-direction: column;">
+    <div class="producompra" style="overflow-y: scroll;display: flex;flex-direction: column;height:500px;">
         <div style="margin: 15px;">
             <div style="font-size: 20px;">Taixa de Envio: R$0,00 </div>
             <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
@@ -197,9 +147,64 @@ $resultado = $conexao->query($query);
             <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="visaPagamento" type="radio" onclick="habilitarvisaPagamento()" style="width: 17px;height: 17px;"><img src="Visaicon.png" width="35px"></div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
             <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="paypalPagamento" type="radio" onclick="habilitarpaypalPagamento()" style="width: 17px;height: 17px;"><img src="payálicon.png" width="35px"></div>
-            </form>
+            
         </div>
     </div>
+
+        <div class="principal" id="divPrincipal">
+        <div style="width: 650px;height:800px;margin:30px;display: flex;flex-direction: column;">
+        <div class="linha">
+            <img src="Visaicon.png" width="80px">
+            <img src="mastercardicon.png" width="65px" height="100%" style="margin-left: 20px;">
+            <img src="eloicon.png" width="80px" height="100%" style="margin-left: 20px;">
+            <img src="mericanicon.png" width="80px" height="100%" style="margin-left: 20px;">
+            <img src="hypericon.png" width="80px" height="100%" style="margin-left: 20px;">
+        </div>
+        <div style="background-color: white;">
+        <div style="margin-top:50px;width: 100%;height: 80px;display: flex;flex-direction: row;">
+            <div style="display: flex;flex-direction: column;">
+                <legend>NUMERO DO CARTÃO</legend>
+                <input type="number" minlength="16" maxlength="16" placeholder="0000 0000 0000 0000" style="width: 250px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
+            </div> 
+            <div style="display: flex;flex-direction: column;margin-left: 30px;">
+                <legend>NOME DO CARTÃO</legend>
+                <input type="text" minlength="5" maxlength="75" placeholder="" style="width: 250px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
+            </div> 
+        </div>
+        <div style="margin-top:20px;width: 100%;height: 80px;display: flex;flex-direction: row;">
+            <div style="display: flex;flex-direction: column;">
+                <legend>DATA DE VALIDADE</legend>
+                <input type="datetime" placeholder="00/00" style="width: 150px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
+            </div> 
+            <div style="display: flex;flex-direction: column;margin-left: 30px;">
+                <legend>CVV</legend>
+                <input type="number" placeholder="000" style="width: 150px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
+            </div> 
+        </div>
+        <div style="width: 100%;height: 35px;display: flex;align-items: center;"> Lembre deste cartão para uso futuro <input type="radio" style="width: 20px; height: 20px;margin-bottom: 3px;"></div>
+        </div>
+        <div style="width: 100%;height: 5px;background-color: rgb(212, 212, 212);"></div>
+        <div style="display: flex;flex-direction: column;background-color: white;margin-top: 15px;height: 100px;">
+        <legend style="margin-top: 0px;">PAGAMENTO PARCELADO</legend>
+        <div style="width: 360px;height: 60px;background-color: rgb(211, 211, 211);margin-top: 0px;display: flex;flex-direction: row;">
+        <div id="div0" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(1);atualizarSoma0()">&nbsp;limpar</div>
+        <div id="div1" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(1);atualizarSoma1()">&nbsp;2x Sem &nbsp; Juros</div>
+        <div id="div2" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(2);atualizarSoma2()">&nbsp;4x Sem &nbsp; juros</div>
+        <div id="div3" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(3);atualizarSoma3()">&nbsp;6x Sem &nbsp; Juros</div>
+        <div id="div4" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(4);atualizarSoma4()">&nbsp;8x Sem &nbsp; Juros </div>
+        <div id="div5" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(5);atualizarSoma5()">&nbsp;10x Sem &nbsp; Jutos</div>
+        <div id="div6" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(6);atualizarSoma6()">&nbsp;12x Sem &nbsp; Juros</div>
+
+        </div>
+        </div>
+        <div style="width: 100%;height: 5px;background-color: rgb(212, 212, 212);"></div>
+        <div class="linha" style="font-size: 17px;margin-top: 10px;">
+        Total: &nbsp;<span id="valor-soma">R$<?php echo number_format($soma, 2, ',', '.')?></span>
+        </div>
+        <button type="submit" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
+        </div>
+    </div>
+</form>
 </body>
 <script>
     function mostrarDivPrincipal() {
@@ -327,6 +332,112 @@ function habilitarpaypalPagamento() {
   paypalPagamento.checked = true;
 }
 
+let previousDivId = null;
 
+  function changeColor(divId) {
+    // Remove a classe 'active' da div anterior, se existir
+    if (previousDivId) {
+      const previousDiv = document.getElementById(previousDivId);
+      previousDiv.classList.remove('active');
+    }
+
+    // Adiciona a classe 'active' à div atual
+    const currentDiv = document.getElementById(`div${divId}`);
+    currentDiv.classList.add('active');
+
+    // Armazena o ID da div atual para uso posterior
+    previousDivId = `div${divId}`;
+  }
+  function atualizarSoma0() {
+    var soma = "R$" + <?php echo number_format($soma, 2, '.', '') ?>.toFixed(2); // Atribuir o valor formatado à variável JavaScript
+    
+    var div1 = document.getElementById('div0');
+    var valorSoma = document.getElementById('valor-soma');
+    // Exibir o valor formatado
+    valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+    if (previousDivId) {
+      const previousDiv = document.getElementById(previousDivId);
+      previousDiv.classList.remove('active');
+    }
+  }
+  function atualizarSoma1() {
+    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    
+    var div1 = document.getElementById('div1');
+    var valorSoma = document.getElementById('valor-soma');
+
+    if (div1.classList.contains('active')) {
+      soma =  "2x de " + "R$" + (soma / 2).toFixed(2);
+    }
+    
+    // Exibir o valor formatado
+    valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  }
+  function atualizarSoma2() {
+    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    
+    var div1 = document.getElementById('div2');
+    var valorSoma = document.getElementById('valor-soma');
+
+    if (div1.classList.contains('active')) {
+      soma =  "4x de " + "R$" + (soma / 4).toFixed(2);
+    }
+    
+    // Exibir o valor formatado
+    valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  }
+  function atualizarSoma3() {
+    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    
+    var div1 = document.getElementById('div3');
+    var valorSoma = document.getElementById('valor-soma');
+
+    if (div1.classList.contains('active')) {
+      soma =  "6x de " + "R$" + (soma / 6).toFixed(2);
+    }
+    
+    // Exibir o valor formatado
+    valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  }
+  function atualizarSoma4() {
+    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    
+    var div1 = document.getElementById('div4');
+    var valorSoma = document.getElementById('valor-soma');
+
+    if (div1.classList.contains('active')) {
+      soma =  "8x de " + "R$" + (soma / 8).toFixed(2);
+    }
+    
+    // Exibir o valor formatado
+    valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  }
+  function atualizarSoma5() {
+    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    
+    var div1 = document.getElementById('div5');
+    var valorSoma = document.getElementById('valor-soma');
+
+    if (div1.classList.contains('active')) {
+      soma =  "10x de " + "R$" + (soma / 10).toFixed(2);
+    }
+    
+    // Exibir o valor formatado
+    valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  }
+  function atualizarSoma6() {
+    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    
+    var div1 = document.getElementById('div6');
+    var valorSoma = document.getElementById('valor-soma');
+
+    if (div1.classList.contains('active')) {
+      soma =  "12x de " + "R$" + (soma / 12).toFixed(2);
+    }
+    
+    // Exibir o valor formatado
+    valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  }
 </script>
 </html>
