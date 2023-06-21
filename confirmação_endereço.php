@@ -56,7 +56,7 @@ $resultado = $conexao->query($query);
     <link rel="stylesheet" href="confirmação_endereco.css" type="text/css">
 </head>
 <body>
-    <div class="overlay" id="overlay" onclick="ocultarDivPrincipal()"></div>
+    <div class="overlay" id="overlay" name="overlay" onclick="ocultarDivPrincipal()"></div>
 
     <div class="cabecalho">
         <div class="cabecalho1">
@@ -76,7 +76,7 @@ $resultado = $conexao->query($query);
             </a>
         </div>
     </div>
-
+    
     <div class="principal" id="divPrincipal">
         <div style="width: 650px;height:800px;margin:30px;display: flex;flex-direction: column;">
         <div class="linha">
@@ -123,7 +123,7 @@ $resultado = $conexao->query($query);
         </div>
         <div style="width: 100%;height: 5px;background-color: rgb(212, 212, 212);"></div>
         <div class="linha" style="font-size: 17px;margin-top: 10px;">Subtotal: 999,999R$<br> Desconto: 99,99R$<br> Total: 900,000R$</div>
-        <button style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
+        <button type="submit" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
         </div>
     </div>
 
@@ -167,9 +167,8 @@ $resultado = $conexao->query($query);
 
                         Informações adicionais desse endereço(opcional)<br>
                         <div class="linhacompra"><?php echo '<input type="text" name="informacao_adicional" style="width: 2000px;height: 45px;" value="' . $informacaoAdicional . '">'?></div><br><br>
-                        <button onclick="mostrarDivPrincipal()" type="submit" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);font-size: x-large;">Continuar</button>
+                        <button onclick="mostrarDivPrincipal()" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);font-size: x-large;">Continuar</button>
                 </div>
-            </form>
         </div>  
     <div class="producompra" style="overflow-y: scroll;display: flex;flex-direction: column;">
         <div style="margin: 15px;">
@@ -198,7 +197,7 @@ $resultado = $conexao->query($query);
             <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="visaPagamento" type="radio" onclick="habilitarvisaPagamento()" style="width: 17px;height: 17px;"><img src="Visaicon.png" width="35px"></div>
             <div style="width: 100%;height: 1px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
             <div style="display: flex;flex-direction: row;display: flex;justify-items: center;align-items: center;"><input id="paypalPagamento" type="radio" onclick="habilitarpaypalPagamento()" style="width: 17px;height: 17px;"><img src="payálicon.png" width="35px"></div>
-
+            </form>
         </div>
     </div>
 </body>
