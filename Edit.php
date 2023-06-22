@@ -1,3 +1,39 @@
+<?php
+include("conecta.php");
+
+$query = "SELECT usuario_atual.nome, cadastro.nome_cadastro, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional 
+          FROM usuario_atual
+          INNER JOIN cadastro ON usuario_atual.nome = cadastro.nome_cadastro";
+
+$resultado = mysqli_query($conexao, $query);
+
+if ($resultado && mysqli_num_rows($resultado) > 0) {
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $nomeUsuario = $row['nome'];
+        $nomeCadastro = $row['nome_cadastro'];
+        $telefoneCadastro = $row['telefone_cadastro'];
+        $cep = $row["cep"];
+        $estado = $row["estado"];
+        $cidade = $row["cidade"];
+        $bairro = $row["bairro"];
+        $ruaAvenida = $row["rua/avenida"];
+        $numeroCasa = $row["numero"];
+        $complemento = $row["complemento"];
+        $informacaoAdicional = $row["informacao_adicional"];
+        $casaTrabalho = $row["casa/trabalho"];
+
+        // Lógica para marcar os inputs corretos
+        $casaChecked = '';
+        $trabalhoChecked = '';
+
+        if ($casaTrabalho === 'casa') {
+            $casaChecked = 'checked';
+        } elseif ($casaTrabalho === 'trabalho') {
+            $trabalhoChecked = 'checked';
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -66,7 +102,40 @@
 
     </div>
    <div class="principalzona">
-        <div class="opacidade"></div>
+        <div class="opacidade">
+            <div class="edifotnome">
+                <div class="foto"></div>
+                <button class="edfoto">Editar foto</button>
+            </div>
+            <div class="informa">
+                <div class="text">
+                    INFORMAÇÕES PESSOAIS
+                    <div class="linha"></div>
+                    <form action="confirmação_endereco1.php" method="post">
+                </div>
+                NOME
+                <input type="text" class="escritas"></input>
+                E-MAIL
+                <input type="text" class="escritas"></input>
+                CEP
+                <input type="text" class="escritas"></input>
+                Estado
+                <input type="text" class="escritas"></input>
+                Cidade
+                <input type="text" class="escritas"></input>
+                Bairro
+                <?php echo '<input name="bairro" value="' . $bairro . '" type="text" class="escritas"></input>'?>
+                Rua/Avenida
+                <input type="text" class="escritas"></input>
+                Número
+                <input type="text" class="escritas"></input>
+                Telefone
+                <input type="text" class="escritas"></input>
+                <button type="submit"></button> 
+</form>
+
+            </div>
+        </div>
    </div>
 
 
