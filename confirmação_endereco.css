@@ -1,55 +1,146 @@
-body{
-    background-image: linear-gradient(45deg,rgb(255, 22, 255), rgb(3, 255, 171));
-   background-repeat:no-repeat;background-attachment: fixed;background-size: cover;
-   width: 100%;
-   height: 100vh;
-   overflow-y: scroll;
-   display: flex;
-   flex-direction: column;
-   margin: 0%;
-   zoom: 0.8;
-}
-.cabecalho
+body {
+    background-image: linear-gradient(45deg, purple, aquamarine);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    zoom: 0.8;
+  }
+.cabecalho {
+    background-color:rgb(14, 14, 14);
+    background-size: cover;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 20px;
+    animation: descer 0.5s;
+    z-index: 2;
+  }
+  .endireitador
+        {
+            width: 45px;
+            height: 99%;
+            padding-top: 1%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            justify-items: center;
+            align-content: center;
+            align-items: center;
+        }
+        .pequenininha
 {
-background-color: black;
-background-size: cover;
-width: 100%;
-height: 7vh;
-display: flex; 
-align-content: space-between;
-font-size: 20px;
-animation: descer 0.5s;
-z-index: 2;
+    width: 45px;
+    height: 50%;
+    border-radius: 50%;
+    background-color: #00ffea;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+
 }
-.cabecalho1
+        .pequenininha2
 {
-width: 40%;
-height: 100%;
-display: flex;
-flex-direction: row;
-justify-items: center;
-align-content: center;
-align-items: center;
+    width: 30%;
+    height: 38%;
+    border-radius: 50%;
+    background-color: #000000;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+
 }
-.cabecalho3
+.Sair 
 {
-width: 15%;
-height: 100%;
-display: flex;
-justify-content: space-around;
-flex-direction: row;
-justify-items: center;
-align-content: center;
-align-items: center;
+    width: 40%;
+    height: 10%;
+    margin: 3px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
 }
+.caixausu
+{
+    width: 250px;
+    height: 200px;
+    position: absolute;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    top: -20%;
+    left:80%;
+    background-color: #000000;
+    z-index:1;
+    border-style: solid;
+    border:2px 2px  white;
+    box-shadow: 5px 0px 45px rgb(255, 255, 255);
+
+}
+  .cabecalho1 {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+  }
+  
+  .cabecalho2 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+  }
+  
+  .cabecalho3 {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+  }
 .sorvelivery
 {
 margin-top: 0px;
 }
+.logo {
+    margin-top: 25px;
+  }
 .confirmacompra{
-margin-top: 40px;
+margin-top: 80px;
 width: 1200px;
-height: 800px;
+height: 1100px;
 margin-left: auto;
 margin-right:auto;
 display: flex;
@@ -68,10 +159,11 @@ width: 400px;
 background-color: rgb(255, 255, 255);
 display: flex;
 flex-direction: column;
+overflow-y:  hidden;
 }
 .linhacompra
 {
-width: 100%;
+width: 500px;
 height: 40px;
 display: flex;
 border-color: black;
@@ -79,7 +171,7 @@ border: 1px 1px;
 }
 input
 {
-width:100%;
+width: 250px;
 height: 40px;
 border-radius: 10px;
 font-size: 15px;
@@ -172,6 +264,144 @@ font-size: 15px;
   .active {
     background-color: #696969;
   }
+  a:visited {
+    color: rgb(35, 200, 200);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:link {
+    color: rgb(35, 200, 200);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:active {
+    color: rgb(35, 200, 200);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: brown;
+    background-color: transparent;
+    }
+    input[type="checkbox"]
+    {
+        display: none;
+    }
+    input[type="checkbox"]:checked ~ nav
+    {
+        margin-bottom: 20px;
+    }
+    nav
+    {
+        width: 90%;
+        height: 100%;
+        margin-bottom: 200px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+        transition: all .5s;
+    }
+    ul
+    {
+        width: 90%;
+        height: 100%;
+        margin-bottom: 0px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+    }
+    .fale_conoscodiv
+    {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    background-color:black;
+    width: 300px;
+    height: 450px;
+    display: flex;
+    color: white;
+    flex-direction: column-reverse;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    z-index: 0;
+    }
+    
+    .fale_conosco_texto
+    {
+    width: 110px;
+    height: 22px;
+    color: rgb(35, 200, 200) ;
+    }
+    .caixadetexto
+    {
+    width: 75%;
+    height: 100%;
+    margin-bottom: 5px;
+    }
+    .enviartexto
+    {
+    width: 15%;
+    height: 125%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    }
+    .resposta
+    {
+    background-color: rgb(41, 41, 41);
+    width: 90%;
+    height: 85%;
+    padding: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+    display: flex;
+    margin-bottom: 5px;
+    }
+    .row100
+    {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 20px;
+    }
+    ::-webkit-scrollbar
+    {
+    width: 20px;
+    background-color: black;
+    }
+    ::-webkit-scrollbar-track
+    {
+    border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb
+    {
+        background:rgb(8, 8, 8);
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover
+    {
+        background: rgb(29, 29, 29);
+    }
 
 
   

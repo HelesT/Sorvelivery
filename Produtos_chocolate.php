@@ -90,15 +90,28 @@ if (isset($_POST['adicionarChocomalti'])) {
                     <button onclick="animar();" style="background: none;border: none;padding: 0;font: inherit;cursor: pointer;text-decoration: none;color: rgb(35, 200, 200);">Fale Conosco</button>
                 </ul>
             </nav>
-            <label for="chec">
-                <img src="3barra.png" width="40px">
-            </label>
+            <div class="endireitador">
+                <label for="chec">
+                    <img src="3barra.png" width="45px">
+                </label>
+            </div>
         </div>
         <div class="cabecalho3">
+            <div class="pequenininha" >
+                <img src="Usua.png" width="100%" onclick="animar1()">
+            </div>
             <a href="Pag5.php" width="40px">
                 <img src="carrinho.png" width="40px" >
             </a>
         </div>
+    </div>
+    <div class="caixausu" >
+        <div class="pequenininha2" >
+            <img src="Usua.png" width="100%">
+        </div>
+        <button class="Sair">Sair</button>
+        <button class="Sair">Editar Perfil</button>
+
     </div>
 
     <div class="D0">
@@ -229,7 +242,17 @@ function animar() {
         $(".fale_conoscodiv").animate({top:'-50%'}, 500);
     }
 }
-
+function animar1() {
+    clique = clique + 1;
+    if (clique == 1) {
+        $(".caixausu").animate({top:'10%'}, 500);
+    }
+    if (clique == 2) {
+        clique = 0;
+        $(".caixausu").animate({top:'-50%'}, 500);
+    }
+    
+}
 
     </script>
 </html>
