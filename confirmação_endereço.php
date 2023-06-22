@@ -53,29 +53,64 @@ $resultado = $conexao->query($query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorvelivery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script src="jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="confirmação_endereco.css" type="text/css">
 </head>
 <body>
     <div class="overlay" id="overlay" name="overlay" onclick="ocultarDivPrincipal()"></div>
 
+    <div class="fale_conoscodiv" id="fale_conoscodiv" style="top: -100%;">
+        <div class="row100">
+            <input type="text" id="mensagem" class="caixadetexto">
+            <button onclick="Enviar();" class="enviartexto">Enviar</button>
+        </div>
+        <div id="resposta" class="resposta"></div>
+    </div>
     <div class="cabecalho">
         <div class="cabecalho1">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="Pag3.html" width="100%">
-                <img src="Linha.png" width="300px">
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="Pag3.html" width="40px">
-                <img src="Logo2.png" width="60px" style="margin-top: 10px;">
+                <img src="Linha.png" width="350px">
+            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="Pag3.html" width="40px">
+                <img src="Logo2.png" width="105px" style="margin-top: 25px;">
             </a>
         </div>
-        <div style="width: 45%;"></div>
+        <div class="cabecalho2">
+            <input type="checkbox" id="chec">
+            <nav>
+                <ul>
+                    <a href="Pag3.html">Início</a><font color="red">//</font>
+                    <a href="Cardapio.html">Cardápio</a><font color="red">//</font>
+                    <a href="lojas.html">Lojas</a><font color="red">//</font>
+                    <button onclick="animar();" style="background: none;border: none;padding: 0;font: inherit;cursor: pointer;text-decoration: none;color: rgb(35, 200, 200);">Fale Conosco</button>
+                </ul>
+            </nav>
+            <div class="endireitador">
+                <label for="chec">
+                    <img src="3barra.png" width="45px">
+                </label>
+            </div>
+        </div>
         <div class="cabecalho3">
+            <div class="pequenininha" onclick="animar1()">
+                <img src="Usua.png" width="100%">
+            </div>
             <a href="Pag5.php" width="40px">
-                <img src="carrinho.png" width="40px" style="margin-left: 0px;">
+                <img src="carrinho.png" width="40px" >
             </a>
         </div>
     </div>
+    <div class="caixausu" >
+        <div class="pequenininha2" >
+            <img src="Usua.png" width="100%">
+        </div>
+        <button class="Sair">Sair</button>
+        <button class="Sair">Editar Perfil</button>
+
+    </div>
+
 <form action="confirmação_endereco1.php" method="post">
     <div class="confirmacompra">
         
@@ -117,7 +152,7 @@ $resultado = $conexao->query($query);
 
                         Informações adicionais desse endereço(opcional)<br>
                         <div class="linhacompra"><?php echo '<input type="text" name="informacao_adicional" style="width: 2000px;height: 45px;" value="' . $informacaoAdicional . '">'?></div><br><br>
-                        <div onclick="mostrarDivPrincipal()" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);font-size: x-large;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;">Continuar</div>
+                        <div onclick="mostrarDivPrincipal()" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180);font-size: x-large;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer">Continuar</div>
                 </div>
         </div>  
     <div class="producompra" style="overflow-y: scroll;display: flex;flex-direction: column;height:500px;">
@@ -181,19 +216,19 @@ $resultado = $conexao->query($query);
                 <input type="number" placeholder="000" style="width: 150px; height: 50px;font-size: 22px;border: 0px none;box-shadow: 0.5px 0.5px black;">
             </div> 
         </div>
-        <div style="width: 100%;height: 35px;display: flex;align-items: center;"> Lembre deste cartão para uso futuro <input type="radio" style="width: 20px; height: 20px;margin-bottom: 3px;"></div>
+        <div style="width: 100%;height: 35px;display: flex;align-items: center;"> Lembre deste cartão para uso futuro <input type="checkbox" style="width: 15px; height: 15px;margin-bottom: 3px;"></div>
         </div>
         <div style="width: 100%;height: 5px;background-color: rgb(212, 212, 212);"></div>
         <div style="display: flex;flex-direction: column;background-color: white;margin-top: 15px;height: 100px;">
         <legend style="margin-top: 0px;">PAGAMENTO PARCELADO</legend>
         <div style="width: 360px;height: 60px;background-color: rgb(211, 211, 211);margin-top: 0px;display: flex;flex-direction: row;">
-        <div id="div0" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(1);atualizarSoma0()">&nbsp;limpar</div>
-        <div id="div1" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(1);atualizarSoma1()">&nbsp;2x Sem &nbsp; Juros</div>
-        <div id="div2" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(2);atualizarSoma2()">&nbsp;4x Sem &nbsp; juros</div>
-        <div id="div3" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(3);atualizarSoma3()">&nbsp;6x Sem &nbsp; Juros</div>
-        <div id="div4" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(4);atualizarSoma4()">&nbsp;8x Sem &nbsp; Juros </div>
-        <div id="div5" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(5);atualizarSoma5()">&nbsp;10x Sem &nbsp; Jutos</div>
-        <div id="div6" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;" onclick="changeColor(6);atualizarSoma6()">&nbsp;12x Sem &nbsp; Juros</div>
+        <div id="div0" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;cursor:pointer" onclick="changeColor(1);atualizarSoma0()">&nbsp;limpar</div>
+        <div id="div1" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;cursor:pointer" onclick="changeColor(1);atualizarSoma1()">&nbsp;2x Sem &nbsp; Juros</div>
+        <div id="div2" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;cursor:pointer" onclick="changeColor(2);atualizarSoma2()">&nbsp;4x Sem &nbsp; juros</div>
+        <div id="div3" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;cursor:pointer" onclick="changeColor(3);atualizarSoma3()">&nbsp;6x Sem &nbsp; Juros</div>
+        <div id="div4" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;cursor:pointer" onclick="changeColor(4);atualizarSoma4()">&nbsp;8x Sem &nbsp; Juros </div>
+        <div id="div5" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;cursor:pointer" onclick="changeColor(5);atualizarSoma5()">&nbsp;10x Sem &nbsp; Jutos</div>
+        <div id="div6" style="width: 60px; height: 60px; box-shadow: 0.5px 0.5px black;cursor:pointer" onclick="changeColor(6);atualizarSoma6()">&nbsp;12x Sem &nbsp; Juros</div>
 
         </div>
         </div>
@@ -201,12 +236,73 @@ $resultado = $conexao->query($query);
         <div class="linha" style="font-size: 17px;margin-top: 10px;">
         Total: &nbsp;<span id="valor-soma">R$<?php echo number_format($soma, 2, ',', '.')?></span>
         </div>
-        <button type="submit" style="width: 200px;height: 50px;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
+        <button type="submit" style="width: 200px;height: 50px;cursor:pointer;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
         </div>
     </div>
 </form>
 </body>
 <script>
+topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
+  
+  // Conexão:
+  client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), "");
+
+  // Funções executadas quando a conexão é perdida e quando uma mensagem chega:
+  client.onConnectionLost = ConexaoPerdida;
+  client.onMessageArrived = MensagemRecebida;
+
+  // Função chamada quando a conexão for realizada:
+  client.connect({onSuccess:Conectar});
+
+  // A função Conectar deve criar a variável (tópico) no computador remoto:
+  function Conectar() {
+      client.subscribe(topico);  // Tópico (variável) criado no servidor MQTT
+  }
+
+  function ConexaoPerdida(responseObject) {
+      if (responseObject.errorCode !== 0) {
+          resposta.innerHTML += "Desconectado";
+      }
+  }
+
+  // Função executada quando a variável (tópico) no servidor receber uma mensagem:
+  function MensagemRecebida(message) {
+      resposta.innerHTML += "<br><br>" + message.payloadString; 
+      resposta.scrollTo(0, document.body.scrollHeight);
+  }
+
+  function Enviar() {
+      texto = mensagem.value;
+
+      message = new Paho.MQTT.Message(texto);
+      message.destinationName = topico;
+      client.send(message);
+  }
+
+  var clique = 0;
+
+  function animar() {
+      clique = clique + 1;
+      if (clique == 1) {
+          $(".fale_conoscodiv").animate({top:'10%'}, 500);
+      }
+      if (clique == 2) {
+          clique = 0;
+          $(".fale_conoscodiv").animate({top:'-50%'}, 500);
+      }
+  }
+  function animar1() {
+clique = clique + 1;
+if (clique == 1) {
+  $(".caixausu").animate({top:'10%'}, 500);
+}
+if (clique == 2) {
+  clique = 0;
+  $(".caixausu").animate({top:'-50%'}, 500);
+}
+
+}
+
     function mostrarDivPrincipal() {
             var divPrincipal = document.getElementById("divPrincipal");
             divPrincipal.style.display = "flex";
@@ -439,5 +535,6 @@ let previousDivId = null;
     // Exibir o valor formatado
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
+  
 </script>
 </html>

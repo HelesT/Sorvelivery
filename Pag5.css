@@ -10,9 +10,80 @@ body {
     flex-direction: column;
     justify-items: center;
     align-content: center;
-    align-items: center;
+    align-items: center;    
   }
-  
+  .endireitador
+        {
+            width: 45px;
+            height: 99%;
+            padding-top: 1%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            justify-items: center;
+            align-content: center;
+            align-items: center;
+        }
+        .pequenininha
+{
+    width: 45px;
+    height: 50%;
+    border-radius: 50%;
+    background-color: #00ffea;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+
+}
+        .pequenininha2
+{
+    width: 30%;
+    height: 38%;
+    border-radius: 50%;
+    background-color: #000000;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+
+}
+.Sair 
+{
+    width: 40%;
+    height: 10%;
+    margin: 3px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.caixausu
+{
+    width: 250px;
+    height: 200px;
+    position: absolute;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    top: -20%;
+    left:80%;
+    background-color: #000000;
+    z-index:1;
+    border-style: solid;
+    border:2px 2px  white;
+    box-shadow: 5px 0px 45px rgb(255, 255, 255);
+
+}
   .cabecalho {
     background-color:rgb(14, 14, 14);
     background-size: cover;
@@ -53,7 +124,7 @@ body {
     width: 15%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
     justify-items: center;
     align-content: center;
