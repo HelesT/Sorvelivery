@@ -111,7 +111,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                 <div class="text">
                     INFORMAÇÕES PESSOAIS
                     <div class="linha"></div>
-                    <form action="confirmação_endereco1.php" method="post">
+                    <form action="confirmação_endereco2.php" method="post">
                 </div>
                 NOME
                 <input type="text" class="escritas"></input>
