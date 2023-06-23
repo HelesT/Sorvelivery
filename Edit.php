@@ -108,7 +108,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                 <div class="foto"></div>
                 <button class="edfoto">Editar foto</button>
             </div>
-            <div class="informa">A
+            <div class="informa">
                 <div class="text">
                     INFORMAÇÕES PESSOAIS
                     <div class="linha"></div>
