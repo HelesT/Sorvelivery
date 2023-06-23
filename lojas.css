@@ -283,6 +283,20 @@ a:hover
     align-items: center;
     justify-content: space-around;
 }
+
+.sair2
+{
+    width: 40%;
+    height: 10%;
+    margin: 3px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
 .caixausu
 {
     width: 250px;
