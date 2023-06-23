@@ -22,12 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $complemento = $_POST["complemento"];
   $telefoneContato = $_POST["TelefoneContato"];
   $informacaoAdicional = $_POST["informacao_adicional"];
+  $email = $row["email_cadastro"];
 
   // Verificar a opção selecionada
   $opcao = isset($_POST["radiocasa"]) && $_POST["radiocasa"] === "casa" ? "casa" : "trabalho";
 
   // Executar a instrução de atualização no banco de dados
-  $query = "UPDATE cadastro SET cep='$cep', estado='$estado', cidade='$cidade', bairro='$bairro', `rua/avenida`='$ruaAvenida', numero='$numeroCasa', complemento='$complemento', `casa/trabalho`='$opcao', telefone_cadastro='$telefoneContato', informacao_adicional='$informacaoAdicional' WHERE nome_cadastro='$nome'";
+  $query = "UPDATE cadastro SET cep='$cep', estado='$estado', cidade='$cidade', bairro='$bairro', `rua/avenida`='$ruaAvenida', numero='$numeroCasa', complemento='$complemento', `casa/trabalho`='$opcao', telefone_cadastro='$telefoneContato', informacao_adicional='$informacaoAdicional', email_cadastro='$email' WHERE nome_cadastro='$nome'";
 
   if (mysqli_query($conexao, $query)) {
     // Atualização bem-sucedida, redirecionar ou exibir uma mensagem de sucesso

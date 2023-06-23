@@ -1,7 +1,7 @@
 <?php
 include("conecta.php");
 
-$query = "SELECT usuario_atual.nome, cadastro.nome_cadastro, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional 
+$query = "SELECT usuario_atual.nome, cadastro.nome_cadastro, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional , cadastro.email_cadastro
           FROM usuario_atual
           INNER JOIN cadastro ON usuario_atual.nome = cadastro.nome_cadastro";
 
@@ -21,6 +21,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         $complemento = $row["complemento"];
         $informacaoAdicional = $row["informacao_adicional"];
         $casaTrabalho = $row["casa/trabalho"];
+        $email = $row["email_cadastro"];
 
         // Lógica para marcar os inputs corretos
         $casaChecked = '';
@@ -113,25 +114,25 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                     <div class="linha"></div>
                     <form action="confirmação_endereco2.php" method="post">
                 </div>
-                NOME
-                <input type="text" class="escritas"></input>
-                E-MAIL
-                <input type="text" class="escritas"></input>
-                CEP
-                <input type="text" class="escritas"></input>
-                Estado
-                <input type="text" class="escritas"></input>
-                Cidade
-                <input type="text" class="escritas"></input>
-                Bairro
-                <?php echo '<input name="bairro" value="' . $bairro . '" type="text" class="escritas"></input>'?>
-                Rua/Avenida
-                <input type="text" class="escritas"></input>
-                Número
-                <input type="text" class="escritas"></input>
-                Telefone
-                <input type="text" class="escritas"></input>
-                <button type="submit" class="Salvar">SALVAR</button> 
+                        NOME
+                        <?php echo '<input type="text" name="Nome" class="escritas" value="' . $nomeCadastro . '" readonly>';?>
+                        E-MAIL
+                        <?php echo '<input type="text" name="email_cadastro" class="escritas" value="' . $email . '"></input>' ?>
+                        CEP
+                        <?php echo '<input type="text" name="cep" class="escritas" value="' . $cep . '">'?>
+                        Estado
+                        <?php echo '<input type="text" name="estado" class="escritas" value="' . $estado . '">'?>
+                        Cidade
+                        <?php echo '<input type="text" name="cidade" class="escritas" value="' . $cidade . '">'?>
+                        Bairro
+                        <?php echo '<input type="text" name="bairro" class="escritas" value="' . $bairro . '">'?>
+                        Rua/Avenida
+                        <?php echo '<input type="text" name="rua/avenida" class="escritas" value="' . $ruaAvenida . '">'?>
+                        Número
+                        <?php echo '<input type="text" name="numerocasa" class="escritas" value="' . $numeroCasa . '">'?>
+                        Telefone
+                        <?php echo '<input type="text" name="TelefoneContato" class="escritas" value="' . $telefoneCadastro . '">'; ?>
+                        <button type="submit" class="salvar"></button> 
 </form>
 
             </div>
