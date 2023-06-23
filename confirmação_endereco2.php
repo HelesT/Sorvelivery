@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $complemento = $_POST["complemento"];
   $telefoneContato = $_POST["TelefoneContato"];
   $informacaoAdicional = $_POST["informacao_adicional"];
-  $email = $row["email_cadastro"];
+  $email = $_POST["email_cadastro"];
 
   // Verificar a opção selecionada
   $opcao = isset($_POST["radiocasa"]) && $_POST["radiocasa"] === "casa" ? "casa" : "trabalho";
