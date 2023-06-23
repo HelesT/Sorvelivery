@@ -113,10 +113,17 @@ body
         text-decoration: none;
     }
     .div3
+    {
+        background-color: #0000005f;
+        width: 100%;
+    }
     form {
-        background-color: #f2f2f2;
+        background-color: 0000005f;
+        width: 500px;
         border-radius: 5px;
         padding: 20px;
+        margin-left: 610px;
+
       }
       .div4
       {
