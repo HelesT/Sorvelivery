@@ -97,7 +97,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         <div class="pequenininha2" >
             <img src="Usua.png" width="100%">
         </div>
-        <button class="Sair">Sair</button>
+        <a href="Login.html"><button class="Sair">Sair</button></a>
         <button class="Sair">Editar Perfil</button>
 
     </div>

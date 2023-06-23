@@ -106,7 +106,7 @@ $resultado = $conexao->query($query);
         <div class="pequenininha2" >
             <img src="Usua.png" width="100%">
         </div>
-        <button class="Sair">Sair</button>
+        <a href="Login.html"><button class="Sair2">Sair</button></a>
         <a href="Edit.php"><button class="Sair2" >Editar Perfil</button></a>
 
     </div>
