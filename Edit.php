@@ -98,7 +98,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         <div class="pequenininha2" >
             <img src="Usua.png" width="100%">
         </div>
-        <button class="Sair">Sair</button>
+        <a href="Login.html"><button class="Sair">Sair</button></a>
         <button class="Sair">Editar Perfil</button>
 
     </div>
@@ -132,9 +132,9 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                         <?php echo '<input type="text" name="numerocasa" class="escritas" value="' . $numeroCasa . '">'?>
                         Telefone
                         <?php echo '<input type="text" name="TelefoneContato" class="escritas" value="' . $telefoneCadastro . '">'; ?>
-                        <button type="submit"></button> 
-                    </form>
-                
+                        <button type="submit" class="salvar"></button> 
+</form>
+
             </div>
         </div>
    </div>
