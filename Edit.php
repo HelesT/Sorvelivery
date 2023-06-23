@@ -109,7 +109,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                 <button class="edfoto">Editar foto</button>
             </div>
             <div class="informa">
-                <div class="text">
+                <div class="text">A
                     INFORMAÇÕES PESSOAIS
                     <div class="linha"></div>
                     <form action="confirmação_endereco2.php" method="post">
