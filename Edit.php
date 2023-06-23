@@ -99,7 +99,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
             <img src="Usua.png" width="100%">
         </div>
         <a href="Login.html"><button class="Sair">Sair</button></a>
-        <button class="Sair">Editar Perfil</button>
+        <button class="Sair">Editar Perfil</button>a 
 
     </div>
    <div class="principalzona">
