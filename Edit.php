@@ -131,7 +131,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                 <input type="text" class="escritas"></input>
                 Telefone
                 <input type="text" class="escritas"></input>
-                <button type="submit"></button> 
+                <button type="submit" class="Salvar">SALVAR</button> 
 </form>
 
             </div>

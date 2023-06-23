@@ -17,9 +17,9 @@
 }
 .edifotnome
 {
-    margin-left: 20px;
-    width: 30%;
-    height: 90%;
+    margin-left: 2px;
+    width: 35%;
+    height: 100%;
     background-color: #00000062;
     flex-direction: column;
     display: flex;
@@ -48,7 +48,7 @@
 .informa
 {
     width: 60%;
-    height: 90%;
+    height: 100%;
     background-color: #00000062;
     color: white;
     flex-direction: column;
@@ -157,7 +157,13 @@ nav
     align-content: center;
     align-items: center;
 }
-
+.Salvar
+{
+    width: 25%;
+    height: 5%;
+    background-color: rgb(168, 168, 168);
+    border-radius: 30px;
+}
 
 
 .cabecalho {
