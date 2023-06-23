@@ -42,6 +42,6 @@ if ($n == 0) {
     $comandoAtualizacao->bindParam(":nome", $nome);
     $comandoAtualizacao->execute();
     
-    header("location: pag3.html");
+    header("location: pag3.php");
 }
 ?>

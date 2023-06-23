@@ -30,13 +30,15 @@
 }
 .foto 
 {
-    width: 65%;
-    height: 30%;
+    width: 270px;
+    height: 270px;
     background-color: rgba(50, 50, 50, 0.887);
     border-radius: 50%;
-    border-style: solid;
-    border: 5px 5px 5px;
-    border-color: #000000;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
 }
 .edfoto 
 {

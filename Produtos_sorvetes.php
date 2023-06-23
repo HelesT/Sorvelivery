@@ -65,10 +65,10 @@ if (isset($_POST['adicionarSaborpink'])) {
     <div class="cabecalho">
         <div class="cabecalho1">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="Pag3.html" width="40px">
+            <a href="Pag3.php" width="40px">
                 <img src="Linha.png" width="350px">
             </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="Pag3.html" width="40px">
+            <a href="Pag3.php" width="40px">
                 <img src="Logo2.png" width="105px" style="margin-top: 25px;">
             </a>
         </div>
@@ -76,7 +76,7 @@ if (isset($_POST['adicionarSaborpink'])) {
             <input type="checkbox" id="chec">
             <nav>
                 <ul>
-                    <a href="Pag3.html">Início</a><font color="red">//</font>
+                    <a href="Pag3.php">Início</a><font color="red">//</font>
                     <a href="Cardapio.html">Cardápio</a><font color="red">//</font>
                     <a href="lojas.html">Lojas</a><font color="red">//</font>
                     <button onclick="animar();" style="background: none;border: none;padding: 0;font: inherit;cursor: pointer;text-decoration: none;color: rgb(35, 200, 200);">Fale Conosco</button>

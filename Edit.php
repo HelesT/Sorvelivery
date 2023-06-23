@@ -62,10 +62,10 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     <div class="cabecalho">
         <div class="cabecalho1">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="Pag3.html" width="40px">
+            <a href="Pag3.php" width="40px">
                 <img src="Linha.png" width="350px">
             </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="Pag3.html" width="40px">
+            <a href="Pag3.php" width="40px">
                 <img src="Logo2.png" width="105px" style="margin-top: 25px;">
             </a>
         </div>
@@ -73,7 +73,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
             <input type="checkbox" id="chec">
             <nav>
                 <ul>
-                    <a href="Pag3.html">Início</a><font color="red">//</font>
+                    <a href="Pag3.php">Início</a><font color="red">//</font>
                     <a href="Cardapio.html">Cardápio</a><font color="red">//</font>
                     <a href="lojas.html">Lojas</a><font color="red">//</font>
                     <button onclick="animar();" style="background: none;border: none;padding: 0;font: inherit;cursor: pointer;text-decoration: none;color: rgb(35, 200, 200);">Fale Conosco</button>
@@ -105,8 +105,14 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
    <div class="principalzona">
         <div class="opacidade">
             <div class="edifotnome">
-                <div class="foto"></div>
-                <button class="edfoto">Editar foto</button>
+                <form action="salvar_imagem.php" method="post" enctype="multipart/form-data">
+                    <div class="foto">
+                        <?php
+                            include("salvar_imagem.php");
+                        ?>
+                    </div>
+                    <input type="submit" value="Enviar">
+                </form>
             </div>
             <div class="informa">
                 <div class="text">
