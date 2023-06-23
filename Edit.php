@@ -132,7 +132,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                         <?php echo '<input type="text" name="numerocasa" class="escritas" value="' . $numeroCasa . '">'?>
                         Telefone
                         <?php echo '<input type="text" name="TelefoneContato" class="escritas" value="' . $telefoneCadastro . '">'; ?>
-                        <button type="submit" class="salvar"></button> 
+                        <button type="submit" class="Salvar">SALVAR</button> 
 </form>
 
             </div>
