@@ -21,7 +21,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         $complemento = $row["complemento"];
         $informacaoAdicional = $row["informacao_adicional"];
         $casaTrabalho = $row["casa/trabalho"];
-        $email = $row["email_cadastro"]
+        $email = $row["email_cadastro"];
 
         // Lógica para marcar os inputs corretos
         $casaChecked = '';
@@ -117,7 +117,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                         NOME
                         <?php echo '<input type="text" name="Nome" class="escritas" value="' . $nomeCadastro . '" readonly>';?>
                         E-MAIL
-                        <?php echo '<input type="text" name="email_cadastro" class="escritas" value="' . $email . '"></input>' ?>
+                        <?php echo '<input type="text" name="email_cadastro" class="escritas" value="' . $email . '">'; ?>
                         CEP
                         <?php echo '<input type="text" name="cep" class="escritas" value="' . $cep . '">'?>
                         Estado
