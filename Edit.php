@@ -21,7 +21,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         $complemento = $row["complemento"];
         $informacaoAdicional = $row["informacao_adicional"];
         $casaTrabalho = $row["casa/trabalho"];
-        $email = $row["email_cadastro"];
+        $email = $row["email_cadastro"]
 
         // Lógica para marcar os inputs corretos
         $casaChecked = '';
