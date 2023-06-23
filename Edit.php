@@ -99,7 +99,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
             <img src="Usua.png" width="100%">
         </div>
         <a href="Login.html"><button class="Sair2">Sair</button></a>
-        <button class="Sair2">Editar Perfil</button>
+        <a href="Edit.php"><button class="Sair2" >Editar Perfil</button></a>
 
     </div>
    <div class="principalzona">
@@ -117,7 +117,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                         NOME
                         <?php echo '<input type="text" name="Nome" class="escritas" value="' . $nomeCadastro . '" readonly>';?>
                         E-MAIL
-                        <?php echo '<input type="text" name="email_cadastro" class="escritas" value="' . $email . '">'; ?>
+                        <?php echo '<input type="text" name="email_cadastro" class="escritas" value="' . $email . '"></input>' ?>
                         CEP
                         <?php echo '<input type="text" name="cep" class="escritas" value="' . $cep . '">'?>
                         Estado
