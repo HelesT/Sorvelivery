@@ -11,6 +11,10 @@ try {
     die("Falha na conexão com o banco de dados: " . $e->getMessage());
 }
 
+// Atualiza todos os itens da coluna "acesso" para "n"
+$comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET acesso = 'n'");
+$comandoAtualizacao->execute();
+
 $nome = $_POST["nome_cadastro"];
 $senha = $_POST["senha_cadastro"];
 
@@ -25,23 +29,25 @@ $admin = "n";
 while ($linhas = $comando->fetch()) {
     $n = 1;
     $admin = $linhas["admin_cadastro"];
+    $codigo_cadastro = $linhas["codigo_cadastro"]; // Obtém o valor da coluna "codigo_cadastro"
 }
 
 if ($n == 0) {
-    header("location: login.html");
+    header("Location: login.html");
+    exit;
 } elseif ($admin == "s") {
-    // Atualiza a tabela "usuario_atual" com o valor de "nome_cadastro"
-    $comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET nome = :nome WHERE Codigo_usuario = 1");
-    $comandoAtualizacao->bindParam(":nome", $nome);
+    $comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET acesso = 's' WHERE codigo_usuario = :codigo_cadastro");
+    $comandoAtualizacao->bindParam(":codigo_cadastro", $codigo_cadastro);
     $comandoAtualizacao->execute();
-    
-    header("location: pag3admin.html");
+
+    header("Location: pag3admin.html");
+    exit;
 } else {
-    // Atualiza a tabela "usuario_atual" com o valor de "nome_cadastro"
-    $comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET nome = :nome WHERE Codigo_usuario = 1");
-    $comandoAtualizacao->bindParam(":nome", $nome);
+    $comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET acesso = 's' WHERE codigo_usuario = :codigo_cadastro");
+    $comandoAtualizacao->bindParam(":codigo_cadastro", $codigo_cadastro);
     $comandoAtualizacao->execute();
-    
-    header("location: pag3.php");
+
+    header("Location: pag3.php");
+    exit;
 }
 ?>

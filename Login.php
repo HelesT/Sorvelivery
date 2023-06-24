@@ -1,3 +1,23 @@
+<?php
+$host = "localhost";
+$usuario = "root";
+$senha = "";
+$banco = "sorvelivery";
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$banco", $usuario, $senha);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Falha na conexão com o banco de dados: " . $e->getMessage());
+}
+
+// Atualiza todos os itens da coluna "acesso" para "n"
+$comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET acesso = 'n'");
+$comandoAtualizacao->execute();
+
+$comandoAtualizacao = $pdo->prepare("UPDATE produtos SET carrinho_produto = 'n'");
+$comandoAtualizacao->execute();
+ ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,7 +44,7 @@
             <img src="Logo2.png" class="logo">
                 <form action="verificalogin.php" method="post">
                 <div class="q2">
-                    <input type="text" class="Caixa1"  placeholder="Nome" name="nome_cadastro">
+                    <input type="text" class="Caixa1"  placeholder="Usuario" name="nome_cadastro">
                     <input type="password" class="Caixa1"  placeholder="Senha" name="senha_cadastro">
                 </div>
             <div class="q3">

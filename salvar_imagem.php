@@ -11,7 +11,8 @@ try {
     if (isset($_FILES["imagem"]) && $_FILES["imagem"]["error"] === UPLOAD_ERR_OK) {
         $imagem = file_get_contents($_FILES["imagem"]["tmp_name"]);
 
-        $comando = $pdo->prepare("UPDATE cadastro SET foto = :foto");
+        $comando = $pdo->prepare("UPDATE cadastro JOIN usuario_atual ON usuario_atual.codigo_usuario = cadastro.codigo_cadastro SET cadastro.foto = :foto WHERE usuario_atual.acesso = 's'");
+
         $comando->bindParam(":foto", $imagem, PDO::PARAM_LOB);
         $resultado = $comando->execute();
 

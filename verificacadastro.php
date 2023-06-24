@@ -31,16 +31,29 @@ $consulta->execute([$nome]);
 $resultadoConsulta = $consulta->fetchColumn();
 
 if ($resultadoConsulta > 0) {
-    header("location: cadastro.html?mensagem=nomeexistente");
+    header("location: cadastro.html?mensagem=usuarioexistente");
     exit; // Termina o script para evitar a execução do restante do código
 }
 
+// Verifica se o nome já existe na base de dados
+$consulta = $pdo->prepare("SELECT COUNT(*) FROM cadastro WHERE email_cadastro = ?");
+$consulta->execute([$email]);
+$resultadoConsulta = $consulta->fetchColumn();
+
+if ($resultadoConsulta > 0) {
+    header("location: cadastro.html?mensagem=usuarioexistente");
+    exit; // Termina o script para evitar a execução do restante do código
+}
+
+
+$comando = $pdo->prepare("INSERT INTO usuario_atual VALUES ('',? , 'n')");
+$resultado = $comando->execute([$nome]);
 // Insere os dados na base de dados
-$comando = $pdo->prepare("INSERT INTO cadastro VALUES (?, ?,'','','','','','','','','',?,?,'n')");
+$comando = $pdo->prepare("INSERT INTO cadastro VALUES ('',?, ?,'','','','','','','','','',?,?,'n','')");
 $resultado = $comando->execute([$nome, $telefone, $email, $senha]);
 
 if ($resultado) {
-    header("location: login.html");
+    header("location: login.php");
 } else {
     header("location: cadastro.html");
 }
