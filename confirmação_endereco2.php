@@ -12,7 +12,7 @@ if (mysqli_connect_errno()) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   // Obter os valores dos campos do formulário
-  $nome = $_POST["Nome"];
+  $nomeCadastro = $_POST['nome_cadastro'];
   $cep = $_POST["cep"];
   $estado = $_POST["estado"];
   $cidade = $_POST["cidade"];
@@ -28,7 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $opcao = isset($_POST["radiocasa"]) && $_POST["radiocasa"] === "casa" ? "casa" : "trabalho";
 
   // Executar a instrução de atualização no banco de dados
-  $query = "UPDATE cadastro SET cep='$cep', estado='$estado', cidade='$cidade', bairro='$bairro', `rua/avenida`='$ruaAvenida', numero='$numeroCasa', complemento='$complemento', `casa/trabalho`='$opcao', telefone_cadastro='$telefoneContato', informacao_adicional='$informacaoAdicional', email_cadastro='$email' WHERE nome_cadastro='$nome'";
+  $query = "UPDATE cadastro
+          INNER JOIN usuario_atual ON cadastro.nome_usuario = usuario_atual.nome_usuario AND usuario_atual.codigo_usuario = cadastro.codigo_cadastro
+          SET cadastro.cep='$cep', cadastro.estado='$estado', cadastro.cidade='$cidade', cadastro.bairro='$bairro', cadastro.`rua/avenida`='$ruaAvenida', cadastro.numero='$numeroCasa', cadastro.complemento='$complemento', cadastro.`casa/trabalho`='$opcao', cadastro.telefone_cadastro='$telefoneContato', cadastro.informacao_adicional='$informacaoAdicional', cadastro.email_cadastro='$email', cadastro.nome_cadastro='$nomeCadastro'
+          WHERE usuario_atual.acesso = 's'";
+
+
 
   if (mysqli_query($conexao, $query)) {
     // Atualização bem-sucedida, redirecionar ou exibir uma mensagem de sucesso

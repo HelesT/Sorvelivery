@@ -2,15 +2,15 @@
 
 include("conecta.php");
 
-$query = "SELECT usuario_atual.nome, cadastro.nome_cadastro, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional 
+$query = "SELECT usuario_atual.nome_usuario, cadastro.nome_usuario, cadastro.nome_cadastro, usuario_atual.acesso, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional , cadastro.email_cadastro
           FROM usuario_atual
-          INNER JOIN cadastro ON usuario_atual.nome = cadastro.nome_cadastro";
+          INNER JOIN cadastro ON usuario_atual.nome_usuario = cadastro.nome_usuario WHERE usuario_atual.acesso = 's'";
+
 
 $resultado = mysqli_query($conexao, $query);
 
 if ($resultado && mysqli_num_rows($resultado) > 0) {
     while ($row = mysqli_fetch_assoc($resultado)) {
-        $nomeUsuario = $row['nome'];
         $nomeCadastro = $row['nome_cadastro'];
         $telefoneCadastro = $row['telefone_cadastro'];
         $cep = $row["cep"];
@@ -22,16 +22,17 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         $complemento = $row["complemento"];
         $informacaoAdicional = $row["informacao_adicional"];
         $casaTrabalho = $row["casa/trabalho"];
+        $email = $row["email_cadastro"];
 
-        // Lógica para marcar os inputs corretos
+	// Lógica para marcar os inputs corretos
         $casaChecked = '';
         $trabalhoChecked = '';
-
+	
         if ($casaTrabalho === 'casa') {
-            $casaChecked = 'checked';
-        } elseif ($casaTrabalho === 'trabalho') {
-            $trabalhoChecked = 'checked';
-        }
+          $casaChecked = 'checked';
+      } elseif ($casaTrabalho === 'trabalho') {
+          $trabalhoChecked = 'checked';
+      }
     }
 }
 
@@ -39,10 +40,6 @@ $sql = "SELECT SUM(preco_produto) AS soma FROM produtos WHERE carrinho_produto =
 $result = $conexao->query($sql);
 $row = $result->fetch_assoc();
 $soma = $row['soma'];
-
-// Query para buscar as imagens dos produtos no carrinho
-$query = "SELECT imagem FROM produtos WHERE carrinho_produto = 's'";
-$resultado = $conexao->query($query);
 ?>
 
 
@@ -60,6 +57,13 @@ $resultado = $conexao->query($query);
 <body>
     <div class="overlay" id="overlay" name="overlay" onclick="ocultarDivPrincipal()"></div>
 
+    <div class="fale_conoscodiv" id="fale_conoscodiv" style="top: -100%;">
+        <div class="row100">
+            <input type="text" id="mensagem" class="caixadetexto">
+            <button onclick="Enviar();" class="enviartexto">Enviar</button>
+        </div>
+        <div id="resposta" class="resposta"></div>
+    </div>
     <div class="fale_conoscodiv" id="fale_conoscodiv" style="top: -100%;">
         <div class="row100">
             <input type="text" id="mensagem" class="caixadetexto">
@@ -94,8 +98,23 @@ $resultado = $conexao->query($query);
             </div>
         </div>
         <div class="cabecalho3">
-            <div class="pequenininha" onclick="animar1()">
-                <img src="Usua.png" width="100%">
+        <div class="pequenininha" style="width: 50px;height: 50px;">
+            <?php
+                            include("salvar_imagem.php");
+                            if ($resultado) {
+                                $linha = $comando->fetch(PDO::FETCH_ASSOC);
+                                if ($linha) {
+                                    $dados_imagem = $linha["foto"];
+                                    $i = base64_encode($dados_imagem);        
+                                    // Exibir input de seleção de arquivo como a própria imagem
+                                    echo "<img src='data:image/jpeg;base64,$i' onclick='animar1()' style='border-radius: 50%; object-fit: cover; width: 100%; height: 100%;cursor: pointer;'>";                                    
+                                } else {
+                                    echo "Nenhum arquivo de imagem foi enviado.";
+                                }
+                            } else {
+                                echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
+                            }
+                        ?>
             </div>
             <a href="Pag5.php" width="40px">
                 <img src="carrinho.png" width="40px" >
@@ -103,9 +122,24 @@ $resultado = $conexao->query($query);
         </div>
     </div>
     <div class="caixausu" >
-        <div class="pequenininha2" >
-            <img src="Usua.png" width="100%">
-        </div>
+    <div class="pequenininha2">
+            <?php
+                            include("salvar_imagem.php");
+                            if ($resultado) {
+                                $linha = $comando->fetch(PDO::FETCH_ASSOC);
+                                if ($linha) {
+                                    $dados_imagem = $linha["foto"];
+                                    $i = base64_encode($dados_imagem);        
+                                    // Exibir input de seleção de arquivo como a própria imagem
+                                    echo "<img src='data:image/jpeg;base64,$i' onclick='animar1()' style='border-radius: 50%; object-fit: cover; width: 100%; height: 100%;cursor: pointer;'>";                                    
+                                } else {
+                                    echo "Nenhum arquivo de imagem foi enviado.";
+                                }
+                            } else {
+                                echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
+                            }
+                        ?>
+            </div>
         <a href="Login.html"><button class="Sair2">Sair</button></a>
         <a href="Edit.php"><button class="Sair2" >Editar Perfil</button></a>
 
@@ -118,7 +152,7 @@ $resultado = $conexao->query($query);
             
                 <div style="margin: 50px; background-color: rgb(255, 255, 255);">
                         Nome<br>
-                        <?php echo '<input type="text" name="Nome" value="' . $nomeCadastro . '" readonly>';?><br><br>
+                        <?php echo '<input type="text" name="nome_cadastro" value="' . $nomeCadastro . '">';?><br><br>
                         CEP<br>
                         <div class="linhacompra"><?php echo '<input type="text" name="cep" value="' . $cep . '">'?></div><br>
                         <div class="linhacompradupla">
@@ -162,11 +196,19 @@ $resultado = $conexao->query($query);
             <div style="font-size: 20px;">Total: R$<?php echo number_format($soma, 2, ',', '.')?> </div>
             <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
             <div class="imagem-container"><?php
-            while ($row = $resultado->fetch_assoc()) {
-                $imagemBinaria = $row["imagem"];
-
-                // Exibe a imagem
-                echo '<img src="data:image/png;base64,' . base64_encode($imagemBinaria) . '" width="75px">';
+            $query = "SELECT imagem FROM produtos WHERE carrinho_produto = 's'";
+            $resultado = $conexao->query($query);
+            
+            if ($resultado === false) {
+                // Tratar o erro na consulta SQL
+                echo "Ocorreu um erro na consulta SQL: " . $conexao->error;
+            } else {
+                while ($row = $resultado->fetch_assoc()) {
+                    $imagemBinaria = $row["imagem"];
+            
+                    // Exibe a imagem
+                    echo '<img src="data:image/png;base64,' . base64_encode($imagemBinaria) . '" width="75px">';
+                }
             }
             ?></div>
             <div style="font-size: 20px;">Metodo de Pagamento: </div>

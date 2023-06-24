@@ -1,15 +1,15 @@
 <?php
 include("conecta.php");
 
-$query = "SELECT usuario_atual.nome, cadastro.nome_cadastro, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional , cadastro.email_cadastro
+$query = "SELECT usuario_atual.nome_usuario, cadastro.nome_usuario, cadastro.nome_cadastro, usuario_atual.acesso, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional , cadastro.email_cadastro
           FROM usuario_atual
-          INNER JOIN cadastro ON usuario_atual.nome = cadastro.nome_cadastro";
+          INNER JOIN cadastro ON usuario_atual.nome_usuario = cadastro.nome_usuario WHERE usuario_atual.acesso = 's'";
+
 
 $resultado = mysqli_query($conexao, $query);
 
 if ($resultado && mysqli_num_rows($resultado) > 0) {
     while ($row = mysqli_fetch_assoc($resultado)) {
-        $nomeUsuario = $row['nome'];
         $nomeCadastro = $row['nome_cadastro'];
         $telefoneCadastro = $row['telefone_cadastro'];
         $cep = $row["cep"];
@@ -21,17 +21,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         $complemento = $row["complemento"];
         $informacaoAdicional = $row["informacao_adicional"];
         $casaTrabalho = $row["casa/trabalho"];
-        $email = $row["email_cadastro"];
-
-        // Lógica para marcar os inputs corretos
-        $casaChecked = '';
-        $trabalhoChecked = '';
-
-        if ($casaTrabalho === 'casa') {
-            $casaChecked = 'checked';
-        } elseif ($casaTrabalho === 'trabalho') {
-            $trabalhoChecked = 'checked';
-        }
+        $email = $row["email_cadastro"];  
     }
 }
 ?>
@@ -86,8 +76,23 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
             </div>
         </div>
         <div class="cabecalho3">
-            <div class="pequenininha" >
-                <img src="Usua.png" width="100%" onclick="animar1()">
+        <div class="pequenininha" style="width: 50px;height: 50px;">
+            <?php
+                            include("salvar_imagem.php");
+                            if ($resultado) {
+                                $linha = $comando->fetch(PDO::FETCH_ASSOC);
+                                if ($linha) {
+                                    $dados_imagem = $linha["foto"];
+                                    $i = base64_encode($dados_imagem);        
+                                    // Exibir input de seleção de arquivo como a própria imagem
+                                    echo "<img src='data:image/jpeg;base64,$i' onclick='animar1()' style='border-radius: 50%; object-fit: cover; width: 100%; height: 100%;cursor: pointer;'>";                                    
+                                } else {
+                                    echo "Nenhum arquivo de imagem foi enviado.";
+                                }
+                            } else {
+                                echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
+                            }
+                        ?>
             </div>
             <a href="Pag5.php" width="40px">
                 <img src="carrinho.png" width="40px" >
@@ -95,13 +100,29 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         </div>
     </div>
     <div class="caixausu" >
-        <div class="pequenininha2" >
-            <img src="Usua.png" width="100%">
-        </div>
+    <div class="pequenininha2">
+            <?php
+                            include("salvar_imagem.php");
+                            if ($resultado) {
+                                $linha = $comando->fetch(PDO::FETCH_ASSOC);
+                                if ($linha) {
+                                    $dados_imagem = $linha["foto"];
+                                    $i = base64_encode($dados_imagem);        
+                                    // Exibir input de seleção de arquivo como a própria imagem
+                                    echo "<img src='data:image/jpeg;base64,$i' onclick='animar1()' style='border-radius: 50%; object-fit: cover; width: 100%; height: 100%;cursor: pointer;'>";                                    
+                                } else {
+                                    echo "Nenhum arquivo de imagem foi enviado.";
+                                }
+                            } else {
+                                echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
+                            }
+                        ?>
+            </div>
         <a href="Login.html"><button class="Sair2">Sair</button></a>
         <a href="Edit.php"><button class="Sair2" >Editar Perfil</button></a>
 
     </div>
+
    <div class="principalzona">
         <div class="opacidade">
             <div class="edifotnome">
@@ -109,6 +130,23 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                     <div class="foto">
                         <?php
                             include("salvar_imagem.php");
+                            if ($resultado) {
+                                $linha = $comando->fetch(PDO::FETCH_ASSOC);
+                                if ($linha) {
+                                    $dados_imagem = $linha["foto"];
+                                    $i = base64_encode($dados_imagem);
+                        
+                                    // Exibir input de seleção de arquivo como a própria imagem
+                                    echo "<label for='selecao-imagem' style='display: inline-block; width: 100%; height: 100%; cursor: pointer;'>";
+                                    echo "<img src='data:image/jpeg;base64,$i' style='border-radius: 50%; object-fit: cover; width: 100%; height: 100%;'>";
+                                    echo "</label>";
+                                    echo "<input type='file' id='selecao-imagem' name='imagem' style='display: none;'>";
+                                } else {
+                                    echo "Nenhum arquivo de imagem foi enviado.";
+                                }
+                            } else {
+                                echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
+                            }
                         ?>
                     </div>
                     <input type="submit" value="Enviar">
@@ -120,30 +158,38 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                     <div class="linha"></div>
                     <form action="confirmação_endereco2.php" method="post">
                 </div>
-                        NOME
-                        <?php echo '<input type="text" name="Nome" class="escritas" value="' . $nomeCadastro . '" readonly>';?>
-                        E-MAIL
-                        <?php echo '<input type="text" name="email_cadastro" class="escritas" value="' . $email . '"></input>' ?>
-                        CEP
-                        <?php echo '<input type="text" name="cep" class="escritas" value="' . $cep . '">'?>
-                        Estado
-                        <?php echo '<input type="text" name="estado" class="escritas" value="' . $estado . '">'?>
-                        Cidade
-                        <?php echo '<input type="text" name="cidade" class="escritas" value="' . $cidade . '">'?>
-                        Bairro
-                        <?php echo '<input type="text" name="bairro" class="escritas" value="' . $bairro . '">'?>
-                        Rua/Avenida
-                        <?php echo '<input type="text" name="rua/avenida" class="escritas" value="' . $ruaAvenida . '">'?>
-                        Número
-                        <?php echo '<input type="text" name="numerocasa" class="escritas" value="' . $numeroCasa . '">'?>
-                        Telefone
-                        <?php echo '<input type="text" name="TelefoneContato" class="escritas" value="' . $telefoneCadastro . '">'; ?>
-                        <button type="submit" class="Salvar">SALVAR</button> 
-</form>
+                NOME
+<?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
 
+E-MAIL
+<?php echo '<input type="text" name="email_cadastro" class="escritas" value="' . $email . '" readonly>' ?>
+
+CEP
+<?php echo '<input type="text" name="cep" class="escritas" value="' .  $cep . '">' ?>
+
+Estado
+<?php echo '<input type="text" name="estado" class="escritas" value="' .  $estado . '">' ?>
+
+Cidade
+<?php echo '<input type="text" name="cidade" class="escritas" value="' . $cidade . '">' ?>
+
+Bairro
+<?php echo '<input type="text" name="bairro" class="escritas" value="' . $bairro . '">' ?>
+
+Rua/Avenida
+<?php echo '<input type="text" name="rua/avenida" class="escritas" value="' . $ruaAvenida . '">' ?>
+
+Número
+<?php echo '<input type="text" name="numerocasa" class="escritas" value="' . $numeroCasa . '">' ?>
+
+Telefone
+<?php echo '<input type="text" name="TelefoneContato" class="escritas" value="' . $telefoneCadastro . '">' ?>
+
+                        <button type="submit" class="Salvar">SALVAR</button> 
+                    </form>
+                </div>
             </div>
         </div>
-   </div>
 
 
 <div class="des">

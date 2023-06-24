@@ -49,8 +49,23 @@
             </div>
         </div>
         <div class="cabecalho3">
-            <div class="pequenininha" >
-                <img src="Usua.png" width="100%" onclick="animar1() " >
+        <div class="pequenininha" style="width: 50px;height: 50px;">
+            <?php
+                            include("salvar_imagem.php");
+                            if ($resultado) {
+                                $linha = $comando->fetch(PDO::FETCH_ASSOC);
+                                if ($linha) {
+                                    $dados_imagem = $linha["foto"];
+                                    $i = base64_encode($dados_imagem);        
+                                    // Exibir input de seleção de arquivo como a própria imagem
+                                    echo "<img src='data:image/jpeg;base64,$i' onclick='animar1()' style='border-radius: 50%; object-fit: cover; width: 100%; height: 100%;cursor: pointer;'>";                                    
+                                } else {
+                                    echo "Nenhum arquivo de imagem foi enviado.";
+                                }
+                            } else {
+                                echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
+                            }
+                        ?>
             </div>
             <a href="Pag5.php" width="40px">
                 <img src="carrinho.png" width="40px" >
@@ -58,9 +73,24 @@
         </div>
     </div>
     <div class="caixausu" >
-        <div class="pequenininha2" >
-            <img src="Usua.png" width="100%">
-        </div>
+    <div class="pequenininha2">
+            <?php
+                            include("salvar_imagem.php");
+                            if ($resultado) {
+                                $linha = $comando->fetch(PDO::FETCH_ASSOC);
+                                if ($linha) {
+                                    $dados_imagem = $linha["foto"];
+                                    $i = base64_encode($dados_imagem);        
+                                    // Exibir input de seleção de arquivo como a própria imagem
+                                    echo "<img src='data:image/jpeg;base64,$i' onclick='animar1()' style='border-radius: 50%; object-fit: cover; width: 100%; height: 100%;cursor: pointer;'>";                                    
+                                } else {
+                                    echo "Nenhum arquivo de imagem foi enviado.";
+                                }
+                            } else {
+                                echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
+                            }
+                        ?>
+            </div>
         <a href="Login.html"><button class="Sair2">Sair</button></a>
         <a href="Edit.php"><button class="Sair2" >Editar Perfil</button></a>
 

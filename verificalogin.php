@@ -18,8 +18,8 @@ $comandoAtualizacao->execute();
 $nome = $_POST["nome_cadastro"];
 $senha = $_POST["senha_cadastro"];
 
-$comando = $pdo->prepare("SELECT * FROM cadastro WHERE nome_cadastro = :nome AND senha_cadastro = :senha");
-$comando->bindParam(":nome", $nome);
+$comando = $pdo->prepare("SELECT * FROM cadastro WHERE cadastro.nome_usuario = :nome_usuario AND senha_cadastro = :senha");
+$comando->bindParam(":nome_usuario", $nome);
 $comando->bindParam(":senha", $senha);
 $resultado = $comando->execute();
 
