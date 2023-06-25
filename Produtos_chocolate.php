@@ -5,9 +5,12 @@ include("conecta.php");
 
 if (isset($_POST['adicionarChococream'])) {
     $nomeProduto = 'chococream'; // Nome do produto a ser atualizado
+    $tamanhoChococream = $_POST['tamanho_chococream'];
+    $acompanhamentoChococream = $_POST['acompanhamento_chococream'];
 
     // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's' WHERE nome_produto = ?";
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChococream', acompanhamento_produto = '$acompanhamentoChococream' WHERE nome_produto = ?";
+    
     $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
     mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
 
@@ -24,9 +27,11 @@ if (isset($_POST['adicionarChococream'])) {
 
 if (isset($_POST['adicionarChocomalti'])) {
     $nomeProduto = 'chocomalti'; // Nome do produto a ser inserido
+    $tamanhoChocomalti = $_POST['tamanho_chocomalti'];
+    $acompanhamentoChocomalti = $_POST['acompanhamento_chocomalti'];
 
     // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's' WHERE nome_produto = ?";
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChocomalti', acompanhamento_produto = '$acompanhamentoChocomalti' WHERE nome_produto = ?";
     $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
     mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
 
@@ -172,20 +177,21 @@ if (isset($_POST['adicionarChocomalti'])) {
                     <input type="text" class="pesquisar2" id="pesquisar" placeholder="Filtro"> &nbsp;&nbsp;
                     <img src="Lupa.png" class="lupa" width="30px">
                 </div>
+                <form method="POST" action="" >
                 <div class="bloco chococream" >
                     <div class="bloco2">
                         <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
                             <font color="white" style="font-size: 35px;">chococream</font><br><br><br>
                             <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select name="tamanho_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select class="tamanho_produto" name="acompanhamento_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
@@ -194,13 +200,13 @@ if (isset($_POST['adicionarChocomalti'])) {
                             <font color="white" style="font-size: 35px;">R$12,00</font>
                         </div>
                         <div class="Partição3">                           
-                            <form method="POST" action="" >
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
                             </form>
                         </div>
                     </div>
                 </div>
 
+                <form method="POST" action="" >
                 <div class="bloco chocomalti">
                     <div class="bloco2">
                         <div class="Partição1"><img src="chocomalti.png" class="sorvete-produto-exemplo" width="300px"></div>
@@ -208,14 +214,14 @@ if (isset($_POST['adicionarChocomalti'])) {
                             <font color="white" style="font-size: 35px;">Chocomalti
                             </font><br><br><br>
                             <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select class="tamanho_produto" name="tamanho_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select class="tamanho_produto" name="acompanhamento_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
@@ -224,7 +230,6 @@ if (isset($_POST['adicionarChocomalti'])) {
                             <font color="white" style="font-size: 35px;">R$14,00</font>
                         </div>
                         <div class="Partição3">
-                        <form method="POST" action="" >
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChocomalti" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
                             </form>
                         </div>
