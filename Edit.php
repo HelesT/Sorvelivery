@@ -118,9 +118,22 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                             }
                         ?>
             </div>
-        <a href="Login.php"><button class="Sair2">Sair</button></a>
-        <a href="Edit.php"><button class="Sair2" >Editar Perfil</button></a>
-
+            <div style="color:white;margin-top:0px"><?php 
+        include("conecta.php");
+        $query = "SELECT nome_usuario
+          FROM usuario_atual
+          WHERE usuario_atual.acesso = 's'";
+          $resultado = mysqli_query($conexao, $query);
+          if ($resultado && mysqli_num_rows($resultado) > 0) {
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                $nomeUsuario = $row['nome_usuario'];
+            }
+        }
+        echo $nomeUsuario
+        ?></div>   
+        <a href="Edit.php" style="margin-top:5px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Editar Perfil</button></a>
+        <a href="Login.php" style="margin-top:2px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Sair</button></a>                 
+    
     </div>
 
    <div class="principalzona">
@@ -149,8 +162,21 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                             }
                         ?>
                     </div>
-                    <input type="submit" value="Confirmar" style="margin-top:20px;width:200px;margin-left:35px;border: 1px 1px 1px black;border-style:solid; cursor: pointer;">
+                    <input type="submit" value="Confirmar" style="margin-top:20px;margin-left:60px; width: 150px;height: 25px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">
                 </form>
+                <div style="color:white;margin-top:10px;font-size:40px"><?php 
+        include("conecta.php");
+        $query = "SELECT nome_usuario
+          FROM usuario_atual
+          WHERE usuario_atual.acesso = 's'";
+          $resultado = mysqli_query($conexao, $query);
+          if ($resultado && mysqli_num_rows($resultado) > 0) {
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                $nomeUsuario = $row['nome_usuario'];
+            }
+        }
+        echo $nomeUsuario
+        ?></div>  
             </div>
             <div class="informa">
                 <div class="text">
@@ -192,8 +218,7 @@ Telefone
         </div>
 
 
-<div class="des"></div>
-<div class="esc"></div>
+
 
 </body>
 <script>

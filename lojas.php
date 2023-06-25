@@ -86,9 +86,22 @@
                             }
                         ?>
             </div>
-        <a href="Login.php"><button class="Sair2">Sair</button></a>
-        <a href="Edit.php"><button class="Sair2" >Editar Perfil</button></a>
-
+            <div style="color:white;margin-top:0px"><?php 
+        include("conecta.php");
+        $query = "SELECT nome_usuario
+          FROM usuario_atual
+          WHERE usuario_atual.acesso = 's'";
+          $resultado = mysqli_query($conexao, $query);
+          if ($resultado && mysqli_num_rows($resultado) > 0) {
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                $nomeUsuario = $row['nome_usuario'];
+            }
+        }
+        echo $nomeUsuario
+        ?></div>   
+        <a href="Edit.php" style="margin-top:5px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Editar Perfil</button></a>
+        <a href="Login.php" style="margin-top:2px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Sair</button></a>                 
+    
     </div>
     
     <div style="width: 100%;height: 600px;background-color: rgba(0, 0, 0, 0.479);display: flex;justify-items: center;align-items: center;align-content: center;flex-direction: row;">
