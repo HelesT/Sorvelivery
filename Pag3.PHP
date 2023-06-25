@@ -137,44 +137,44 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         <a href="Login.php" style="margin-top:2px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Sair</button></a>                 
     
     </div>
-    <div class="carousel">
-        <div class="carousel-inner">
-            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
-            <div class="carousel-item">
-                <img src="prom.png">
+    <div class="carousel" style="z-index: 0;">
+        <div class="carousel-inner" style="z-index: 0;">
+            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked" style="z-index: 0;">
+            <div class="carousel-item" style="z-index: 0;">
+                <img src="prom.png" style="z-index: 0;">
             </div>
-            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
-            <div class="carousel-item">
-                <img src="Dia.png">
+            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="" style="z-index: 0;">
+            <div class="carousel-item" style="z-index: 0;">
+                <img src="Dia.png" style="z-index: 0;">
             </div>
-            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
-            <div class="carousel-item">
-                <img src="descmilk.png">   
+            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="" style="z-index: 0;">
+            <div class="carousel-item" style="z-index: 0;">
+                <img src="descmilk.png" style="z-index: 0;">   
             </div>
-            <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="">
-            <div class="carousel-item">
-                <img src="Pdw.png">
+            <input class="carousel-open" type="radio" id="carousel-4" name="carousel" aria-hidden="true" hidden="" style="z-index: 0;">
+            <div class="carousel-item" style="z-index: 0;">
+                <img src="Pdw.png" style="z-index: 0;">
             </div>
-            <label for="carousel-4" class="carousel-control prev control-1">‹</label>
-            <label for="carousel-2" class="carousel-control next control-1">›</label>
-            <label for="carousel-1" class="carousel-control prev control-2">‹</label>
-            <label for="carousel-3" class="carousel-control next control-2">›</label>
-            <label for="carousel-2" class="carousel-control prev control-3">‹</label>
-            <label for="carousel-4" class="carousel-control next control-3">›</label>
-            <label for="carousel-3" class="carousel-control prev control-4">‹</label>
-            <label for="carousel-1" class="carousel-control next control-4">›</label>
-            <ol class="carousel-indicators">
-                <li>
-                    <label for="carousel-1" class="carousel-bullet">•</label>
+            <label for="carousel-4" class="carousel-control prev control-1" style="z-index: 0;">‹</label>
+            <label for="carousel-2" class="carousel-control next control-1" style="z-index: 0;">›</label>
+            <label for="carousel-1" class="carousel-control prev control-2" style="z-index: 0;">‹</label>
+            <label for="carousel-3" class="carousel-control next control-2" style="z-index: 0;">›</label>
+            <label for="carousel-2" class="carousel-control prev control-3" style="z-index: 0;">‹</label>
+            <label for="carousel-4" class="carousel-control next control-3" style="z-index: 0;">›</label>
+            <label for="carousel-3" class="carousel-control prev control-4" style="z-index: 0;">‹</label>
+            <label for="carousel-1" class="carousel-control next control-4" style="z-index: 0;">›</label>
+            <ol class="carousel-indicators" style="z-index: 0;">
+                <li style="z-index: 0;">
+                    <label for="carousel-1" class="carousel-bullet" style="z-index: 0;">•</label>
                 </li>
-                <li>
-                    <label for="carousel-2" class="carousel-bullet">•</label>
+                <li style="z-index: 0;">
+                    <label for="carousel-2" class="carousel-bullet" style="z-index: 0;">•</label>
                 </li>
-                <li>
-                    <label for="carousel-3" class="carousel-bullet">•</label>
+                <li style="z-index: 0;">
+                    <label for="carousel-3" class="carousel-bullet" style="z-index: 0;">•</label>
                 </li>
-                <li>
-                    <label for="carousel-4" class="carousel-bullet">•</label>
+                <li style="z-index: 0;">
+                    <label for="carousel-4" class="carousel-bullet" style="z-index: 0;">•</label>
                 </li>
             </ol>
         </div>
