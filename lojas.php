@@ -32,8 +32,8 @@
             <nav>
                 <ul>
                     <a href="Pag3.php">Início</a><font color="red">//</font>
-                    <a href="Cardapio.html">Cardápio</a><font color="red">//</font>
-                    <a href="lojas.html">Lojas</a><font color="red">//</font>
+                    <a href="Cardapio.php">Cardápio</a><font color="red">//</font>
+                    <a href="lojas.php">Lojas</a><font color="red">//</font>
                     <button onclick="animar();" style="background: none;border: none;padding: 0;font: inherit;cursor: pointer;text-decoration: none;color: rgb(35, 200, 200);">Fale Conosco</button>
                 </ul>
             </nav>
@@ -86,7 +86,7 @@
                             }
                         ?>
             </div>
-        <a href="Login.html"><button class="Sair2">Sair</button></a>
+        <a href="Login.php"><button class="Sair2">Sair</button></a>
         <a href="Edit.php"><button class="Sair2" >Editar Perfil</button></a>
 
     </div>
