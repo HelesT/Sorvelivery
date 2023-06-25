@@ -149,7 +149,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                             }
                         ?>
                     </div>
-                    <input type="submit" value="Enviar">
+                    <input type="submit" value="Confirmar" style="margin-top:20px;width:200px;margin-left:35px;border: 1px 1px 1px black;border-style:solid; cursor: pointer;">
                 </form>
             </div>
             <div class="informa">
@@ -192,7 +192,7 @@ Telefone
         </div>
 
 
-<div class="des">
+<div class="des"></div>
 <div class="esc"></div>
 
 </body>
