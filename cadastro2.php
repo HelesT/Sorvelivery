@@ -37,7 +37,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Kanit&family=Russo+One&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="edit.css" type="text/css">
+    <link rel="stylesheet" href="cadastro2.css" type="text/css">
     <script src="jquery-3.7.0.min.js"></script>
 </head>
 <body>
@@ -162,7 +162,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                             }
                         ?>
                     </div>
-                    <input type="submit" value="Confirmar" style="margin-top:20px;margin-left:60px; width: 150px;height: 25px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">
+                    <input type="submit" value="Confirmar" style="margin-top:20px;margin-left:70px; width: 50%;height: 10%;border-radius: 10px;font-size: 15px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">
                 </form>
                 <div style="color:white;margin-top:10px;font-size:40px"><?php 
         include("conecta.php");
@@ -216,7 +216,8 @@ Telefone
                 </div>
             </div>
         </div>
-
+        <div class="des">
+        <div class="esc"></div>
 
 
 
