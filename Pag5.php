@@ -1,62 +1,3 @@
-<?php
-// Conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sorvelivery";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
-}
-
-// Consulta para obter os valores salvos na base de dados
-$sql = "SELECT tamanho_produto, acompanhamento_produto, preco_produto FROM produtos WHERE nome_produto = 'chococream'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Loop pelos resultados
-    while ($row = $result->fetch_assoc()) {
-        $tamanhoSelecionado = $row["tamanho_produto"];
-        $acompanhamentoSelecionado = $row["acompanhamento_produto"];
-        $precoProduto = $row["preco_produto"];
-    }
-} else {
-    // Não foram encontrados resultados na base de dados
-    $tamanhoSelecionado = "";
-    $acompanhamentoSelecionado = "";
-    $precoProduto = 0;
-}
-
-// Fechar a conexão com o banco de dados
-$conn->close();
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
-}
-
-// Consulta para obter os valores salvos na base de dados
-$sql = "SELECT tamanho_produto, acompanhamento_produto, preco_produto FROM produtos WHERE nome_produto = 'chococream'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Loop pelos resultados
-    while ($row = $result->fetch_assoc()) {
-        $tamanhoSelecionado = $row["tamanho_produto"];
-        $acompanhamentoSelecionado = $row["acompanhamento_produto"];
-        $precoProduto = $row["preco_produto"];
-    }
-} else {
-    // Não foram encontrados resultados na base de dados
-    $tamanhoSelecionado = "";
-    $acompanhamentoSelecionado = "";
-    $precoProduto = 0;
-}
-
-$conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -292,20 +233,20 @@ $conn->close();
                         <font color="white" style="font-size: 22px;">chococream</font><br><br>
                         <font color="white" style="font-size: 15px;">Tamanho:</font>
                         <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" name="tamanho_chococream" onchange="atualizarChococream()">
-                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Pequeno") echo "selected"; ?>>Pequeno</option>
-                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Normal") echo "selected"; ?>>Normal</option>
-                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Grande") echo "selected"; ?>>Grande</option>
-                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Gigante") echo "selected"; ?>>Gigante</option>
+                        <option style="font-size: 15px;">Pequeno</option>
+                                <option style="font-size: 15px">Normal</option>
+                                <option style="font-size: 15px">Grande</option>
+                                <option style="font-size: 15px">Gigante</option>
                         </select><br><br>
                         <font color="white" style="font-size: 15px;">Acompanhamento:</font>
                         <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" name="acompanhamento_chococream" onchange="atualizarChococream()">
-                            <option style="font-size: 15px;"></option>
-                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Leite em pó") echo "selected"; ?>>Leite em pó</option>
-                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Canudo de chocolate") echo "selected"; ?>>Canudo de chocolate</option>
-                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Nozes") echo "selected"; ?>>Nozes</option>
-                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Creme") echo "selected"; ?>>Creme</option>
+                        <option style="font-size: 15px;"></option>
+                                <option style="font-size: 15px;">Leite em pó</option>
+                                <option style="font-size: 15px">Canudo de chocolate</option>
+                                <option style="font-size: 15px">Nozes</option>
+                                <option style="font-size: 15px">Creme</option>
                         </select><br><br>
-                        <font color="white" style="font-size: 30px;" id="preco_chococream"><?php echo 'R$' . number_format($precoProduto, 2, ',', '.'); ?></font>
+                        <font color="white" style="font-size: 30px;" id="preco_chococream">R$12.00</font>
                     </div>
                     <form method="Post" action="carrinho.php" class="partição3">  
                         <button type="submit" name="botaoChococream" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -334,7 +275,7 @@ $conn->close();
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;" id="preco_chocomalti"><?php echo 'R$' . number_format($precoProduto, 2, ',', '.'); ?></font>
+                            <font color="white" style="font-size: 30px;" id="preco_chocomalti">R$14.00</font>
 
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
@@ -687,29 +628,6 @@ function atualizarDalmaFlocos() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
-  
-    // Obtendo o elemento do preço do produto
-    var precoChocomaltiElement = document.getElementById("preco_chocomalti");
-
-    // Valor base do preço do produto
-    var precoBase = <?php echo $precoProduto; ?>;
-
-    // Verificando o valor de tamanho_produto
-    if ("<?php echo $tamanhoSelecionado; ?>" === "Normal") {
-        precoBase += 2;
-    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Grande") {
-        precoBase += 4;
-    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Gigante") {
-        precoBase += 6;
-    }
-
-    // Verificando o valor de acompanhamento_produto
-    if ("<?php echo $acompanhamentoSelecionado; ?>" !== "") {
-        precoBase += 3;
-    }
-
-    // Atualizando o valor exibido no elemento do preço do produto
-    precoChocomaltiElement.textContent = "R$" + precoBase.toFixed(2);
 
 
 
@@ -742,28 +660,7 @@ function atualizarDalmaFlocos() {
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
   
-    // Obtendo o elemento do preço do produto
-    var precoChococreamElement = document.getElementById("preco_chococream");
 
-    // Valor base do preço do produto
-    var precoBase = <?php echo $precoProduto; ?>;
-
-    // Verificando o valor de tamanho_produto
-    if ("<?php echo $tamanhoSelecionado; ?>" === "Normal") {
-        precoBase += 2;
-    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Grande") {
-        precoBase += 4;
-    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Gigante") {
-        precoBase += 6;
-    }
-
-    // Verificando o valor de acompanhamento_produto
-    if ("<?php echo $acompanhamentoSelecionado; ?>" !== "") {
-        precoBase += 3;
-    }
-
-    // Atualizando o valor exibido no elemento do preço do produto
-    precoChococreamElement.textContent = "R$" + precoBase.toFixed(2);
 
 
 
