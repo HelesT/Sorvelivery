@@ -170,12 +170,10 @@ if (isset($_POST['adicionarChocomalti'])) {
 
         <div class="D1">
                 <div class="D4">
-                    <input type="text" class="pesquisar" id="pesquisar" placeholder="Pesquisar"> &nbsp;&nbsp;
-                    <img src="Lupa.png" class="lupa" width="30px">
+                    
                 </div>
                 <div class="D4">
-                    <input type="text" class="pesquisar2" id="pesquisar" placeholder="Filtro"> &nbsp;&nbsp;
-                    <img src="Lupa.png" class="lupa" width="30px">
+                    
                 </div>
                 <form method="POST" action="" >
                 <div class="bloco chococream" >
@@ -184,20 +182,21 @@ if (isset($_POST['adicionarChocomalti'])) {
                         <div class="Partição2">
                             <font color="white" style="font-size: 35px;">chococream</font><br><br><br>
                             <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select name="tamanho_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select name="tamanho_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;" id="tamanho_chococream" onchange="atualizarPrecoChococream()">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select class="tamanho_produto" name="acompanhamento_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;" id="acompanhamento_chococream" onchange="atualizarPrecoChococream()">
+                                <option style="font-size: 22px;"></option>
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$12,00</font>
+                            <font color="white" style="font-size: 35px;" id="preco_chococream">R$12,00</font>
                         </div>
                         <div class="Partição3">                           
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -211,23 +210,23 @@ if (isset($_POST['adicionarChocomalti'])) {
                     <div class="bloco2">
                         <div class="Partição1"><img src="chocomalti.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">Chocomalti
-                            </font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" name="tamanho_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
-                                <option style="font-size: 22px;">Pequeno</option>
-                                <option style="font-size: 22px">Normal</option>
-                                <option style="font-size: 22px">Grande</option>
-                                <option style="font-size: 22px">Gigante</option>
-                            </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
-                                <option style="font-size: 22px;">Leite em pó</option>
-                                <option style="font-size: 22px">Canudo de chocolate</option>
-                                <option style="font-size: 22px">Nozes</option>
-                                <option style="font-size: 22px">Creme</option>
-                            </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$14,00</font>
+                        <font color="white" style="font-size: 35px;">Chocomalti</font><br><br><br>
+                        <font color="white" style="font-size: 22px;">Tamanho:</font>
+                        <select class="tamanho_produto" name="tamanho_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;" onchange="atualizarPrecoChocomalti()">
+                            <option style="font-size: 22px;">Pequeno</option>
+                            <option style="font-size: 22px">Normal</option>
+                            <option style="font-size: 22px">Grande</option>
+                            <option style="font-size: 22px">Gigante</option>
+                        </select><br><br>
+                        <font color="white" style="font-size: 22px;">Acompanhamento:</font>
+                        <select class="tamanho_produto" name="acompanhamento_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;" onchange="atualizarPrecoChocomalti()">
+                            <option style="font-size: 22px;"></option>
+                            <option style="font-size: 22px;">Leite em pó</option>
+                            <option style="font-size: 22px">Canudo de chocolate</option>
+                            <option style="font-size: 22px">Nozes</option>
+                            <option style="font-size: 22px">Creme</option>
+                        </select><br><br><br>
+                        <font id="preco_chocomalti" color="white" style="font-size: 35px;">R$14,00</font>
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChocomalti" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -301,7 +300,54 @@ function animar1() {
     }
     
 }
+function atualizarPrecoChocomalti() {
+    var precoBase = 12.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
 
+    var tamanhoSelect = document.getElementsByName("tamanho_chocomalti")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_chocomalti")[0];
+    var precoElement = document.getElementById("preco_chocomalti");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
+  function atualizarPrecoChococream() {
+    var precoBase = 10.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_chococream")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_chococream")[0];
+    var precoElement = document.getElementById("preco_chococream");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
     </script>
 </html>
 

@@ -165,12 +165,10 @@ if (isset($_POST['adicionarBurguerqueen'])) {
 
         <div class="D1">
                 <div class="D4">
-                    <input type="text" class="pesquisar" id="pesquisar" placeholder="Pesquisar"> &nbsp;&nbsp;
-                    <img src="Lupa.png" class="lupa" width="30px">
+                    
                 </div>
                 <div class="D4">
-                    <input type="text" class="pesquisar2" id="pesquisar" placeholder="Filtro"> &nbsp;&nbsp;
-                    <img src="Lupa.png" class="lupa" width="30px">
+                    
                 </div>
                 <form method="POST" action="" >
                 <div class="bloco dalmaflocos">
@@ -179,20 +177,21 @@ if (isset($_POST['adicionarBurguerqueen'])) {
                         <div class="Partição2">
                             <font color="white" style="font-size: 35px;">dalmaflocos</font><br><br><br>
                             <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" name="tamanho_dalmaflocos" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select class="tamanho_produto" name="tamanho_dalmaflocos" id="tamanho_dalmaflocos" onchange="atualizarDalmaFlocos()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_dalmaflocos" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select class="tamanho_produto" name="acompanhamento_dalmaflocos" id="acompanhamento_dalmaflocos" onchange="atualizarDalmaFlocos()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                                <option style="font-size: 22px;"></option>
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$11,00</font>
+                            <font color="white" style="font-size: 35px;" id="preco_dalmaflocos">R$11,00</font>
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarDalmaflocos" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -209,20 +208,21 @@ if (isset($_POST['adicionarBurguerqueen'])) {
                             <font color="white" style="font-size: 35px;">burguerqueen
                             </font><br><br><br>
                             <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" name="tamanho_burguerqueen" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select class="tamanho_produto" name="tamanho_burguerqueen" id="tamanho_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_burguerqueen" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <select class="tamanho_produto" name="acompanhamento_burguerqueen" id="acompanhamento_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                                <option style="font-size: 22px;"></option>
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="white" style="font-size: 35px;" id="preco_burguerqueen">R$17,00</font>
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarBurguerqueen" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -296,5 +296,53 @@ function animar1() {
     }
     
 }
+function atualizarDalmaFlocos() {
+    var precoBase = 9.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_dalmaflocos")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_dalmaflocos")[0];
+    var precoElement = document.getElementById("preco_dalmaflocos");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
+  function atualizarBurguerQueen() {
+    var precoBase = 15.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_burguerqueen")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_burguerqueen")[0];
+    var precoElement = document.getElementById("preco_burguerqueen");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
     </script>
 </html>
