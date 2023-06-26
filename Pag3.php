@@ -151,42 +151,26 @@
         </div>
     </div>
 
-    <div class="div2">
-        <img src="ddet.png">
     </div>
-
-    <div class="div3">
-	<form action="enviar.php" method="post">
-		<label for="nome">Nome:</label>
-		<input type="text" id="nome" name="nome"><br><br>
-
-		<label for="endereco">Endereço:</label>
-		<input type="text" id="endereco" name="endereco"><br><br>
-
-		<label for="cidade">Cidade:</label>
-		<input type="text" id="cidade" name="cidade"><br><br>
-
-		<label for="estado">Estado:</label>
-		<input type="text" id="estado" name="estado"><br><br>
-
-		<label for="cep">CEP:</label>
-		<input type="text" id="cep" name="cep"><br><br>
-
-		<input type="submit" value="Enviar">
-	</form>     
-
        
     </div>
+
+    <div class="prop">
     <img src="ele1.png" style="width: 1200px; margin-top: 150px;">
     <img src="ele2.png" style="width: 1200px; margin-top: 150px;"> 
-</div>
+    </div>
+
     <div class="div4" >
         <img src="Logo2.png" style="width: 150px; margin-left: 50px;">
         <img src="el1.png" style="width:550px; margin-left: 70px;">
     </div>
+
+    
     <img src="c.png" style="width: 250px; margin-right: -100px; margin-top: -190px;">
     <img src="ele4.png" style="width: 350px; margin-right: -100px; margin-top: -130px;">
-
+    </div>
+    
+    
 </body>
 <script>
 topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT

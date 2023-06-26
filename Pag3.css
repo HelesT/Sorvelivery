@@ -110,14 +110,7 @@ body
             flex-direction: row;
             justify-content: space-around;
         }
-        .div2 {
-            width: 50%;
-            height: 100%;
-            margin-top: 100px;
-            margin-right: -100px;
-            margin-left: 250px;
-            display: flex;
-        }
+
         a:visited
     {
         color:rgb(35, 200, 200);
@@ -126,17 +119,9 @@ body
     }
     .div3
     {
-        background-color: #0000005f;
-        width: 100%;
+        max-width: 10px;
+        max-height: 100%;
     }
-    form {
-        background-color: 0000005f;
-        width: 500px;
-        border-radius: 5px;
-        padding: 20px;
-        margin-left: 610px;
-
-      }
       .div4
       {
         background-color: #E421AA;
