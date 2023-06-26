@@ -18,7 +18,7 @@ try {
 
         if ($resultado) {
             echo "Imagem atualizada com sucesso!";
-            header("Location: edit.php");
+            header("Location: cadastro2.php");
             exit();
         } else {
             echo "Erro ao atualizar a imagem: " . $pdo->errorInfo()[2];

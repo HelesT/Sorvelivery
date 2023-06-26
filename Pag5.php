@@ -1,3 +1,62 @@
+<?php
+// Conexão com o banco de dados
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sorvelivery";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
+
+// Consulta para obter os valores salvos na base de dados
+$sql = "SELECT tamanho_produto, acompanhamento_produto, preco_produto FROM produtos WHERE nome_produto = 'chococream'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Loop pelos resultados
+    while ($row = $result->fetch_assoc()) {
+        $tamanhoSelecionado = $row["tamanho_produto"];
+        $acompanhamentoSelecionado = $row["acompanhamento_produto"];
+        $precoProduto = $row["preco_produto"];
+    }
+} else {
+    // Não foram encontrados resultados na base de dados
+    $tamanhoSelecionado = "";
+    $acompanhamentoSelecionado = "";
+    $precoProduto = 0;
+}
+
+// Fechar a conexão com o banco de dados
+$conn->close();
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
+
+// Consulta para obter os valores salvos na base de dados
+$sql = "SELECT tamanho_produto, acompanhamento_produto, preco_produto FROM produtos WHERE nome_produto = 'chococream'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Loop pelos resultados
+    while ($row = $result->fetch_assoc()) {
+        $tamanhoSelecionado = $row["tamanho_produto"];
+        $acompanhamentoSelecionado = $row["acompanhamento_produto"];
+        $precoProduto = $row["preco_produto"];
+    }
+} else {
+    // Não foram encontrados resultados na base de dados
+    $tamanhoSelecionado = "";
+    $acompanhamentoSelecionado = "";
+    $precoProduto = 0;
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -225,34 +284,35 @@
         </div>
         <div class="D1">
             <div class="aba_produtos" style="width: 65%;">
+
             <div class="chococream">
-                    <div class="bloco2">
-                        <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="175px"></div>
-                        <div class="Partição2">
-                            <font color="white" style="font-size: 22px;">chococream</font><br><br>
-                            <font color="white" style="font-size: 15px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" id="tamanho_chococream" onchange="atualizarPrecoChococream()">
-                                <option style="font-size: 15px;">Pequeno</option>
-                                <option style="font-size: 15px">Normal</option>
-                                <option style="font-size: 15px">Grande</option>
-                                <option style="font-size: 15px">Gigante</option>
-                            </select><br><br>
-                            <font color="white" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" id="acompanhamento_chococream" onchange="atualizarPrecoChococream()">
-                                <option style="font-size: 15px;"></option>
-                                <option style="font-size: 15px;">Leite em pó</option>
-                                <option style="font-size: 15px">Canudo de chocolate</option>
-                                <option style="font-size: 15px">Nozes</option>
-                                <option style="font-size: 15px">Creme</option>
-                            </select><br><br>
-                            <font color="white" style="font-size: 30px;" id="preco_chococream">R$12,00</font>
-                        </div>
-                        <form method="Post" action="carrinho.php" class="partição3">  
-                            <button type="submit"name="botaoChococream" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
-                            <img src="retirar.png" width="20px"></button>
-                        </form>
+                <div class="bloco2">
+                    <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="175px"></div>
+                    <div class="Partição2">
+                        <font color="white" style="font-size: 22px;">chococream</font><br><br>
+                        <font color="white" style="font-size: 15px;">Tamanho:</font>
+                        <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" name="tamanho_chococream" onchange="atualizarChococream()">
+                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Pequeno") echo "selected"; ?>>Pequeno</option>
+                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Normal") echo "selected"; ?>>Normal</option>
+                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Grande") echo "selected"; ?>>Grande</option>
+                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Gigante") echo "selected"; ?>>Gigante</option>
+                        </select><br><br>
+                        <font color="white" style="font-size: 15px;">Acompanhamento:</font>
+                        <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" name="acompanhamento_chococream" onchange="atualizarChococream()">
+                            <option style="font-size: 15px;"></option>
+                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Leite em pó") echo "selected"; ?>>Leite em pó</option>
+                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Canudo de chocolate") echo "selected"; ?>>Canudo de chocolate</option>
+                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Nozes") echo "selected"; ?>>Nozes</option>
+                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Creme") echo "selected"; ?>>Creme</option>
+                        </select><br><br>
+                        <font color="white" style="font-size: 30px;" id="preco_chococream"><?php echo 'R$' . number_format($precoProduto, 2, ',', '.'); ?></font>
                     </div>
+                    <form method="Post" action="carrinho.php" class="partição3">  
+                        <button type="submit" name="botaoChococream" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                        <img src="retirar.png" width="20px"></button>
+                    </form>
                 </div>
+            </div>
 
                 <div class="chocomalti">
                     <div class="bloco2">
@@ -260,21 +320,22 @@
                         <div class="Partição2">
                             <font color="white" style="font-size: 22px;">chocomalti</font><br><br>
                             <font color="white" style="font-size: 15px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" name="tamanho_chocomalti" onchange="atualizarChocomalti()">
                                 <option style="font-size: 15px;">Pequeno</option>
                                 <option style="font-size: 15px">Normal</option>
                                 <option style="font-size: 15px">Grande</option>
                                 <option style="font-size: 15px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" name="acompanhamento_chocomalti" onchange="atualizarChocomalti()">
                                 <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$14,00</font>
+                            <font color="white" style="font-size: 30px;" id="preco_chocomalti"><?php echo 'R$' . number_format($precoProduto, 2, ',', '.'); ?></font>
+
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
                             <button type="submit"name="botaoChocomalti" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -289,21 +350,21 @@
                         <div class="Partição2">
                             <font color="white" style="font-size: 22px;">dalmaflocos</font><br><br>
                             <font color="white" style="font-size: 15px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" name="tamanho_dalmaflocos" onchange="atualizarDalmaFlocos()">
                                 <option style="font-size: 15px;">Pequeno</option>
                                 <option style="font-size: 15px">Normal</option>
                                 <option style="font-size: 15px">Grande</option>
                                 <option style="font-size: 15px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" name="acompanhamento_dalmaflocos" onchange="atualizarDalmaFlocos()">
                                 <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$10,00</font>
+                            <font color="white" style="font-size: 30px;" id="preco_dalmaflocos">R$10,00</font>
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
                             <button type="submit"name="botaoDalmaflocos" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -318,21 +379,21 @@
                         <div class="Partição2">
                             <font color="white" style="font-size: 22px;">burguerqueen</font><br><br>
                             <font color="white" style="font-size: 15px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select name="tamanho_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
                                 <option style="font-size: 15px;">Pequeno</option>
                                 <option style="font-size: 15px">Normal</option>
                                 <option style="font-size: 15px">Grande</option>
                                 <option style="font-size: 15px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select class="tamanho_produto" name="acompanhamento_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
                                 <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$17,00</font>
+                            <font color="white" style="font-size: 30px;" id="preco_burguerqueen">R$17,00</font>
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
                             <button type="submit"name="botaoBurguerqueen" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -347,21 +408,21 @@
                         <div class="Partição2">
                             <font color="white" style="font-size: 22px;">casquinha hot chilly papers</font><br><br>
                             <font color="white" style="font-size: 15px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select name="tamanho_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
                                 <option style="font-size: 15px;">Pequeno</option>
                                 <option style="font-size: 15px">Normal</option>
                                 <option style="font-size: 15px">Grande</option>
                                 <option style="font-size: 15px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select class="tamanho_produto" name="acompanhamento_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
                                 <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$8,00</font>
+                            <font color="white" style="font-size: 30px;" id="preco_casquinha">R$8,00</font>
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
                             <button type="submit"name="botaoHotchillypapers" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -376,21 +437,21 @@
                         <div class="Partição2">
                             <font color="white" style="font-size: 22px;">sabor pink floyd</font><br><br>
                             <font color="white" style="font-size: 15px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select name="tamanho_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
                                 <option style="font-size: 15px;">Pequeno</option>
                                 <option style="font-size: 15px">Normal</option>
                                 <option style="font-size: 15px">Grande</option>
                                 <option style="font-size: 15px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select class="tamanho_produto" name="acompanhamento_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
                                 <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$13,00</font>
+                            <font color="white" style="font-size: 30px;" id="preco_saborpink">R$13,00</font>
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
                             <button type="submit"name="botaoSaborpinkfloyd" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -476,6 +537,12 @@
     }
     
 }
+
+
+
+
+
+
 function atualizarSaborPink() {
     var precoBase = 11.00;
     var precoTamanho = 2.00;
@@ -500,6 +567,12 @@ function atualizarSaborPink() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
+
+
+
+
+
+
   function atualizarCasquinha() {
     var precoBase = 6.00;
     var precoTamanho = 2.00;
@@ -524,6 +597,12 @@ function atualizarSaborPink() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
+
+
+
+
+
+
 function atualizarDalmaFlocos() {
     var precoBase = 9.00;
     var precoTamanho = 2.00;
@@ -548,6 +627,12 @@ function atualizarDalmaFlocos() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
+
+
+
+
+
+
   function atualizarBurguerQueen() {
     var precoBase = 15.00;
     var precoTamanho = 2.00;
@@ -572,7 +657,13 @@ function atualizarDalmaFlocos() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
-function atualizarPrecoChocomalti() {
+
+
+
+
+
+
+function atualizarChocomalti() {
     var precoBase = 12.00;
     var precoTamanho = 2.00;
     var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
@@ -596,7 +687,13 @@ function atualizarPrecoChocomalti() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
-  function atualizarPrecoChococream() {
+
+
+
+
+
+
+  function atualizarChococream() {
     var precoBase = 10.00;
     var precoTamanho = 2.00;
     var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
@@ -620,6 +717,36 @@ function atualizarPrecoChocomalti() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
+  
+    // Obtendo o elemento do preço do produto
+    var precoChococreamElement = document.getElementById("preco_chococream");
+
+    // Valor base do preço do produto
+    var precoBase = <?php echo $precoProduto; ?>;
+
+    // Verificando o valor de tamanho_produto
+    if ("<?php echo $tamanhoSelecionado; ?>" === "Normal") {
+        precoBase += 2;
+    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Grande") {
+        precoBase += 4;
+    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Gigante") {
+        precoBase += 6;
+    }
+
+    // Verificando o valor de acompanhamento_produto
+    if ("<?php echo $acompanhamentoSelecionado; ?>" !== "") {
+        precoBase += 3;
+    }
+
+    // Atualizando o valor exibido no elemento do preço do produto
+    precoChococreamElement.textContent = "R$" + precoBase.toFixed(2);
+
+
+
+
+
+
+
     </script>
 </body>
 </html>

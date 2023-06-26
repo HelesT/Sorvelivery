@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   if (mysqli_query($conexao, $query)) {
     // Atualização bem-sucedida, redirecionar ou exibir uma mensagem de sucesso
-    header("Location: Edit.php"); // Redirecionar para uma página de sucesso
+    header("Location: cadastro2.php"); // Redirecionar para uma página de sucesso
     exit();
   } else {
     // Erro na atualização, exibir uma mensagem de erro
