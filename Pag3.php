@@ -1,32 +1,3 @@
-<?php
-include("conecta.php");
-
-$query = "SELECT entrega.NomeCliente, entrega.Endereco, entrega.Cidade, entrega.Estado, entrega.CEP 
-          FROM entrega
-          where entrega.Endereco = entrega.NomeCliente";
-
-$resultado = mysqli_query($conexao, $query);
-
-if ($resultado && mysqli_num_rows($resultado) > 0) {
-    while ($row = mysqli_fetch_assoc($resultado)) {
-        $nomeUsuario = $row['Nome'];
-        $endereco = $row['Endereco'];
-        $cidade = $row["Cidade"];
-        $estado = $row["Estado"];
-        $cep = $row["CEP"];
-
-        // Lógica para marcar os inputs corretos
-        $casaChecked = '';
-        $trabalhoChecked = '';
-
-        if ($casaTrabalho === 'casa') {
-            $casaChecked = 'checked';
-        } elseif ($casaTrabalho === 'trabalho') {
-            $trabalhoChecked = 'checked';
-        }
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

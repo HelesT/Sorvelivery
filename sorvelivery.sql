@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/06/2023 às 12:37
+-- Tempo de geração: 26/06/2023 às 12:52
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -52,7 +52,8 @@ CREATE TABLE `cadastro` (
 --
 
 INSERT INTO `cadastro` (`codigo_cadastro`, `nome_cadastro`, `nome_usuario`, `telefone_cadastro`, `cep`, `estado`, `cidade`, `bairro`, `rua/avenida`, `numero`, `complemento`, `casa/trabalho`, `informacao_adicional`, `email_cadastro`, `senha_cadastro`, `admim_cadastro`, `foto`) VALUES
-(6, 'Nylton Eduardo Constâncio', 'Nylton', '47989130277', '89210-755', 'Santa Catarina', 'Joinville', 'Itaum', 'São Valentim', 22, 'Casa', 'trabalho', 'Muro Branco', 'nyltondudu@gmail.com', '123', 's', '');
+(6, 'Nylton Eduardo Constâncio', 'Nylton', '47989130277', '89210-755', 'Santa Catarina', 'Joinville', 'Itaum', 'São Valentim', 22, 'Casa', 'trabalho', 'Muro Branco', 'nyltondudu@gmail.com', '123', 's', ''),
+(12, '', 'mateus', '991910111', '', '', '', '', '', 0, '', '', '', 'Mateus', '123', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,8 @@ CREATE TABLE `usuario_atual` (
 --
 
 INSERT INTO `usuario_atual` (`codigo_usuario`, `nome_usuario`, `acesso`) VALUES
-(6, 'Nylton', 'n');
+(6, 'Nylton', 'n'),
+(12, 'mateus', 'n');
 
 --
 -- Índices para tabelas despejadas
@@ -130,13 +132,13 @@ ALTER TABLE `usuario_atual`
 -- AUTO_INCREMENT de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `codigo_cadastro` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `codigo_cadastro` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `usuario_atual`
 --
 ALTER TABLE `usuario_atual`
-  MODIFY `codigo_usuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `codigo_usuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
