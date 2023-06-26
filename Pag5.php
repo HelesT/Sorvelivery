@@ -663,7 +663,7 @@ function atualizarDalmaFlocos() {
 
 
 
-function atualizarChocomalti() {
+  function atualizarChocomalti() {
     var precoBase = 12.00;
     var precoTamanho = 2.00;
     var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
@@ -687,6 +687,30 @@ function atualizarChocomalti() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
+  
+    // Obtendo o elemento do preço do produto
+    var precoChocomaltiElement = document.getElementById("preco_chocomalti");
+
+    // Valor base do preço do produto
+    var precoBase = <?php echo $precoProduto; ?>;
+
+    // Verificando o valor de tamanho_produto
+    if ("<?php echo $tamanhoSelecionado; ?>" === "Normal") {
+        precoBase += 2;
+    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Grande") {
+        precoBase += 4;
+    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Gigante") {
+        precoBase += 6;
+    }
+
+    // Verificando o valor de acompanhamento_produto
+    if ("<?php echo $acompanhamentoSelecionado; ?>" !== "") {
+        precoBase += 3;
+    }
+
+    // Atualizando o valor exibido no elemento do preço do produto
+    precoChocomaltiElement.textContent = "R$" + precoBase.toFixed(2);
+
 
 
 
