@@ -120,7 +120,7 @@
                 preço, e permite alterações. O cliente pode finalizar a compra fornecendo
                 informações de pagamento e confirmando o local de entrega. A segurança do site é
                 garantida para proteger os dados dos clientes e da empresa.</font><br><br><br><br><br><br>
-                <font style="font-size: 30px;color: rgba(255, 255, 255, 0.801);">+55 4792341-7426 &nbsp;&nbsp;&nbsp;  Rudson Park, New York, EUA</font>
+                <font style="font-size: 30px;color: rgba(255, 255, 255, 0.801);">+55 4792341-7426 &nbsp;&nbsp;&nbsp;  Rua das ilusões 123, Lindosnápolis E.D.B, Devaneios</font>
         </div>
     </div>
     <div class="linha">

@@ -231,20 +231,21 @@
                         <div class="Partição2">
                             <font color="white" style="font-size: 22px;">chococream</font><br><br>
                             <font color="white" style="font-size: 15px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" id="tamanho_chococream" onchange="atualizarPrecoChococream()">
                                 <option style="font-size: 15px;">Pequeno</option>
                                 <option style="font-size: 15px">Normal</option>
                                 <option style="font-size: 15px">Grande</option>
                                 <option style="font-size: 15px">Gigante</option>
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;" id="acompanhamento_chococream" onchange="atualizarPrecoChococream()">
+                                <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;">R$12,00</font>
+                            <font color="white" style="font-size: 30px;" id="preco_chococream">R$12,00</font>
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
                             <button type="submit"name="botaoChococream" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -267,6 +268,7 @@
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
                             <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
@@ -295,6 +297,7 @@
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
                             <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
@@ -323,6 +326,7 @@
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
                             <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
@@ -351,6 +355,7 @@
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
                             <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
@@ -379,6 +384,7 @@
                             </select><br><br>
                             <font color="white" style="font-size: 15px;">Acompanhamento:</font>
                             <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                                <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;">Leite em pó</option>
                                 <option style="font-size: 15px">Canudo de chocolate</option>
                                 <option style="font-size: 15px">Nozes</option>
@@ -470,6 +476,150 @@
     }
     
 }
+function atualizarSaborPink() {
+    var precoBase = 11.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_saborpink")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_saborpink")[0];
+    var precoElement = document.getElementById("preco_saborpink");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
+  function atualizarCasquinha() {
+    var precoBase = 6.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_casquinha")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_casquinha")[0];
+    var precoElement = document.getElementById("preco_casquinha");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
+function atualizarDalmaFlocos() {
+    var precoBase = 9.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_dalmaflocos")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_dalmaflocos")[0];
+    var precoElement = document.getElementById("preco_dalmaflocos");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
+  function atualizarBurguerQueen() {
+    var precoBase = 15.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_burguerqueen")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_burguerqueen")[0];
+    var precoElement = document.getElementById("preco_burguerqueen");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
+function atualizarPrecoChocomalti() {
+    var precoBase = 12.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_chocomalti")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_chocomalti")[0];
+    var precoElement = document.getElementById("preco_chocomalti");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
+  function atualizarPrecoChococream() {
+    var precoBase = 10.00;
+    var precoTamanho = 2.00;
+    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+    var tamanhoSelect = document.getElementsByName("tamanho_chococream")[0];
+    var acompanhamentoSelect = document.getElementsByName("acompanhamento_chococream")[0];
+    var precoElement = document.getElementById("preco_chococream");
+
+    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+    var precoFinal = precoBase;
+
+    if (tamanhoOpcaoSelecionada.value !== "") {
+      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    }
+
+    if (acompanhamentoOpcaoSelecionada.value !== "") {
+      precoFinal += precoAcompanhamento;
+    }
+
+    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  }
     </script>
 </body>
 </html>
