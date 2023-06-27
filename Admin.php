@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Kanit&family=Russo+One&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="cardapio.css" type="text/css">
+    <link rel="stylesheet" href="Admin.css" type="text/css">
     <script src="jquery-3.7.0.min.js"></script>
 </head>
 <body>
@@ -113,10 +113,27 @@
         <a href="cadastro2.php" style="margin-top:5px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Editar Perfil</button></a>
         <a href="Login.php" style="margin-top:2px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Sair</button></a>                 
     
+        
+
     </div>
 
     <div class="div1">
         <div class="principal">
+            <div class="usur">
+                <div class="usuario">
+                    <div class="semcri">
+                </div>
+                <div class="usuario"></div>
+            </div>
+            <div class="adm">
+
+            </div>
+            <div class="essabagaça">
+                <div class="mais1"></div>
+                <div class="mais2"></div>
+                <div class="mais3"></div>
+                <div class="mais4"></div>
+            </div>
         </div>
     </div>
 
