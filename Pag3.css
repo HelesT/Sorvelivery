@@ -10,6 +10,23 @@ body
             align-content: center;
             overflow-x: hidden;
         }
+
+        .thumbnail .row {
+            display: flex;
+            background-color: white;
+            height: 449px;
+            font-size: 15px;
+            margin-top: 200px;
+          }
+          
+          .thumbnail .row .col-xs-6 {
+            flex: 1;
+          }
+          
+          .caption {
+            padding-left: 20px;
+            font-family: Arial, sans-serif;
+          }
         .pmd
         {
             width: 100%;

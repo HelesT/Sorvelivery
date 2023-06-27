@@ -175,23 +175,23 @@ if (isset($_POST['adicionarBurguerqueen'])) {
                     <div class="bloco2">
                         <div class="Partição1"><img src="dalmaflocos.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">dalmaflocos</font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" name="tamanho_dalmaflocos" id="tamanho_dalmaflocos" onchange="atualizarDalmaFlocos()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 35px;">dalmaflocos</font><br><br><br>
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" name="tamanho_dalmaflocos" id="tamanho_dalmaflocos" onchange="atualizarDalmaFlocos()" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_dalmaflocos" id="acompanhamento_dalmaflocos" onchange="atualizarDalmaFlocos()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" name="acompanhamento_dalmaflocos" id="acompanhamento_dalmaflocos" onchange="atualizarDalmaFlocos()" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;"></option>
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;" id="preco_dalmaflocos">R$11,00</font>
+                            <font color="black" style="font-size: 35px;" id="preco_dalmaflocos">R$11,00</font>
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarDalmaflocos" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -205,24 +205,24 @@ if (isset($_POST['adicionarBurguerqueen'])) {
                     <div class="bloco2">
                         <div class="Partição1"><img src="burguerqueen.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">burguerqueen
+                            <font color="black" style="font-size: 35px;">burguerqueen
                             </font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" name="tamanho_burguerqueen" id="tamanho_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" name="tamanho_burguerqueen" id="tamanho_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_burguerqueen" id="acompanhamento_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" name="acompanhamento_burguerqueen" id="acompanhamento_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;"></option>
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;" id="preco_burguerqueen">R$17,00</font>
+                            <font color="black" style="font-size: 35px;" id="preco_burguerqueen">R$17,00</font>
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarBurguerqueen" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
