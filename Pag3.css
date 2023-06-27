@@ -10,6 +10,23 @@ body
             align-content: center;
             overflow-x: hidden;
         }
+
+        .thumbnail .row {
+            display: flex;
+            background-color: white;
+            height: 449px;
+            font-size: 15px;
+            margin-top: 200px;
+          }
+          
+          .thumbnail .row .col-xs-6 {
+            flex: 1;
+          }
+          
+          .caption {
+            padding-left: 20px;
+            font-family: Arial, sans-serif;
+          }
         .pmd
         {
             width: 100%;
@@ -443,7 +460,8 @@ body
     
     #carousel-1:checked ~ .control-1,
     #carousel-2:checked ~ .control-2,
-    #carousel-3:checked ~ .control-3 
+    #carousel-3:checked ~ .control-3,
+    #carousel-4:checked ~ .control-4
         {
         display: block;
         }
@@ -483,7 +501,8 @@ body
     
         #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
         #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-        #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet,
+        #carousel-4:checked ~ .control-4 ~ .carousel-indicators li:nth-child(4) .carousel-bullet {
         color: rgb(147, 253, 147);
         }
 
