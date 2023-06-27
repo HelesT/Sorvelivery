@@ -1,125 +1,5 @@
 <?php
 include("conecta.php");
-
-if (isset($_POST['adicionarChococream'])) {
-    $nomeProduto = 'chococream'; // Nome do produto a ser atualizado
-    $tamanhoChococream = $_POST['tamanho_chococream'];
-    $acompanhamentoChococream = $_POST['acompanhamento_chococream'];
-
-    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChococream', acompanhamento_produto = '$acompanhamentoChococream' WHERE nome_produto = ?";
-    
-    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
-    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
-
-    if (mysqli_stmt_execute($stmtAtualizar)) {
-        // Atualização realizada com sucesso
-        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
-    } else {
-        // Erro ao atualizar
-        $mensagem = "Erro ao adicionar o produto no carrinho.";
-    }
-}
-
-  
-
-if (isset($_POST['adicionarChocomalti'])) {
-    $nomeProduto = 'chocomalti'; // Nome do produto a ser inserido
-    $tamanhoChocomalti = $_POST['tamanho_chocomalti'];
-    $acompanhamentoChocomalti = $_POST['acompanhamento_chocomalti'];
-
-    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChocomalti', acompanhamento_produto = '$acompanhamentoChocomalti' WHERE nome_produto = ?";
-    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
-    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
-
-    if (mysqli_stmt_execute($stmtAtualizar)) {
-        // Atualização realizada com sucesso
-        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
-    } else {
-        // Erro ao atualizar
-        $mensagem = "Erro ao adicionar o produto no carrinho.";
-    }
-}
-
-if (isset($_POST['adicionarDalmaflocos'])) {
-    $nomeProduto = 'dalmaflocos'; // Nome do produto a ser atualizado
-    $tamanhoDalmaflocos = $_POST['tamanho_dalmaflocos'];
-    $acompanhamentoDalmaflocos = $_POST['acompanhamento_dalmaflocos'];
-
-    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoDalmaflocos', acompanhamento_produto = '$acompanhamentoDalmaflocos' WHERE nome_produto = ?";
-    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
-    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
-
-    if (mysqli_stmt_execute($stmtAtualizar)) {
-        // Atualização realizada com sucesso
-        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
-    } else {
-        // Erro ao atualizar
-        $mensagem = "Erro ao adicionar o produto no carrinho.";
-    }
-}
-
-
-
-if (isset($_POST['adicionarBurguerqueen'])) {
-    $nomeProduto = 'burguerqueen'; // Nome do produto a ser atualizado
-    $tamanhoBurguerqueen = $_POST['tamanho_burguerqueen'];
-    $acompanhamentoBurguerqueen = $_POST['acompanhamento_burguerqueen'];
-
-    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoBurguerqueen', acompanhamento_produto = '$acompanhamentoBurguerqueen' WHERE nome_produto = ?";
-    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
-    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
-
-    if (mysqli_stmt_execute($stmtAtualizar)) {
-        // Atualização realizada com sucesso
-        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
-    } else {
-        // Erro ao atualizar
-        $mensagem = "Erro ao adicionar o produto no carrinho.";
-    }
-}
-
-if (isset($_POST['adicionarCasquinhahot'])) {
-    $nomeProduto = 'hotchillypapers'; // Nome do produto a ser atualizado
-    $tamanhoCasquinha = $_POST['tamanho_casquinha'];
-    $acompanhamentoCasquinha = $_POST['acompanhamento_casquinha'];
-
-    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoCasquinha', acompanhamento_produto = '$acompanhamentoCasquinha' WHERE nome_produto = ?";
-    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
-    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
-
-    if (mysqli_stmt_execute($stmtAtualizar)) {
-        // Atualização realizada com sucesso
-        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
-    } else {
-        // Erro ao atualizar
-        $mensagem = "Erro ao adicionar o produto no carrinho.";
-    }
-}
-
-
-if (isset($_POST['adicionarSaborpink'])) {
-    $nomeProduto = 'saborpinkfloyd'; // Nome do produto a ser atualizado
-    $tamanhoSaborpink = $_POST['tamanho_saborpink'];
-    $acompanhamentoSaborpink = $_POST['acompanhamento_saborpink'];
-
-    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoSaborpink', acompanhamento_produto = '$acompanhamentoSaborpink' WHERE nome_produto = ?";
-    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
-    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
-
-    if (mysqli_stmt_execute($stmtAtualizar)) {
-        // Atualização realizada com sucesso
-        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
-    } else {
-        // Erro ao atualizar
-        $mensagem = "Erro ao adicionar o produto no carrinho.";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -134,7 +14,6 @@ if (isset($_POST['adicionarSaborpink'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
-    <script src="jquery-3.7.0.min.js"></script>
     <style>
     .chococream
         {
@@ -348,7 +227,7 @@ if (isset($_POST['adicionarSaborpink'])) {
         </div>
         <div class="D1">
             <div class="aba_produtos" style="width: 65%;">
-            
+            <form method="Post" action="carrinho.php">
             <div class="chococream">
                 <div class="bloco2">
                     <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="175px"></div>
@@ -529,9 +408,11 @@ if (isset($_POST['adicionarSaborpink'])) {
             </div>
             <div class="aba_compra">
                 <a href="confirmação_endereço.php">
-                    <div class="finalizar_compra">
-                        <font style="color: black;font-family: 'Source Sans Pro', sans-serif;font-size: 40px;color: white;">Finalizar</font>
-                    </div>
+                
+                        <button class="finalizar_compra" name="finalizartudologo">
+                            <span style="color: black;font-family: 'Source Sans Pro', sans-serif;font-size: 40px;color: white;">Finalizar</span>
+                        </button>
+                    </form>
                 </a>
                 <div class="total_compra">
                 <font style="color: black; font-family: 'Source Sans Pro', sans-serif; font-size: 40px; color: white;">R$<span id="precoFinal"><?php echo number_format($totalSomaGeral, 2, ',', '.'); ?></span></font>
@@ -541,6 +422,7 @@ if (isset($_POST['adicionarSaborpink'])) {
         </div>
         <div class="D5"></div>
     </div>
+    <script src="jquery-3.7.0.min.js"></script>
     <script>
         topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
   
@@ -603,13 +485,13 @@ if (isset($_POST['adicionarSaborpink'])) {
     
 }
 
-
-
-var precoFinalFinalizar = precoFinalSaborPink + precoFinalCasquinha + precoFinalDalmaflocos + precoFinalBurguerQueen + precoFinalChocomalti + precoFinalChococream;
-
-var precoFinalSaborPink = 0 ; // Variável global
-
-
+var precoFinalSaborPink;
+var precoFinalCasquinha;
+var precoFinalDalmaflocos;
+var precoFinalBurguerQueen;
+var precoFinalChocomalti;
+var precoFinalChococream;
+var precoFinalFinalizar;
 
 function atualizarSaborPink() {
   var precoBase = 11.00;
@@ -623,175 +505,193 @@ function atualizarSaborPink() {
   var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
   var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-  precoFinalSaborPink = precoBase; // Atualiza a variável global
+  var novoPreco = precoBase; // Atualiza a variável local
 
   if (tamanhoOpcaoSelecionada.value !== "") {
-    precoFinalSaborPink += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    novoPreco += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
   if (acompanhamentoOpcaoSelecionada.value !== "") {
-    precoFinalSaborPink += precoAcompanhamento;
+    novoPreco += precoAcompanhamento;
   }
 
-  precoElement.textContent = "R$" + precoFinalSaborPink.toFixed(2);
+  precoFinalSaborPink = novoPreco; // Atualiza a variável global
+
+  precoElement.textContent = "R$" + novoPreco.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
 }
-console.log(precoFinalSaborPink);
 
+function atualizarCasquinha() {
+  var precoBase = 6.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
 
+  var tamanhoSelect = document.getElementsByName("tamanho_casquinha")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_casquinha")[0];
+  var precoElement = document.getElementById("preco_casquinha");
 
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
+  precoFinalCasquinha = precoBase;
 
-
-  var precoFinalCasquinha = 0; // Variável global
-
-  function atualizarCasquinha() {
-    var precoBase = 6.00;
-    var precoTamanho = 2.00;
-    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
-
-    var tamanhoSelect = document.getElementsByName("tamanho_casquinha")[0];
-    var acompanhamentoSelect = document.getElementsByName("acompanhamento_casquinha")[0];
-    var precoElement = document.getElementById("preco_casquinha");
-
-    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
-    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
-
-    var precoFinalCasquinha = precoBase;
-
-    if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinalCasquinha += precoTamanho * (tamanhoSelect.selectedIndex + 1);
-    }
-
-    if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinalCasquinha += precoAcompanhamento;
-    }
-
-    precoElement.textContent = "R$" + precoFinalCasquinha.toFixed(2);
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalCasquinha += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalCasquinha += precoAcompanhamento;
+  }
 
+  precoElement.textContent = "R$" + precoFinalCasquinha.toFixed(2);
 
-
-  var precoFinalDalmaflocos = 0; // Variável global
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+}
 
 function atualizarDalmaFlocos() {
-    var precoBase = 9.00;
-    var precoTamanho = 2.00;
-    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+  var precoBase = 9.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
 
-    var tamanhoSelect = document.getElementsByName("tamanho_dalmaflocos")[0];
-    var acompanhamentoSelect = document.getElementsByName("acompanhamento_dalmaflocos")[0];
-    var precoElement = document.getElementById("preco_dalmaflocos");
+  var tamanhoSelect = document.getElementsByName("tamanho_dalmaflocos")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_dalmaflocos")[0];
+  var precoElement = document.getElementById("preco_dalmaflocos");
 
-    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
-    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-    var precoFinalDalmaflocos = precoBase;
+  precoFinalDalmaflocos = precoBase;
 
-    if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinalDalmaflocos += precoTamanho * (tamanhoSelect.selectedIndex + 1);
-    }
-
-    if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinalDalmaflocos += precoAcompanhamento;
-    }
-
-    precoElement.textContent = "R$" + precoFinalDalmaflocos.toFixed(2);
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalDalmaflocos += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
-
-
-
-  var precoFinalBurguerQueen = 0; // Variável global
-
-  function atualizarBurguerQueen() {
-    var precoBase = 15.00;
-    var precoTamanho = 2.00;
-    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
-
-    var tamanhoSelect = document.getElementsByName("tamanho_burguerqueen")[0];
-    var acompanhamentoSelect = document.getElementsByName("acompanhamento_burguerqueen")[0];
-    var precoElement = document.getElementById("preco_burguerqueen");
-
-    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
-    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
-
-    var precoFinalBurguerQueen = precoBase;
-
-    if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinalBurguerQueen += precoTamanho * (tamanhoSelect.selectedIndex + 1);
-    }
-
-    if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinalBurguerQueen += precoAcompanhamento;
-    }
-
-    precoElement.textContent = "R$" + precoFinalBurguerQueen.toFixed(2);
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalDalmaflocos += precoAcompanhamento;
   }
 
+  precoElement.textContent = "R$" + precoFinalDalmaflocos.toFixed(2);
 
-
-
-  var precoFinalChocomalti = 0; // Variável global
-
-  function atualizarChocomalti() {
-    var precoBase = 12.00;
-    var precoTamanho = 2.00;
-    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
-
-    var tamanhoSelect = document.getElementsByName("tamanho_chocomalti")[0];
-    var acompanhamentoSelect = document.getElementsByName("acompanhamento_chocomalti")[0];
-    var precoElement = document.getElementById("preco_chocomalti");
-
-    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
-    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
-
-    var precoFinalChocomalti = precoBase;
-
-    if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinalChocomalti += precoTamanho * (tamanhoSelect.selectedIndex + 1);
-    }
-
-    if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinalChocomalti += precoAcompanhamento;
-    }
-
-    precoElement.textContent = "R$" + precoFinalChocomalti.toFixed(2);
-  }
-
-
-
-
-
-
-
-  var precoFinalChococream = 0; // Variável global
-
-    function atualizarChococream() {
-    var precoBase = 10.00;
-    var precoTamanho = 2.00;
-    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
-
-    var tamanhoSelect = document.getElementsByName("tamanho_chococream")[0];
-    var acompanhamentoSelect = document.getElementsByName("acompanhamento_chococream")[0];
-    var precoElement = document.getElementById("preco_chococream");
-
-    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
-    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
-
-    precoFinalChococream = precoBase; // Atribui o valor a variável global
-
-    if (tamanhoOpcaoSelecionada.value !== "") {
-        precoFinalChococream += precoTamanho * (tamanhoSelect.selectedIndex + 1);
-    }
-
-    if (acompanhamentoOpcaoSelecionada.value !== "") {
-        precoFinalChococream += precoAcompanhamento;
-    }
-
-    precoElement.textContent = "R$" + precoFinalChococream.toFixed(2);
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
 }
-  
+
+function atualizarBurguerQueen() {
+  var precoBase = 15.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+  var tamanhoSelect = document.getElementsByName("tamanho_burguerqueen")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_burguerqueen")[0];
+  var precoElement = document.getElementById("preco_burguerqueen");
+
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+  precoFinalBurguerQueen = precoBase;
+
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalBurguerQueen += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
+
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalBurguerQueen += precoAcompanhamento;
+  }
+
+  precoElement.textContent = "R$" + precoFinalBurguerQueen.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+}
+
+function atualizarChocomalti() {
+  var precoBase = 12.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+  var tamanhoSelect = document.getElementsByName("tamanho_chocomalti")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_chocomalti")[0];
+  var precoElement = document.getElementById("preco_chocomalti");
+
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+  precoFinalChocomalti = precoBase;
+
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalChocomalti += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
+
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalChocomalti += precoAcompanhamento;
+  }
+
+  precoElement.textContent = "R$" + precoFinalChocomalti.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+}
+
+function atualizarChococream() {
+  var precoBase = 10.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+  var tamanhoSelect = document.getElementsByName("tamanho_chococream")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_chococream")[0];
+  var precoElement = document.getElementById("preco_chococream");
+
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+  precoFinalChococream = precoBase; // Atribui o valor a variável global
+
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalChococream += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
+
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalChococream += precoAcompanhamento;
+  }
+
+  precoElement.textContent = "R$" + precoFinalChococream.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+}
+
+function atualizarFinalFinalizar() {
+  precoFinalFinalizar = 0; // Inicializa com 0 antes de somar os produtos
+
+  if (precoFinalSaborPink !== undefined) {
+    precoFinalFinalizar += precoFinalSaborPink;
+  }
+
+  if (precoFinalCasquinha !== undefined) {
+    precoFinalFinalizar += precoFinalCasquinha;
+  }
+
+  if (precoFinalDalmaflocos !== undefined) {
+    precoFinalFinalizar += precoFinalDalmaflocos;
+  }
+
+  if (precoFinalBurguerQueen !== undefined) {
+    precoFinalFinalizar += precoFinalBurguerQueen;
+  }
+
+  if (precoFinalChocomalti !== undefined) {
+    precoFinalFinalizar += precoFinalChocomalti;
+  }
+
+  if (precoFinalChococream !== undefined) {
+    precoFinalFinalizar += precoFinalChococream;
+  }
+
+  var precoFinalElement = document.getElementById("precoFinal");
+  precoFinalElement.textContent = precoFinalFinalizar.toFixed(2);
+
+  console.log(precoFinalFinalizar);
+}
+
+
+
 
 
 
