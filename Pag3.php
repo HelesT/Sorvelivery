@@ -154,10 +154,33 @@
     </div>
        
     </div>
+    <div class="container">
+    <div id="products" class="row list-group">
+        <div class="item col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="group list-group-image" src="fv1.png" style="width:800px; height:450px;" alt="" />
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="caption">
+                            <h4 class="group inner list-group-item-heading">Favoritos da Galera</h4>
+                            <p class="group inner list-group-item-text">Refrescante e cremoso? É o Pink Floyd de morango, feito com produtos de alta qualidade.</p>
+                            <p class="lead">R$13,00</p>
+                            <a class="btn btn-success" href="Produtos_sorvetes.php">Peça agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+       
+
 
     <div class="prop">
-    <img src="ele1.png" style="width: 1200px; margin-top: 150px;">
-    <img src="ele2.png" style="width: 1200px; margin-top: 150px;"> 
+    <img src="ele1.png" style="width: 1200px; margin-top: 250px;">
+    <img src="ele2.png" style="width: 1200px; margin-top: 250px;"> 
     </div>
 
     <div class="div4" >
@@ -234,6 +257,11 @@ topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
         }
         
     }
+
+    $(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
     </script>
 
 
