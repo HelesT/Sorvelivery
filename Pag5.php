@@ -534,7 +534,8 @@ if (isset($_POST['adicionarSaborpink'])) {
                     </div>
                 </a>
                 <div class="total_compra">
-                <font style="color: black; font-family: 'Source Sans Pro', sans-serif; font-size: 40px; color: white;">R$<?php echo number_format($totalSomaGeral, 2, ',', '.'); ?></font>
+                <font style="color: black; font-family: 'Source Sans Pro', sans-serif; font-size: 40px; color: white;">R$<span id="precoFinal"><?php echo number_format($totalSomaGeral, 2, ',', '.'); ?></span></font>
+
                 </div>
             </div>
         </div>
@@ -602,40 +603,47 @@ if (isset($_POST['adicionarSaborpink'])) {
     
 }
 
+console.log(precoFinalSaborPink);
 
+var precoFinalFinalizar = precoFinalSaborPink + precoFinalCasquinha + precoFinalDalmaflocos + precoFinalBurguerQueen + precoFinalChocomalti + precoFinalChococream;
 
-
-
+atualizarSaborPink();
+var precoFinalSaborPink = 0 ; // Variável global
 
 function atualizarSaborPink() {
-    var precoBase = 11.00;
-    var precoTamanho = 2.00;
-    var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+  var precoBase = 11.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
 
-    var tamanhoSelect = document.getElementsByName("tamanho_saborpink")[0];
-    var acompanhamentoSelect = document.getElementsByName("acompanhamento_saborpink")[0];
-    var precoElement = document.getElementById("preco_saborpink");
+  var tamanhoSelect = document.getElementsByName("tamanho_saborpink")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_saborpink")[0];
+  var precoElement = document.getElementById("preco_saborpink");
 
-    var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
-    var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-    var precoFinal = precoBase;
+   precoFinalSaborPink = precoBase; // Atualiza a variável global
 
-    if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
-    }
-
-    if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinal += precoAcompanhamento;
-    }
-
-    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalSaborPink += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalSaborPink += precoAcompanhamento;
+  }
+
+  precoElement.textContent = "R$" + precoFinalSaborPink.toFixed(2);
+
+  
+}
 
 
 
 
+
+
+
+  var precoFinalCasquinha = 0; // Variável global
 
   function atualizarCasquinha() {
     var precoBase = 6.00;
@@ -649,23 +657,23 @@ function atualizarSaborPink() {
     var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
     var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-    var precoFinal = precoBase;
+    var precoFinalCasquinha = precoBase;
 
     if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+      precoFinalCasquinha += precoTamanho * (tamanhoSelect.selectedIndex + 1);
     }
 
     if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinal += precoAcompanhamento;
+      precoFinalCasquinha += precoAcompanhamento;
     }
 
-    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+    precoElement.textContent = "R$" + precoFinalCasquinha.toFixed(2);
   }
 
 
 
 
-
+  var precoFinalDalmaflocos = 0; // Variável global
 
 function atualizarDalmaFlocos() {
     var precoBase = 9.00;
@@ -679,23 +687,23 @@ function atualizarDalmaFlocos() {
     var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
     var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-    var precoFinal = precoBase;
+    var precoFinalDalmaflocos = precoBase;
 
     if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+      precoFinalDalmaflocos += precoTamanho * (tamanhoSelect.selectedIndex + 1);
     }
 
     if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinal += precoAcompanhamento;
+      precoFinalDalmaflocos += precoAcompanhamento;
     }
 
-    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+    precoElement.textContent = "R$" + precoFinalDalmaflocos.toFixed(2);
   }
 
 
 
 
-
+  var precoFinalBurguerQueen = 0; // Variável global
 
   function atualizarBurguerQueen() {
     var precoBase = 15.00;
@@ -709,23 +717,23 @@ function atualizarDalmaFlocos() {
     var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
     var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-    var precoFinal = precoBase;
+    var precoFinalBurguerQueen = precoBase;
 
     if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+      precoFinalBurguerQueen += precoTamanho * (tamanhoSelect.selectedIndex + 1);
     }
 
     if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinal += precoAcompanhamento;
+      precoFinalBurguerQueen += precoAcompanhamento;
     }
 
-    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+    precoElement.textContent = "R$" + precoFinalBurguerQueen.toFixed(2);
   }
 
 
 
 
-
+  var precoFinalChocomalti = 0; // Variável global
 
   function atualizarChocomalti() {
     var precoBase = 12.00;
@@ -739,17 +747,17 @@ function atualizarDalmaFlocos() {
     var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
     var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-    var precoFinal = precoBase;
+    var precoFinalChocomalti = precoBase;
 
     if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+      precoFinalChocomalti += precoTamanho * (tamanhoSelect.selectedIndex + 1);
     }
 
     if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinal += precoAcompanhamento;
+      precoFinalChocomalti += precoAcompanhamento;
     }
 
-    precoElement.textContent = "R$" + precoFinal.toFixed(2);
+    precoElement.textContent = "R$" + precoFinalChocomalti.toFixed(2);
   }
 
 
@@ -758,7 +766,9 @@ function atualizarDalmaFlocos() {
 
 
 
-  function atualizarChococream() {
+  var precoFinalChococream = 0; // Variável global
+
+    function atualizarChococream() {
     var precoBase = 10.00;
     var precoTamanho = 2.00;
     var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
@@ -770,18 +780,18 @@ function atualizarDalmaFlocos() {
     var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
     var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-    var precoFinal = precoBase;
+    precoFinalChococream = precoBase; // Atribui o valor a variável global
 
     if (tamanhoOpcaoSelecionada.value !== "") {
-      precoFinal += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+        precoFinalChococream += precoTamanho * (tamanhoSelect.selectedIndex + 1);
     }
 
     if (acompanhamentoOpcaoSelecionada.value !== "") {
-      precoFinal += precoAcompanhamento;
+        precoFinalChococream += precoAcompanhamento;
     }
 
-    precoElement.textContent = "R$" + precoFinal.toFixed(2);
-  }
+    precoElement.textContent = "R$" + precoFinalChococream.toFixed(2);
+}
   
 
 
