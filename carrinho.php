@@ -14,11 +14,37 @@ if ($result) {
         }
     }
 }
+// Soma dos valores da coluna 'tamanho_produto'
+$tamanhoSql = "SELECT SUM(
+    CASE tamanho_produto
+        WHEN 'pequeno' THEN 0
+        WHEN 'normal' THEN 2
+        WHEN 'grande' THEN 4
+        WHEN 'gigante' THEN 6
+        ELSE 0
+    END) AS soma_tamanho
+FROM produtos WHERE carrinho_produto = 's'";
+$tamanhoResult = $conexao->query($tamanhoSql);
+$tamanhoRow = $tamanhoResult->fetch_assoc();
+$somaTamanho = $tamanhoRow['soma_tamanho'];
+
+// Soma dos valores da coluna 'acompanhamento_produto'
+$acompanhamentoSql = "SELECT SUM(
+    CASE WHEN acompanhamento_produto = ' ' THEN 0 ELSE 3 END
+) AS soma_acompanhamento
+FROM produtos WHERE carrinho_produto = 's'";
+$acompanhamentoResult = $conexao->query($acompanhamentoSql);
+$acompanhamentoRow = $acompanhamentoResult->fetch_assoc();
+$somaAcompanhamento = $acompanhamentoRow['soma_acompanhamento'];
 
 $sql = "SELECT SUM(preco_produto) AS soma FROM produtos WHERE carrinho_produto = 's'";
 $result = $conexao->query($sql);
 $row = $result->fetch_assoc();
 $soma = $row['soma'];
+
+// Soma das duas variáveis anteriores com a variável $soma
+$totalSoma = $soma + $somaTamanho + $somaAcompanhamento;
+
 
 
 if (isset($_POST['botaoChococream'])) {
