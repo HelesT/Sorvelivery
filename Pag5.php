@@ -1,3 +1,126 @@
+<?php
+include("conecta.php");
+
+if (isset($_POST['adicionarChococream'])) {
+    $nomeProduto = 'chococream'; // Nome do produto a ser atualizado
+    $tamanhoChococream = $_POST['tamanho_chococream'];
+    $acompanhamentoChococream = $_POST['acompanhamento_chococream'];
+
+    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChococream', acompanhamento_produto = '$acompanhamentoChococream' WHERE nome_produto = ?";
+    
+    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
+    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
+
+    if (mysqli_stmt_execute($stmtAtualizar)) {
+        // Atualização realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    } else {
+        // Erro ao atualizar
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
+    }
+}
+
+  
+
+if (isset($_POST['adicionarChocomalti'])) {
+    $nomeProduto = 'chocomalti'; // Nome do produto a ser inserido
+    $tamanhoChocomalti = $_POST['tamanho_chocomalti'];
+    $acompanhamentoChocomalti = $_POST['acompanhamento_chocomalti'];
+
+    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChocomalti', acompanhamento_produto = '$acompanhamentoChocomalti' WHERE nome_produto = ?";
+    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
+    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
+
+    if (mysqli_stmt_execute($stmtAtualizar)) {
+        // Atualização realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    } else {
+        // Erro ao atualizar
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
+    }
+}
+
+if (isset($_POST['adicionarDalmaflocos'])) {
+    $nomeProduto = 'dalmaflocos'; // Nome do produto a ser atualizado
+    $tamanhoDalmaflocos = $_POST['tamanho_dalmaflocos'];
+    $acompanhamentoDalmaflocos = $_POST['acompanhamento_dalmaflocos'];
+
+    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoDalmaflocos', acompanhamento_produto = '$acompanhamentoDalmaflocos' WHERE nome_produto = ?";
+    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
+    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
+
+    if (mysqli_stmt_execute($stmtAtualizar)) {
+        // Atualização realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    } else {
+        // Erro ao atualizar
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
+    }
+}
+
+
+
+if (isset($_POST['adicionarBurguerqueen'])) {
+    $nomeProduto = 'burguerqueen'; // Nome do produto a ser atualizado
+    $tamanhoBurguerqueen = $_POST['tamanho_burguerqueen'];
+    $acompanhamentoBurguerqueen = $_POST['acompanhamento_burguerqueen'];
+
+    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoBurguerqueen', acompanhamento_produto = '$acompanhamentoBurguerqueen' WHERE nome_produto = ?";
+    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
+    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
+
+    if (mysqli_stmt_execute($stmtAtualizar)) {
+        // Atualização realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    } else {
+        // Erro ao atualizar
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
+    }
+}
+
+if (isset($_POST['adicionarCasquinhahot'])) {
+    $nomeProduto = 'hotchillypapers'; // Nome do produto a ser atualizado
+    $tamanhoCasquinha = $_POST['tamanho_casquinha'];
+    $acompanhamentoCasquinha = $_POST['acompanhamento_casquinha'];
+
+    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoCasquinha', acompanhamento_produto = '$acompanhamentoCasquinha' WHERE nome_produto = ?";
+    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
+    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
+
+    if (mysqli_stmt_execute($stmtAtualizar)) {
+        // Atualização realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    } else {
+        // Erro ao atualizar
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
+    }
+}
+
+
+if (isset($_POST['adicionarSaborpink'])) {
+    $nomeProduto = 'saborpinkfloyd'; // Nome do produto a ser atualizado
+    $tamanhoSaborpink = $_POST['tamanho_saborpink'];
+    $acompanhamentoSaborpink = $_POST['acompanhamento_saborpink'];
+
+    // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoSaborpink', acompanhamento_produto = '$acompanhamentoSaborpink' WHERE nome_produto = ?";
+    $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
+    mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
+
+    if (mysqli_stmt_execute($stmtAtualizar)) {
+        // Atualização realizada com sucesso
+        // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+    } else {
+        // Erro ao atualizar
+        $mensagem = "Erro ao adicionar o produto no carrinho.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -225,7 +348,7 @@
         </div>
         <div class="D1">
             <div class="aba_produtos" style="width: 65%;">
-
+            
             <div class="chococream">
                 <div class="bloco2">
                     <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="175px"></div>
@@ -305,7 +428,7 @@
                                 <option style="font-size: 15px">Nozes</option>
                                 <option style="font-size: 15px">Creme</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 30px;" id="preco_dalmaflocos">R$10,00</font>
+                            <font color="white" style="font-size: 30px;" id="preco_dalmaflocos">R$11,00</font>
                         </div>
                         <form method="Post" action="carrinho.php" class="partição3">  
                             <button type="submit"name="botaoDalmaflocos" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
@@ -411,7 +534,7 @@
                     </div>
                 </a>
                 <div class="total_compra">
-                <font style="color: black; font-family: 'Source Sans Pro', sans-serif; font-size: 40px; color: white;">R$<?php echo number_format($soma, 2, ',', '.'); ?></font>
+                <font style="color: black; font-family: 'Source Sans Pro', sans-serif; font-size: 40px; color: white;">R$<?php echo number_format($totalSoma, 2, ',', '.'); ?></font>
                 </div>
             </div>
         </div>

@@ -36,10 +36,36 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     }
 }
 
+// Soma dos valores da coluna 'tamanho_produto'
+$tamanhoSql = "SELECT SUM(
+  CASE tamanho_produto
+      WHEN 'pequeno' THEN 0
+      WHEN 'normal' THEN 2
+      WHEN 'grande' THEN 4
+      WHEN 'gigante' THEN 6
+      ELSE 0
+  END) AS soma_tamanho
+FROM produtos WHERE carrinho_produto = 's'";
+$tamanhoResult = $conexao->query($tamanhoSql);
+$tamanhoRow = $tamanhoResult->fetch_assoc();
+$somaTamanho = $tamanhoRow['soma_tamanho'];
+
+// Soma dos valores da coluna 'acompanhamento_produto'
+$acompanhamentoSql = "SELECT SUM(
+  CASE WHEN acompanhamento_produto = ' ' THEN 0 ELSE 3 END
+) AS soma_acompanhamento
+FROM produtos WHERE carrinho_produto = 's'";
+$acompanhamentoResult = $conexao->query($acompanhamentoSql);
+$acompanhamentoRow = $acompanhamentoResult->fetch_assoc();
+$somaAcompanhamento = $acompanhamentoRow['soma_acompanhamento'];
+
 $sql = "SELECT SUM(preco_produto) AS soma FROM produtos WHERE carrinho_produto = 's'";
 $result = $conexao->query($sql);
 $row = $result->fetch_assoc();
 $soma = $row['soma'];
+
+// Soma das duas variáveis anteriores com a variável $soma
+$totalSoma = $soma + $somaTamanho + $somaAcompanhamento;
 ?>
 
 
@@ -57,13 +83,6 @@ $soma = $row['soma'];
 <body>
     <div class="overlay" id="overlay" name="overlay" onclick="ocultarDivPrincipal()"></div>
 
-    <div class="fale_conoscodiv" id="fale_conoscodiv" style="top: -100%;">
-        <div class="row100">
-            <input type="text" id="mensagem" class="caixadetexto">
-            <button onclick="Enviar();" class="enviartexto">Enviar</button>
-        </div>
-        <div id="resposta" class="resposta"></div>
-    </div>
     <div class="fale_conoscodiv" id="fale_conoscodiv" style="top: -100%;">
         <div class="row100">
             <input type="text" id="mensagem" class="caixadetexto">
@@ -120,6 +139,42 @@ $soma = $row['soma'];
                 <img src="carrinho.png" width="40px" >
             </a>
         </div>
+    </div>
+    <div class="caixausu" >
+    <div class="pequenininha2">
+            <?php
+                            include("salvar_imagem.php");
+                            if ($resultado) {
+                                $linha = $comando->fetch(PDO::FETCH_ASSOC);
+                                if ($linha) {
+                                    $dados_imagem = $linha["foto"];
+                                    $i = base64_encode($dados_imagem);        
+                                    // Exibir input de seleção de arquivo como a própria imagem
+                                    echo "<img src='data:image/jpeg;base64,$i' onclick='animar1()' style='border-radius: 50%; object-fit: cover; width: 100%; height: 100%;cursor: pointer;'>";                                    
+                                } else {
+                                    echo "Nenhum arquivo de imagem foi enviado.";
+                                }
+                            } else {
+                                echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
+                            }
+                        ?>
+            </div>
+            <div style="color:white;margin-top:0px"><?php 
+        include("conecta.php");
+        $query = "SELECT nome_usuario
+          FROM usuario_atual
+          WHERE usuario_atual.acesso = 's'";
+          $resultado = mysqli_query($conexao, $query);
+          if ($resultado && mysqli_num_rows($resultado) > 0) {
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                $nomeUsuario = $row['nome_usuario'];
+            }
+        }
+        echo $nomeUsuario
+        ?></div>   
+        <a href="cadastro2.php" style="margin-top:5px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Editar Perfil</button></a>
+        <a href="Login.php" style="margin-top:2px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Sair</button></a>                 
+    
     </div>
     <div class="caixausu" >
     <div class="pequenininha2">
@@ -206,7 +261,7 @@ $soma = $row['soma'];
         <div style="margin: 15px;">
             <div style="font-size: 20px;">Taixa de Envio: R$0,00 </div>
             <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="font-size: 20px;">Total: R$<?php echo number_format($soma, 2, ',', '.')?> </div>
+            <div style="font-size: 20px;">Total: R$<?php echo number_format($totalSoma, 2, ',', '.')?> </div>
             <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
             <div class="imagem-container"><?php
             $query = "SELECT imagem FROM produtos WHERE carrinho_produto = 's'";
@@ -289,7 +344,7 @@ $soma = $row['soma'];
         </div>
         <div style="width: 100%;height: 5px;background-color: rgb(212, 212, 212);"></div>
         <div class="linha" style="font-size: 17px;margin-top: 10px;">
-        Total: &nbsp;<span id="valor-soma">R$<?php echo number_format($soma, 2, ',', '.')?></span>
+        Total: &nbsp;<span id="valor-soma">R$<?php echo number_format($totalSoma, 2, ',', '.')?></span>
         </div>
         <button type="submit" style="width: 200px;height: 50px;cursor:pointer;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
         </div>
@@ -299,40 +354,43 @@ $soma = $row['soma'];
 <script>
 topico = "nyltoneduardoconstancio";  // Variável que ficará no servidor MQTT
   
-  // Conexão:
-  client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), "");
+topico = "nyltoneduardoconstancio";
 
-  // Funções executadas quando a conexão é perdida e quando uma mensagem chega:
-  client.onConnectionLost = ConexaoPerdida;
-  client.onMessageArrived = MensagemRecebida;
+    // Conexão:
+    client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), "");
 
-  // Função chamada quando a conexão for realizada:
-  client.connect({onSuccess:Conectar});
+    // Funções executadas quando a conexão é perdida e quando uma mensagem chega:
+    client.onConnectionLost = ConexaoPerdida;
+    client.onMessageArrived = MensagemRecebida;
 
-  // A função Conectar deve criar a variável (tópico) no computador remoto:
-  function Conectar() {
-      client.subscribe(topico);  // Tópico (variável) criado no servidor MQTT
-  }
+    // Função chamada quando a conexão for realizada:
+    client.connect({onSuccess:Conectar});
 
-  function ConexaoPerdida(responseObject) {
-      if (responseObject.errorCode !== 0) {
-          resposta.innerHTML += "Desconectado";
-      }
-  }
+    // A função Conectar deve criar a variável (tópico) no computador remoto:
+    function Conectar() {
+        client.subscribe(topico);  // Tópico (variável) criado no servidor MQTT
+    }
 
-  // Função executada quando a variável (tópico) no servidor receber uma mensagem:
-  function MensagemRecebida(message) {
-      resposta.innerHTML += "<br><br>" + message.payloadString; 
-      resposta.scrollTo(0, document.body.scrollHeight);
-  }
+    function ConexaoPerdida(responseObject) {
+        if (responseObject.errorCode !== 0) {
+            resposta.innerHTML += "Desconectado";
+        }
+    }
 
-  function Enviar() {
-      texto = mensagem.value;
+    // Função executada quando a variável (tópico) no servidor receber uma mensagem:
+    function MensagemRecebida(message) {
+        resposta.innerHTML += "<br><br>" + message.payloadString; 
+        resposta.scrollTo(0, document.body.scrollHeight);
+    }
 
-      message = new Paho.MQTT.Message(texto);
-      message.destinationName = topico;
-      client.send(message);
-  }
+    function Enviar() {
+        texto = mensagem.value;
+
+        message = new Paho.MQTT.Message(texto);
+        message.destinationName = topico;
+        client.send(message);
+    }
+
 
   var clique = 0;
 
@@ -500,7 +558,7 @@ let previousDivId = null;
     previousDivId = `div${divId}`;
   }
   function atualizarSoma0() {
-    var soma = "R$" + <?php echo number_format($soma, 2, '.', '') ?>.toFixed(2); // Atribuir o valor formatado à variável JavaScript
+    var soma = "R$" + <?php echo number_format($totalSoma, 2, '.', '') ?>.toFixed(2); // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div0');
     var valorSoma = document.getElementById('valor-soma');
@@ -513,7 +571,7 @@ let previousDivId = null;
     }
   }
   function atualizarSoma1() {
-    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div1');
     var valorSoma = document.getElementById('valor-soma');
@@ -526,7 +584,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma2() {
-    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div2');
     var valorSoma = document.getElementById('valor-soma');
@@ -539,7 +597,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma3() {
-    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div3');
     var valorSoma = document.getElementById('valor-soma');
@@ -552,7 +610,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma4() {
-    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div4');
     var valorSoma = document.getElementById('valor-soma');
@@ -565,7 +623,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma5() {
-    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div5');
     var valorSoma = document.getElementById('valor-soma');
@@ -578,7 +636,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma6() {
-    var soma = <?php echo number_format($soma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div6');
     var valorSoma = document.getElementById('valor-soma');
