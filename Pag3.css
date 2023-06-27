@@ -11,22 +11,122 @@ body
             overflow-x: hidden;
         }
 
-        .thumbnail .row {
-            display: flex;
+        .thumbnail {
+            margin-top: 240px;
             background-color: white;
-            height: 449px;
-            font-size: 15px;
-            margin-top: 200px;
-          }
-          
-          .thumbnail .row .col-xs-6 {
-            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 640px;
+            width: 800px;
+            border-radius: 15px;
           }
           
           .caption {
-            padding-left: 20px;
-            font-family: Arial, sans-serif;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: -35px;
+         
           }
+          
+          .caption h4 {
+            font-size: 30px;
+            color: black;
+            margin-bottom: 10px;
+            font-size: 30;
+            display: flex;
+            flex-direction: column;
+        
+          }
+          
+          .caption p {
+            font-size: 20px;
+            color: black;
+            margin-bottom: 10px;
+          }
+          
+          .caption .lead {
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 10px;
+          }
+          
+          .caption a.btn {
+            margin-top: 10px;
+            margin-top: 10px;
+            border: 1px solid #000; /* Adiciona uma borda de 1px sólida */
+            background-color: #5CE1E6; /* Define a cor de fundo do botão */
+            padding: 8px 50px; /* Define o espaçamento interno do botão */
+            border-radius: 5px; /* Adiciona um arredondamento à borda do botão */
+            text-decoration: none; /* Remove a decoração de texto padrão */
+            color: #000; /* Define a cor do texto do botão */
+          }
+          .caption a.btn:hover {
+            background-color: #8C52FF; /* Define a cor de fundo do botão ao passar o mouse */
+          }
+
+          .thumbnail2 {
+            margin-top: 240px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 640px;
+            width: 800px;
+            border-radius: 15px;
+          }
+          
+          .caption2 {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: -35px;
+         
+          }
+          
+          .caption2 h4 {
+            font-size: 30px;
+            color: black;
+            margin-bottom: 10px;
+            font-size: 30;
+            display: flex;
+            flex-direction: column;
+          }
+          .thumbnail3 {
+            margin-top: 240px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 640px;
+            width: 800px;
+            border-radius: 15px;
+          }
+          
+          .caption3 {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: -35px;
+         
+          }
+          
+          .caption3 h4 {
+            font-size: 30px;
+            color: black;
+            margin-bottom: 10px;
+            font-size: 30;
+            display: flex;
+            flex-direction: column;
+          }
+          
         .pmd
         {
             width: 100%;

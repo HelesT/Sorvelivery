@@ -1,5 +1,7 @@
 body
 {
+    width: 100%;
+    height:110vh;
     background-image: linear-gradient(45deg, rgb(225, 22, 255), rgb(3, 255,171));background-attachment: fixed;
     margin: 0%;
     flex-direction: column;
@@ -9,7 +11,83 @@ body
     align-items: center;
     align-content: center;
 }
+.principal
+{
+    width: 95%;
+    height: 100%;
+    background-color: #00f7ff;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+.usur
+{
+    width: 95%;
+    height: 10%;
+    background-color: #00000000;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+.usuario
+{
+    width: 30%;
+    height: 99%;
+    background-color: aliceblue;
+}
+.adm
+{
+    margin: 0px;
+    width: 95%;
+    height: 20%;
+    background-color: #000000;
+}
+.essabagaça
+{
+    margin: 0px;
+    width: 95%;
+    height: 40%;
+    background-color: #00000000;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+.mais1
+{
+    width: 100%;
+    height: 20%;
+    background-color: aliceblue;
+}
+.mais2
+{
+    width: 100%;
+    height: 20%;
+    background-color: aliceblue;
 
+}
+.mais3
+{
+    width: 100%;
+    height: 20%;
+    background-color: aliceblue;
+
+}
+.mais4
+{
+    width: 100%;
+    height: 20%;
+    background-color: aliceblue;
+
+}
 nav
     {
         width: 90%;
@@ -38,12 +116,14 @@ nav
 .div1
 {
     width: 100%;
-    height: 1000px;
-    background-color: #0000006b;
+    height: 100%;
+    background-color: #0000008c;
     display: flex;
     flex-direction:column;
     align-items: center;
     align-content: center;
+    justify-content: center;
+    justify-items: center;
 }
 .car
 {
@@ -126,7 +206,8 @@ nav
 {
     width: 100%;
     height: 100px;
-    background-color: black;
+    bottom: 0px;
+    background-color: rgb(0, 0, 0);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -406,11 +487,4 @@ a:hover
     border:2px 2px  white;
     box-shadow: 5px 0px 45px rgb(255, 255, 255);
 
-}
-.principal
-{
-    width: 100%;
-    height: 100%;
-    background-color: #00000073;
-    overflow: hidden;
 }

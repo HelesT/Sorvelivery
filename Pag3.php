@@ -160,11 +160,13 @@
             <div class="thumbnail">
                 <div class="row">
                     <div class="col-xs-6">
-                        <img class="group list-group-image" src="fv1.png" style="width:800px; height:450px;" alt="" />
+                        <img class="group list-group-image" src="fv1.png" style="width:800px; height:350px;" alt="" />
                     </div>
                     <div class="col-xs-6">
                         <div class="caption">
                             <h4 class="group inner list-group-item-heading">Favoritos da Galera</h4>
+                        </div>
+                        <div class="caption">
                             <p class="group inner list-group-item-text">Refrescante e cremoso? É o Pink Floyd de morango, feito com produtos de alta qualidade.</p>
                             <p class="lead">R$13,00</p>
                             <a class="btn btn-success" href="Produtos_sorvetes.php">Peça agora</a>
@@ -175,6 +177,55 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div id="products" class="row list-group">
+        <div class="item col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail2">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="group list-group-image" src="fv2.png" style="width:800px; height:350px;" alt="" />
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="caption2">
+                            <h4 class="group inner list-group-item-heading">Aquele milk shake animal!!!</h4>
+                        </div>
+                        <div class="caption">
+                            <p class="group inner list-group-item-text">Crocância e sabor irresistível, tudo isso em apenas um único milk shake. <br>Compre agora o novo Dalma Flocos.</p>
+                            <p class="lead">R$11,00</p>
+                            <a class="btn btn-success" href="Produtos_milkshakes.php">Peça agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="products" class="row list-group">
+        <div class="item col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail3">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="group list-group-image" src="fv3.png" style="width:800px; height:350px;" alt="" />
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="caption3">
+                            <h4 class="group inner list-group-item-heading">Nem vou falar nada, apenas prove</h4>
+                        </div>
+                        <div class="caption">
+                            <p class="group inner list-group-item-text">A maior novidade dos últimos tempos.</p>
+                            <p class="lead">R$17,00</p>
+                            <a class="btn btn-success" href="Produtos_milkshakes.php">Peça agora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
        
 
 
