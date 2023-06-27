@@ -609,7 +609,7 @@ var precoFinalFinalizar = precoFinalSaborPink + precoFinalCasquinha + precoFinal
 
 var precoFinalSaborPink = 0 ; // Variável global
 
-console.log(precoFinalSaborPink);
+
 
 function atualizarSaborPink() {
   var precoBase = 11.00;
@@ -635,7 +635,7 @@ function atualizarSaborPink() {
 
   precoElement.textContent = "R$" + precoFinalSaborPink.toFixed(2);
 }
-
+console.log(precoFinalSaborPink);
 
 
 
