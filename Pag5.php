@@ -603,12 +603,13 @@ if (isset($_POST['adicionarSaborpink'])) {
     
 }
 
-console.log(precoFinalSaborPink);
+console.log();
 
 var precoFinalFinalizar = precoFinalSaborPink + precoFinalCasquinha + precoFinalDalmaflocos + precoFinalBurguerQueen + precoFinalChocomalti + precoFinalChococream;
 
-atualizarSaborPink();
 var precoFinalSaborPink = 0 ; // Variável global
+
+
 
 function atualizarSaborPink() {
   var precoBase = 11.00;
@@ -622,7 +623,7 @@ function atualizarSaborPink() {
   var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
   var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-   precoFinalSaborPink = precoBase; // Atualiza a variável global
+  precoFinalSaborPink = precoBase; // Atualiza a variável global
 
   if (tamanhoOpcaoSelecionada.value !== "") {
     precoFinalSaborPink += precoTamanho * (tamanhoSelect.selectedIndex + 1);
@@ -637,7 +638,7 @@ function atualizarSaborPink() {
   
 }
 
-
+console.log(precoFinalSaborPink);
 
 
 
