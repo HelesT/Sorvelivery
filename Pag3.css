@@ -178,6 +178,14 @@ body
         color: red;
         background-color: transparent;
     }
+    .prop
+    {
+        display: flex;
+        flex-direction: column;
+        justify-items: column;
+        align-content: column;
+        align-items: column; 
+    }
     .cabecalho
     {
         background-color: rgb(14, 14, 14);
