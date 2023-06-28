@@ -250,13 +250,17 @@ include("conecta.php");
                     </select><br><br>
                         <font color="black" style="font-size: 30px;" id="preco_chococream">R$<?php echo number_format($totalSomaChococream, 2, ',', '.'); ?></font>
                     </div>
+                    <div class="partição3">
+                        <button type="submit" name="mudarprecochococream" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
+                    </div>
+                    </form>
                     <form method="Post" action="carrinho.php" class="partição3">  
-                        <button type="submit" name="botaoChococream" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                        <button type="submit" name="botaoChococream" class="botoesprodutos">
                         <img src="retirar.png" width="20px"></button>
                     </form>
                 </div>
             </div>
-
+            <form method="Post" action="carrinho.php">
                 <div class="chocomalti">
                     <div class="bloco2">
                         <div class="Partição1"><img src="chocomalti.png" class="sorvete-produto-exemplo" width="175px"></div>
@@ -280,13 +284,17 @@ include("conecta.php");
                             <font color="black" style="font-size: 30px;" id="preco_chocomalti">R$<?php echo number_format($totalSomaChocomalti, 2, ',', '.'); ?></font>
 
                         </div>
+                        <div class="partição3">
+                            <button type="submit" name="mudarprecochocomalti" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
+                        </div>
+    </form>
                         <form method="Post" action="carrinho.php" class="partição3">  
-                            <button type="submit"name="botaoChocomalti" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <button type="submit"name="botaoChocomalti" class="botoesprodutos">
                             <img src="retirar.png" width="20px"></button>
                         </form>
                     </div>
                 </div>
-            
+                <form method="Post" action="carrinho.php">
                 <div class="dalmaflocos">
                     <div class="bloco2">
                         <div class="Partição1"><img src="dalmaflocos.png" class="sorvete-produto-exemplo" width="175px"></div>
@@ -309,27 +317,31 @@ include("conecta.php");
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_dalmaflocos">R$<?php echo number_format($totalSomaDalmaFlocos, 2, ',', '.'); ?></font>
                         </div>
+                        <div class="partição3">
+                        <button type="submit" name="mudarprecodalmaflocos" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
+                    </div>
+                    </form>
                         <form method="Post" action="carrinho.php" class="partição3">  
-                            <button type="submit"name="botaoDalmaflocos" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <button type="submit"name="botaoDalmaflocos" class="botoesprodutos">
                             <img src="retirar.png" width="20px"></button>
                         </form>
                     </div>
                 </div>
-
+                <form method="Post" action="carrinho.php">
                 <div class="burguerqueen">
                     <div class="bloco2">
                         <div class="Partição1"><img src="burguerqueen.png" class="sorvete-produto-exemplo" width="175px"></div>
                         <div class="Partição2">
-                            <font color="black" style="font-size: 22px;">burguerqueen</font><br><br>
-                            <font color="black" style="font-size: 15px;">Tamanho:</font>
-                            <select name="tamanho_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <font color= "black" style="font-size: 22px;">burguerqueen</font><br><br>
+                            <font color= "black" style="font-size: 15px;">Tamanho:</font>
+                            <select name="tamanho_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: "black; font-size: 13px;">
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoBurguerQueen == "Pequeno") echo "selected"; ?>>Pequeno</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoBurguerQueen == "Normal") echo "selected"; ?>>Normal</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoBurguerQueen == "Grande") echo "selected"; ?>>Grande</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoBurguerQueen == "Gigante") echo "selected"; ?>>Gigante</option>
                             </select><br><br>
-                            <font color="black" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <font color= "black" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" name="acompanhamento_burguerqueen" onchange="atualizarBurguerQueen()" style="border: 0px none; background-color:rgb(28, 221, 221); color: "black; font-size: 13px;">
                                 <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoBurguerQueen == "Leite em pó") echo "selected"; ?>>Leite em pó</option>
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoBurguerQueen == "Canudo de chocolate") echo "selected"; ?>>Canudo de chocolate</option>
@@ -338,27 +350,31 @@ include("conecta.php");
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_burguerqueen">R$<?php echo number_format($totalSomaBurguerQueen, 2, ',', '.'); ?></font>
                         </div>
+                        <div class="partição3">
+                        <button type="submit" name="mudarprecoburguerqueen" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
+                    </div>
+                    </form>
                         <form method="Post" action="carrinho.php" class="partição3">  
-                            <button type="submit"name="botaoBurguerqueen" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <button type="submit"name="botaoBurguerqueen" class="botoesprodutos">
                             <img src="retirar.png" width="20px"></button>
                         </form>
                     </div>
                 </div>
-
+                <form method="Post" action="carrinho.php">
                 <div class="hotchillypapers">
                     <div class="bloco2">
                         <div class="Partição1"><img src="Casquinha.png" class="sorvete-produto-exemplo" width="175px"></div>
                         <div class="Partição2">
-                            <font color="black" style="font-size: 22px;">casquinha hot chilly papers</font><br><br>
-                            <font color="black" style="font-size: 15px;">Tamanho:</font>
-                            <select name="tamanho_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <font color= "black" style="font-size: 22px;">casquinha hot chilly papers</font><br><br>
+                            <font color= "black" style="font-size: 15px;">Tamanho:</font>
+                            <select name="tamanho_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: "black; font-size: 13px;">
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoHotChilly == "Pequeno") echo "selected"; ?>>Pequeno</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoHotChilly == "Normal") echo "selected"; ?>>Normal</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoHotChilly == "Grande") echo "selected"; ?>>Grande</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoHotChilly == "Gigante") echo "selected"; ?>>Gigante</option>
                             </select><br><br>
-                            <font color="black" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <font color= "black" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" name="acompanhamento_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: "black; font-size: 13px;">
                                 <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoHotChilly == "Leite em pó") echo "selected"; ?>>Leite em pó</option>
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoHotChilly == "Canudo de chocolate") echo "selected"; ?>>Canudo de chocolate</option>
@@ -367,27 +383,31 @@ include("conecta.php");
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_casquinha">R$<?php echo number_format($totalSomaHotChilly, 2, ',', '.'); ?></font>
                         </div>
+                        <div class="partição3">
+                        <button type="submit" name="mudarprecohotchilly" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
+                    </div>
+                    </form>
                         <form method="Post" action="carrinho.php" class="partição3">  
-                            <button type="submit"name="botaoHotchillypapers" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <button type="submit"name="botaoHotchillypapers" class="botoesprodutos">
                             <img src="retirar.png" width="20px"></button>
                         </form>
                     </div>
                 </div>
-
+                <form method="Post" action="carrinho.php">
                 <div class="saborpinkfloyd">
                     <div class="bloco2">
                         <div class="Partição1"><img src="sorvete-produto-exemplo.png" class="sorvete-produto-exemplo" width="175px"></div>
                         <div class="Partição2">
-                            <font color="black" style="font-size: 22px;">sabor pink floyd</font><br><br>
-                            <font color="black" style="font-size: 15px;">Tamanho:</font>
-                            <select name="tamanho_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <font color= "black" style="font-size: 22px;">sabor pink floyd</font><br><br>
+                            <font color= "black" style="font-size: 15px;">Tamanho:</font>
+                            <select name="tamanho_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: "black; font-size: 13px;">
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoSaborPink == "Pequeno") echo "selected"; ?>>Pequeno</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoSaborPink == "Normal") echo "selected"; ?>>Normal</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoSaborPink == "Grande") echo "selected"; ?>>Grande</option>
                                 <option style="font-size: 15px;" <?php if ($tamanho_produtoSaborPink == "Gigante") echo "selected"; ?>>Gigante</option>
                             </select><br><br>
-                            <font color="black" style="font-size: 15px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 13px;">
+                            <font color= "black" style="font-size: 15px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" name="acompanhamento_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: "black; font-size: 13px;">
                                 <option style="font-size: 15px;"></option>
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoSaborPink == "Leite em pó") echo "selected"; ?>>Leite em pó</option>
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoSaborPink == "Canudo de chocolate") echo "selected"; ?>>Canudo de chocolate</option>
@@ -396,8 +416,12 @@ include("conecta.php");
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_saborpink">R$<?php echo number_format($totalSomaSaborPink, 2, ',', '.'); ?></font>
                         </div>
+                        <div class="partição3">
+                        <button type="submit" name="mudarprecosaborpink" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
+                    </div>
+                    </form>
                         <form method="Post" action="carrinho.php" class="partição3">  
-                            <button type="submit"name="botaoSaborpinkfloyd" style="border-radius:100px;border-style:none;background-color:rgb(28, 221, 221)">
+                            <button type="submit"name="botaoSaborpinkfloyd" class="botoesprodutos">
                             <img src="retirar.png" width="20px"></button>
                         </form>
                     </div>
@@ -409,9 +433,9 @@ include("conecta.php");
             <div class="aba_compra">
                 <a href="confirmação_endereço.php">
                 
-                        <button class="finalizar_compra" name="finalizartudologo">
+                        <div class="finalizar_compra">
                             <span style="color: black;font-family: 'Source Sans Pro', sans-serif;font-size: 40px;color: white;">Finalizar</span>
-                        </button>
+                        </div>
                     </form>
                 </a>
                 <div class="total_compra">

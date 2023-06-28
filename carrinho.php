@@ -497,7 +497,7 @@ if (mysqli_num_rows($resultadoAcompanhamentoSaborPink) > 0) {
     $acompanhamento_produtoSaborPink = "";
 }
 
-if (isset($_POST['finalizartudologo'])) {
+if (isset($_POST['mudarprecochococream'])) {
     $nomeProduto = 'chococream'; // Nome do produto a ser atualizado
     $tamanhoChococream = $_POST['tamanho_chococream'];
     $acompanhamentoChococream = $_POST['acompanhamento_chococream'];
@@ -511,6 +511,7 @@ if (isset($_POST['finalizartudologo'])) {
     if (mysqli_stmt_execute($stmtAtualizar)) {
         // Atualização realizada com sucesso
         // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+        header("Location: Pag5.php");
     } else {
         // Erro ao atualizar
         $mensagem = "Erro ao adicionar o produto no carrinho.";
@@ -519,7 +520,7 @@ if (isset($_POST['finalizartudologo'])) {
 
   
 
-if (isset($_POST['finalizartudologo'])) {
+if (isset($_POST['mudarprecochocomalti'])) {
     $nomeProduto = 'chocomalti'; // Nome do produto a ser inserido
     $tamanhoChocomalti = $_POST['tamanho_chocomalti'];
     $acompanhamentoChocomalti = $_POST['acompanhamento_chocomalti'];
@@ -532,13 +533,14 @@ if (isset($_POST['finalizartudologo'])) {
     if (mysqli_stmt_execute($stmtAtualizar)) {
         // Atualização realizada com sucesso
         // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+        header("Location: Pag5.php");
     } else {
         // Erro ao atualizar
         $mensagem = "Erro ao adicionar o produto no carrinho.";
     }
 }
 
-if (isset($_POST['finalizartudologo'])) {
+if (isset($_POST['mudarprecodalmaflocos'])) {
     $nomeProduto = 'dalmaflocos'; // Nome do produto a ser atualizado
     $tamanhoDalmaflocos = $_POST['tamanho_dalmaflocos'];
     $acompanhamentoDalmaflocos = $_POST['acompanhamento_dalmaflocos'];
@@ -551,6 +553,7 @@ if (isset($_POST['finalizartudologo'])) {
     if (mysqli_stmt_execute($stmtAtualizar)) {
         // Atualização realizada com sucesso
         // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+        header("Location: Pag5.php");
     } else {
         // Erro ao atualizar
         $mensagem = "Erro ao adicionar o produto no carrinho.";
@@ -559,7 +562,7 @@ if (isset($_POST['finalizartudologo'])) {
 
 
 
-if (isset($_POST['finalizartudologo'])) {
+if (isset($_POST['mudarprecoburguerqueen'])) {
     $nomeProduto = 'burguerqueen'; // Nome do produto a ser atualizado
     $tamanhoBurguerqueen = $_POST['tamanho_burguerqueen'];
     $acompanhamentoBurguerqueen = $_POST['acompanhamento_burguerqueen'];
@@ -572,13 +575,14 @@ if (isset($_POST['finalizartudologo'])) {
     if (mysqli_stmt_execute($stmtAtualizar)) {
         // Atualização realizada com sucesso
         // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+        header("Location: Pag5.php");
     } else {
         // Erro ao atualizar
         $mensagem = "Erro ao adicionar o produto no carrinho.";
     }
 }
 
-if (isset($_POST['finalizartudologo'])) {
+if (isset($_POST['mudarprecohotchilly'])) {
     $nomeProduto = 'hotchillypapers'; // Nome do produto a ser atualizado
     $tamanhoCasquinha = $_POST['tamanho_casquinha'];
     $acompanhamentoCasquinha = $_POST['acompanhamento_casquinha'];
@@ -591,6 +595,7 @@ if (isset($_POST['finalizartudologo'])) {
     if (mysqli_stmt_execute($stmtAtualizar)) {
         // Atualização realizada com sucesso
         // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+        header("Location: Pag5.php");
     } else {
         // Erro ao atualizar
         $mensagem = "Erro ao adicionar o produto no carrinho.";
@@ -598,7 +603,7 @@ if (isset($_POST['finalizartudologo'])) {
 }
 
 
-if (isset($_POST['finalizartudologo'])) {
+if (isset($_POST['mudarprecosaborpink'])) {
     $nomeProduto = 'saborpinkfloyd'; // Nome do produto a ser atualizado
     $tamanhoSaborpink = $_POST['tamanho_saborpink'];
     $acompanhamentoSaborpink = $_POST['acompanhamento_saborpink'];
@@ -611,6 +616,7 @@ if (isset($_POST['finalizartudologo'])) {
     if (mysqli_stmt_execute($stmtAtualizar)) {
         // Atualização realizada com sucesso
         // Você pode adicionar alguma outra lógica ou redirecionamento aqui, se necessário
+        header("Location: Pag5.php");
     } else {
         // Erro ao atualizar
         $mensagem = "Erro ao adicionar o produto no carrinho.";

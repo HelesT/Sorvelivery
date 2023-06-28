@@ -119,21 +119,32 @@
 
     <div class="div1">
         <div class="principal">
-            <div class="usur">
                 <div class="usuario">
                     <div class="semcri">
+                        Usuários
+                        <button class="addusu">Adicionar Usuário</button>
+                    </div>
+                    <div class="semcri2">
+                        <input type="text" class="bpesq">
+                        <button class="pesq">Pesquisar Usuário</button>
+                    </div>
                 </div>
-                <div class="usuario"></div>
-            </div>
             <div class="adm">
-
+                Administrativo
+                <br><br>
+                <select style="width:15%; height:25%; font-size:15px;" value="Ações em massa"> <option >Ações em massa</option></select>
+                <select style="width:15%; height:25%; font-size:15px;" value="Ações em massa"> <option >Alterar Funções</option></select>
+                <button class="aplicar">Aplicar</button>
             </div>
             <div class="essabagaça">
-                <div class="mais1"></div>
-                <div class="mais2"></div>
+                <div class="mais1">
+
+                </div>
+                <div class="mais2">
+                    <input type="checkbox">
+                </div>
                 <div class="mais3"></div>
                 <div class="mais4"></div>
-            </div>
         </div>
     </div>
 
