@@ -78,22 +78,22 @@ include("conecta.php");
                     <div class="bloco2">
                         <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">chococream</font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 35px;">chococream</font><br><br><br>
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="black" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">                           
                             <form method="POST" action="" >
@@ -106,22 +106,22 @@ include("conecta.php");
                     <div class="bloco2">
                         <div class="Partição1"><img src="Casquinha.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">Casquinha Hot Chilly Pappers</font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 35px;">Casquinha Hot Chilly Pappers</font><br><br><br>
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="black" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">
                             <form method="POST" action="" >
@@ -134,22 +134,22 @@ include("conecta.php");
                     <div class="bloco2">
                         <div class="Partição1"><img src="dalmaflocos.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">dalmaflocos</font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 35px;">dalmaflocos</font><br><br><br>
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="black" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">
                         <form method="POST" action="" >
@@ -162,23 +162,23 @@ include("conecta.php");
                     <div class="bloco2">
                         <div class="Partição1"><img src="burguerqueen.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">burguerqueen
+                            <font color="black" style="font-size: 35px;">burguerqueen
                             </font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="black" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">
                         <form method="POST" action="" >
@@ -191,23 +191,23 @@ include("conecta.php");
                     <div class="bloco2">
                         <div class="Partição1"><img src="sorvete-produto-exemplo.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">Sabor Pink Floyd
+                            <font color="black" style="font-size: 35px;">Sabor Pink Floyd
                             </font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="black" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">
                         <form method="POST" action="" >
@@ -220,23 +220,23 @@ include("conecta.php");
                     <div class="bloco2">
                         <div class="Partição1"><img src="chocomalti.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">Chocomalti
+                            <font color="black" style="font-size: 35px;">Chocomalti
                             </font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;">R$17,00</font>
+                            <font color="black" style="font-size: 35px;">R$17,00</font>
                         </div>
                         <div class="Partição3">
                         <form method="POST" action="" >
