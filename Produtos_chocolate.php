@@ -197,6 +197,7 @@ if (isset($_POST['adicionarChocomalti'])) {
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
                             <font color="black" style="font-size: 35px;" id="preco_chococream">R$12,00</font>
+                            <input type="number" name="quantidade_produto" style="width:40px;height:30px;border-radius:100px;background-color:rgb(28, 221, 221);margin-left:50px">
                         </div>
                         <div class="Partição3">                           
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>

@@ -249,6 +249,7 @@ include("conecta.php");
                         <option style="font-size: 15px;" <?php if ($acompanhamento_produtoChococream == "Creme") echo "selected"; ?>>Creme</option>
                     </select><br><br>
                         <font color="black" style="font-size: 30px;" id="preco_chococream">R$<?php echo number_format($totalSomaChococream, 2, ',', '.'); ?></font>
+                        <input type="number" name="quantidade_produto" style="width:40px;border-radius:100px;background-color:rgb(28, 221, 221);margin-left:50px">
                     </div>
                     <div class="partição3">
                         <button type="submit" name="mudarprecochococream" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
