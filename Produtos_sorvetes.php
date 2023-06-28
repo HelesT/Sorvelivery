@@ -5,9 +5,10 @@ if (isset($_POST['adicionarCasquinhahot'])) {
     $nomeProduto = 'hotchillypapers'; // Nome do produto a ser atualizado
     $tamanhoCasquinha = $_POST['tamanho_casquinha'];
     $acompanhamentoCasquinha = $_POST['acompanhamento_casquinha'];
+    $quantidadeCasquinha = $_POST['quantidade_casquinha'];
 
     // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoCasquinha', acompanhamento_produto = '$acompanhamentoCasquinha' WHERE nome_produto = ?";
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoCasquinha', acompanhamento_produto = '$acompanhamentoCasquinha', quantidade_produto = '$quantidadeCasquinha' WHERE nome_produto = ?";
     $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
     mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
 
@@ -25,9 +26,10 @@ if (isset($_POST['adicionarSaborpink'])) {
     $nomeProduto = 'saborpinkfloyd'; // Nome do produto a ser atualizado
     $tamanhoSaborpink = $_POST['tamanho_saborpink'];
     $acompanhamentoSaborpink = $_POST['acompanhamento_saborpink'];
+    $quantidadeSaborPink = $_POST['quantidade_saborpink'];
 
     // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoSaborpink', acompanhamento_produto = '$acompanhamentoSaborpink' WHERE nome_produto = ?";
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoSaborpink', acompanhamento_produto = '$acompanhamentoSaborpink', quantidade_produto = '$quantidadeSaborPink' WHERE nome_produto = ?";
     $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
     mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
 
@@ -188,6 +190,7 @@ if (isset($_POST['adicionarSaborpink'])) {
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
                             <font color="black" style="font-size: 35px;" id="preco_casquinha">R$8,00</font>
+                            <input type="number" id="quantidade_casquinha" value="1" name="quantidade_casquinha" style="width:40px;height:30px;border-radius:100px;background-color:rgb(28, 221, 221);margin-left:50px;font-size:18px">
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarCasquinhahot" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -219,6 +222,7 @@ if (isset($_POST['adicionarSaborpink'])) {
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
                             <font color="black" style="font-size: 35px;" id="preco_saborpink">R$13,00</font>
+                            <input type="number" id="quantidade_saborpink" value="1" name="quantidade_saborpink" style="width:40px;height:30px;border-radius:100px;background-color:rgb(28, 221, 221);margin-left:50px;font-size:18px">
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarSaborpink" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -340,5 +344,33 @@ function atualizarSaborPink() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
+  // Obtém o elemento do input
+var quantidadeInputCasquinha = document.getElementById("quantidade_casquinha");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputCasquinha.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputCasquinha.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputCasquinha.value = 1;
+    }
+});
+// Obtém o elemento do input
+var quantidadeInputSaborPink = document.getElementById("quantidade_saborpink");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputSaborPink.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputSaborPink.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputSaborPink.value = 1;
+    }
+});
     </script>
 </html>

@@ -7,9 +7,10 @@ if (isset($_POST['adicionarChococream'])) {
     $nomeProduto = 'chococream'; // Nome do produto a ser atualizado
     $tamanhoChococream = $_POST['tamanho_chococream'];
     $acompanhamentoChococream = $_POST['acompanhamento_chococream'];
+    $quantidadeChococream = $_POST['quantidade_chococream'];
 
     // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChococream', acompanhamento_produto = '$acompanhamentoChococream' WHERE nome_produto = ?";
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChococream', acompanhamento_produto = '$acompanhamentoChococream', quantidade_produto = '$quantidadeChococream' WHERE nome_produto = ?";
     
     $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
     mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
@@ -29,9 +30,10 @@ if (isset($_POST['adicionarChocomalti'])) {
     $nomeProduto = 'chocomalti'; // Nome do produto a ser inserido
     $tamanhoChocomalti = $_POST['tamanho_chocomalti'];
     $acompanhamentoChocomalti = $_POST['acompanhamento_chocomalti'];
+    $quantidadeChocomalti = $_POST['quantidade_chocomalti'];
 
     // Realizar a atualização na coluna 'carrinho_produto' para todos os registros com o mesmo nome
-    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChocomalti', acompanhamento_produto = '$acompanhamentoChocomalti' WHERE nome_produto = ?";
+    $sqlAtualizar = "UPDATE produtos SET carrinho_produto = 's', tamanho_produto = '$tamanhoChocomalti', acompanhamento_produto = '$acompanhamentoChocomalti', quantidade_produto = '$quantidadeChocomalti' WHERE nome_produto = ?";
     $stmtAtualizar = mysqli_prepare($conexao, $sqlAtualizar);
     mysqli_stmt_bind_param($stmtAtualizar, "s", $nomeProduto);
 
@@ -197,7 +199,7 @@ if (isset($_POST['adicionarChocomalti'])) {
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
                             <font color="black" style="font-size: 35px;" id="preco_chococream">R$12,00</font>
-                            <input type="number" name="quantidade_produto" style="width:40px;height:30px;border-radius:100px;background-color:rgb(28, 221, 221);margin-left:50px">
+                            <input type="number" value="1" name="quantidade_chococream" id="quantidade_chococream" style="width:40px;height:30px;border-radius:100px;background-color:rgb(28, 221, 221);margin-left:50px;font-size:18px">
                         </div>
                         <div class="Partição3">                           
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -228,6 +230,7 @@ if (isset($_POST['adicionarChocomalti'])) {
                             <option style="font-size: 22px">Creme</option>
                         </select><br><br><br>
                         <font id="preco_chocomalti" color="black" style="font-size: 35px;">R$14,00</font>
+                        <input type="number" value="1" id="quantidade_chocomalti" name="quantidade_chocomalti" style="width:40px;height:30px;border-radius:100px;background-color:rgb(28, 221, 221);margin-left:50px;font-size:18px">
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChocomalti" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -349,6 +352,35 @@ function atualizarPrecoChocomalti() {
 
     precoElement.textContent = "R$" + precoFinal.toFixed(2);
   }
+
+  // Obtém o elemento do input
+var quantidadeInputChococream = document.getElementById("quantidade_chococream");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputChococream.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputChococream.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputChococream.value = 1;
+    }
+});
+// Obtém o elemento do input
+var quantidadeInputChocomalti = document.getElementById("quantidade_chocomalti");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputChocomalti.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputChocomalti.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputChocomalti.value = 1;
+    }
+});
     </script>
 </html>
 

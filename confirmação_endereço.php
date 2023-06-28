@@ -36,7 +36,6 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     }
 }
 
-// Soma dos valores da coluna 'tamanho_produto'
 $tamanhoSql = "SELECT SUM(
   CASE tamanho_produto
       WHEN 'pequeno' THEN 0
@@ -44,28 +43,25 @@ $tamanhoSql = "SELECT SUM(
       WHEN 'grande' THEN 4
       WHEN 'gigante' THEN 6
       ELSE 0
-  END) AS soma_tamanho
+  END * quantidade_produto) AS soma_tamanho
 FROM produtos WHERE carrinho_produto = 's'";
 $tamanhoResult = $conexao->query($tamanhoSql);
 $tamanhoRow = $tamanhoResult->fetch_assoc();
-$somaTamanho = $tamanhoRow['soma_tamanho'];
+$somaTamanhoGeral = $tamanhoRow['soma_tamanho'];
 
-// Soma dos valores da coluna 'acompanhamento_produto'
 $acompanhamentoSql = "SELECT SUM(
-  CASE WHEN acompanhamento_produto = ' ' THEN 0 ELSE 3 END
-) AS soma_acompanhamento
+  CASE WHEN acompanhamento_produto = ' ' THEN 0 ELSE 3 END * quantidade_produto) AS soma_acompanhamento
 FROM produtos WHERE carrinho_produto = 's'";
 $acompanhamentoResult = $conexao->query($acompanhamentoSql);
 $acompanhamentoRow = $acompanhamentoResult->fetch_assoc();
-$somaAcompanhamento = $acompanhamentoRow['soma_acompanhamento'];
+$somaAcompanhamentoGeral = $acompanhamentoRow['soma_acompanhamento'];
 
-$sql = "SELECT SUM(preco_produto) AS soma FROM produtos WHERE carrinho_produto = 's'";
+$sql = "SELECT SUM(preco_produto * quantidade_produto) AS soma FROM produtos WHERE carrinho_produto = 's'";
 $result = $conexao->query($sql);
 $row = $result->fetch_assoc();
-$soma = $row['soma'];
+$somaGeral = $row['soma'];
 
-// Soma das duas variáveis anteriores com a variável $soma
-$totalSoma = $soma + $somaTamanho + $somaAcompanhamento;
+$totalSomaGeral = $somaGeral + $somaTamanhoGeral + $somaAcompanhamentoGeral;
 ?>
 
 
@@ -261,7 +257,7 @@ $totalSoma = $soma + $somaTamanho + $somaAcompanhamento;
         <div style="margin: 15px;">
             <div style="font-size: 20px;">Taixa de Envio: R$0,00 </div>
             <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
-            <div style="font-size: 20px;">Total: R$<?php echo number_format($totalSoma, 2, ',', '.')?> </div>
+            <div style="font-size: 20px;">Total: R$<?php echo number_format($totalSomaGeral, 2, ',', '.')?> </div>
             <div style="width: 100%;height: 3px;background-color: rgb(212, 212, 212);margin-top: 7px;margin-bottom: 7px;"></div>
             <div class="imagem-container"><?php
             $query = "SELECT imagem FROM produtos WHERE carrinho_produto = 's'";
@@ -344,7 +340,7 @@ $totalSoma = $soma + $somaTamanho + $somaAcompanhamento;
         </div>
         <div style="width: 100%;height: 5px;background-color: rgb(212, 212, 212);"></div>
         <div class="linha" style="font-size: 17px;margin-top: 10px;">
-        Total: &nbsp;<span id="valor-soma">R$<?php echo number_format($totalSoma, 2, ',', '.')?></span>
+        Total: &nbsp;<span id="valor-soma">R$<?php echo number_format($totalSomaGeral, 2, ',', '.')?></span>
         </div>
         <button type="submit" style="width: 200px;height: 50px;cursor:pointer;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
         </div>
@@ -558,7 +554,7 @@ let previousDivId = null;
     previousDivId = `div${divId}`;
   }
   function atualizarSoma0() {
-    var soma = "R$" + <?php echo number_format($totalSoma, 2, '.', '') ?>.toFixed(2); // Atribuir o valor formatado à variável JavaScript
+    var soma = "R$" + <?php echo number_format($totalSomaGeral, 2, '.', '') ?>.toFixed(2); // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div0');
     var valorSoma = document.getElementById('valor-soma');
@@ -571,7 +567,7 @@ let previousDivId = null;
     }
   }
   function atualizarSoma1() {
-    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSomaGeral, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div1');
     var valorSoma = document.getElementById('valor-soma');
@@ -584,7 +580,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma2() {
-    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSomaGeral, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div2');
     var valorSoma = document.getElementById('valor-soma');
@@ -597,7 +593,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma3() {
-    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSomaGeral, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div3');
     var valorSoma = document.getElementById('valor-soma');
@@ -610,7 +606,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma4() {
-    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSomaGeral, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div4');
     var valorSoma = document.getElementById('valor-soma');
@@ -623,7 +619,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma5() {
-    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSomaGeral, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div5');
     var valorSoma = document.getElementById('valor-soma');
@@ -636,7 +632,7 @@ let previousDivId = null;
     valorSoma.textContent = soma.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
   }
   function atualizarSoma6() {
-    var soma = <?php echo number_format($totalSoma, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
+    var soma = <?php echo number_format($totalSomaGeral, 2, '.', '') ?>; // Atribuir o valor formatado à variável JavaScript
     
     var div1 = document.getElementById('div6');
     var valorSoma = document.getElementById('valor-soma');

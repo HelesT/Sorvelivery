@@ -12,6 +12,15 @@ body
     align-items: center;
     
 }
+.aumentarqtd
+{
+  width:40px;
+  height:30px;
+  border-radius:100px;
+  background-color:rgb(28, 221, 221);
+  margin-left:50px;
+  font-size:20px
+}
 .endireitador
 {
   width: 45px;

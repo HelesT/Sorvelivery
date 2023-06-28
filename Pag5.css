@@ -12,6 +12,12 @@ body {
     align-content: center;
     align-items: center;    
   }
+  .quantidadeprodutos{
+    width:40px;
+    border-radius:100px;
+    background-color:rgb(28, 221, 221);
+    margin-left:50px
+  }
   .botoesprodutos{
     border-radius:10000px;
     border-style:none;

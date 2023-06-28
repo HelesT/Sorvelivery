@@ -1,6 +1,4 @@
-<?php
-include("conecta.php");
-?>
+<?php include("conecta.php");?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -249,7 +247,7 @@ include("conecta.php");
                         <option style="font-size: 15px;" <?php if ($acompanhamento_produtoChococream == "Creme") echo "selected"; ?>>Creme</option>
                     </select><br><br>
                         <font color="black" style="font-size: 30px;" id="preco_chococream">R$<?php echo number_format($totalSomaChococream, 2, ',', '.'); ?></font>
-                        <input type="number" name="quantidade_produto" style="width:40px;border-radius:100px;background-color:rgb(28, 221, 221);margin-left:50px">
+                        <input type="number" onchange="atualizarChococream()" name="quantidade_chococream" id="quantidade_chococream" class="quantidadeprodutos" value="<?php echo $Quantidade_produtoChococream ?>" />
                     </div>
                     <div class="partição3">
                         <button type="submit" name="mudarprecochococream" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
@@ -283,7 +281,7 @@ include("conecta.php");
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoChocomalti == "Creme") echo "selected"; ?>>Creme</option>
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_chocomalti">R$<?php echo number_format($totalSomaChocomalti, 2, ',', '.'); ?></font>
-
+                            <input type="number" onchange="atualizarChocomalti()" name="quantidade_chocomalti" id="quantidade_chocomalti" class="quantidadeprodutos" value="<?php echo $Quantidade_produtoChocomalti ?>" />
                         </div>
                         <div class="partição3">
                             <button type="submit" name="mudarprecochocomalti" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
@@ -317,6 +315,7 @@ include("conecta.php");
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoDalmaFlocos == "Creme") echo "selected"; ?>>Creme</option>
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_dalmaflocos">R$<?php echo number_format($totalSomaDalmaFlocos, 2, ',', '.'); ?></font>
+                            <input type="number" name="quantidade_dalmaflocos" onchange="atualizarDalmaFlocos()" id="quantidade_dalmaflocos" class="quantidadeprodutos" value="<?php echo $Quantidade_produtoDalmaflocos ?>" />
                         </div>
                         <div class="partição3">
                         <button type="submit" name="mudarprecodalmaflocos" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
@@ -350,6 +349,7 @@ include("conecta.php");
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoBurguerQueen == "Creme") echo "selected"; ?>>Creme</option>
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_burguerqueen">R$<?php echo number_format($totalSomaBurguerQueen, 2, ',', '.'); ?></font>
+                            <input type="number" onchange="atualizarBurguerQueen()" name="quantidade_burguerqueen" id="quantidade_burguerqueen" class="quantidadeprodutos" value="<?php echo $Quantidade_produtoBurguerQueen ?>" />
                         </div>
                         <div class="partição3">
                         <button type="submit" name="mudarprecoburguerqueen" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
@@ -383,6 +383,7 @@ include("conecta.php");
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoHotChilly == "Creme") echo "selected"; ?>>Creme</option>
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_casquinha">R$<?php echo number_format($totalSomaHotChilly, 2, ',', '.'); ?></font>
+                            <input type="number" name="quantidade_casquinha" onchange="atualizarCasquinha()" id="quantidade_casquinha" class="quantidadeprodutos" value="<?php echo $Quantidade_produtoHotChilly ?>" />
                         </div>
                         <div class="partição3">
                         <button type="submit" name="mudarprecohotchilly" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
@@ -416,6 +417,7 @@ include("conecta.php");
                                 <option style="font-size: 15px;" <?php if ($acompanhamento_produtoSaborPink == "Creme") echo "selected"; ?>>Creme</option>
                             </select><br><br>
                             <font color="black" style="font-size: 30px;" id="preco_saborpink">R$<?php echo number_format($totalSomaSaborPink, 2, ',', '.'); ?></font>
+                            <input type="number" name="quantidade_saborpink" id="quantidade_saborpink" onchange="atualizarSaborPink()" class="quantidadeprodutos" value="<?php echo $Quantidade_produtoSaborPink ?>" />
                         </div>
                         <div class="partição3">
                         <button type="submit" name="mudarprecosaborpink" class="botoesprodutos"><img src="recarregaricon.png" width="20px"></button>
@@ -509,14 +511,96 @@ include("conecta.php");
     }
     
 }
+// Obtém o elemento do input
+var quantidadeInputSaborPink = document.getElementById("quantidade_saborpink");
 
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputSaborPink.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputSaborPink.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputSaborPink.value = 1;
+    }
+});
+// Obtém o elemento do input
+var quantidadeInputChococream = document.getElementById("quantidade_chococream");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputChococream.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputChococream.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputChococream.value = 1;
+    }
+});
+// Obtém o elemento do input
+var quantidadeInputChocomalti = document.getElementById("quantidade_chocomalti");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputChocomalti.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputChocomalti.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputChocomalti.value = 1;
+    }
+});
+// Obtém o elemento do input
+var quantidadeInputBurguerQueen = document.getElementById("quantidade_burguerqueen");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputBurguerQueen.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputBurguerQueen.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputBurguerQueen.value = 1;
+    }
+});
+// Obtém o elemento do input
+var quantidadeInputDalmaflocos = document.getElementById("quantidade_dalmaflocos");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputDalmaflocos.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputDalmaflocos.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputDalmaflocos.value = 1;
+    }
+});
+// Obtém o elemento do input
+var quantidadeInputCasquinha = document.getElementById("quantidade_casquinha");
+
+// Adiciona um evento de listener para detectar quando o valor do input é alterado
+quantidadeInputCasquinha.addEventListener("change", function() {
+    // Obtém o valor atual do input
+    var quantidade = parseInt(quantidadeInputCasquinha.value);
+
+    // Verifica se a quantidade é negativa
+    if (quantidade < 1) {
+        // Define o valor mínimo como 0
+        quantidadeInputCasquinha.value = 1;
+    }
+});
 var precoFinalSaborPink;
 var precoFinalCasquinha;
 var precoFinalDalmaflocos;
 var precoFinalBurguerQueen;
 var precoFinalChocomalti;
 var precoFinalChococream;
-var precoFinalFinalizar;
 
 function atualizarSaborPink() {
   var precoBase = 11.00;
@@ -525,6 +609,7 @@ function atualizarSaborPink() {
 
   var tamanhoSelect = document.getElementsByName("tamanho_saborpink")[0];
   var acompanhamentoSelect = document.getElementsByName("acompanhamento_saborpink")[0];
+  var quantidadeInput = document.getElementById("quantidade_saborpink");
   var precoElement = document.getElementById("preco_saborpink");
 
   var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
@@ -540,12 +625,16 @@ function atualizarSaborPink() {
     novoPreco += precoAcompanhamento;
   }
 
+  var quantidade = quantidadeInput.value;
+  if (quantidade !== "" && !isNaN(quantidade)) {
+    novoPreco *= parseFloat(quantidade);
+  }
+
   precoFinalSaborPink = novoPreco; // Atualiza a variável global
 
   precoElement.textContent = "R$" + novoPreco.toFixed(2);
-
-  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
 }
+
 
 function atualizarCasquinha() {
   var precoBase = 6.00;
@@ -554,25 +643,32 @@ function atualizarCasquinha() {
 
   var tamanhoSelect = document.getElementsByName("tamanho_casquinha")[0];
   var acompanhamentoSelect = document.getElementsByName("acompanhamento_casquinha")[0];
+  var quantidadeInput = document.getElementById("quantidade_casquinha");
   var precoElement = document.getElementById("preco_casquinha");
 
   var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
   var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-  precoFinalCasquinha = precoBase;
+  var novoPreco = precoBase; // Atualiza a variável local
 
   if (tamanhoOpcaoSelecionada.value !== "") {
-    precoFinalCasquinha += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    novoPreco += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
   if (acompanhamentoOpcaoSelecionada.value !== "") {
-    precoFinalCasquinha += precoAcompanhamento;
+    novoPreco += precoAcompanhamento;
   }
 
-  precoElement.textContent = "R$" + precoFinalCasquinha.toFixed(2);
+  var quantidade = quantidadeInput.value;
+  if (quantidade !== "" && !isNaN(quantidade)) {
+    novoPreco *= parseFloat(quantidade);
+  }
 
-  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+  precoFinalCasquinha = novoPreco; // Atualiza a variável global
+
+  precoElement.textContent = "R$" + novoPreco.toFixed(2);
 }
+
 
 function atualizarDalmaFlocos() {
   var precoBase = 9.00;
@@ -581,25 +677,32 @@ function atualizarDalmaFlocos() {
 
   var tamanhoSelect = document.getElementsByName("tamanho_dalmaflocos")[0];
   var acompanhamentoSelect = document.getElementsByName("acompanhamento_dalmaflocos")[0];
+  var quantidadeInput = document.getElementById("quantidade_dalmaflocos");
   var precoElement = document.getElementById("preco_dalmaflocos");
 
   var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
   var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-  precoFinalDalmaflocos = precoBase;
+  var novoPreco = precoBase; // Atualiza a variável local
 
   if (tamanhoOpcaoSelecionada.value !== "") {
-    precoFinalDalmaflocos += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    novoPreco += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
   if (acompanhamentoOpcaoSelecionada.value !== "") {
-    precoFinalDalmaflocos += precoAcompanhamento;
+    novoPreco += precoAcompanhamento;
   }
 
-  precoElement.textContent = "R$" + precoFinalDalmaflocos.toFixed(2);
+  var quantidade = quantidadeInput.value;
+  if (quantidade !== "" && !isNaN(quantidade)) {
+    novoPreco *= parseFloat(quantidade);
+  }
 
-  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+  precoFinalDalmaflocos = novoPreco; // Atualiza a variável global
+
+  precoElement.textContent = "R$" + novoPreco.toFixed(2);
 }
+
 
 function atualizarBurguerQueen() {
   var precoBase = 15.00;
@@ -608,25 +711,32 @@ function atualizarBurguerQueen() {
 
   var tamanhoSelect = document.getElementsByName("tamanho_burguerqueen")[0];
   var acompanhamentoSelect = document.getElementsByName("acompanhamento_burguerqueen")[0];
+  var quantidadeInput = document.getElementById("quantidade_burguerqueen");
   var precoElement = document.getElementById("preco_burguerqueen");
 
   var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
   var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-  precoFinalBurguerQueen = precoBase;
+  var novoPreco = precoBase; // Atualiza a variável local
 
   if (tamanhoOpcaoSelecionada.value !== "") {
-    precoFinalBurguerQueen += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    novoPreco += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
   if (acompanhamentoOpcaoSelecionada.value !== "") {
-    precoFinalBurguerQueen += precoAcompanhamento;
+    novoPreco += precoAcompanhamento;
   }
 
-  precoElement.textContent = "R$" + precoFinalBurguerQueen.toFixed(2);
+  var quantidade = quantidadeInput.value;
+  if (quantidade !== "" && !isNaN(quantidade)) {
+    novoPreco *= parseFloat(quantidade);
+  }
 
-  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+  precoFinalBurguerQueen = novoPreco; // Atualiza a variável global
+
+  precoElement.textContent = "R$" + novoPreco.toFixed(2);
 }
+
 
 function atualizarChocomalti() {
   var precoBase = 12.00;
@@ -635,25 +745,32 @@ function atualizarChocomalti() {
 
   var tamanhoSelect = document.getElementsByName("tamanho_chocomalti")[0];
   var acompanhamentoSelect = document.getElementsByName("acompanhamento_chocomalti")[0];
+  var quantidadeInput = document.getElementById("quantidade_chocomalti");
   var precoElement = document.getElementById("preco_chocomalti");
 
   var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
   var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-  precoFinalChocomalti = precoBase;
+  var novoPreco = precoBase; // Atualiza a variável local
 
   if (tamanhoOpcaoSelecionada.value !== "") {
-    precoFinalChocomalti += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    novoPreco += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
   if (acompanhamentoOpcaoSelecionada.value !== "") {
-    precoFinalChocomalti += precoAcompanhamento;
+    novoPreco += precoAcompanhamento;
   }
 
-  precoElement.textContent = "R$" + precoFinalChocomalti.toFixed(2);
+  var quantidade = quantidadeInput.value;
+  if (quantidade !== "" && !isNaN(quantidade)) {
+    novoPreco *= parseFloat(quantidade);
+  }
 
-  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+  precoFinalChocomalti = novoPreco; // Atualiza a variável global
+
+  precoElement.textContent = "R$" + novoPreco.toFixed(2);
 }
+
 
 function atualizarChococream() {
   var precoBase = 10.00;
@@ -662,58 +779,34 @@ function atualizarChococream() {
 
   var tamanhoSelect = document.getElementsByName("tamanho_chococream")[0];
   var acompanhamentoSelect = document.getElementsByName("acompanhamento_chococream")[0];
+  var quantidadeInput = document.getElementById("quantidade_chococream");
   var precoElement = document.getElementById("preco_chococream");
 
   var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
   var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-  precoFinalChococream = precoBase; // Atribui o valor a variável global
+  var novoPreco = precoBase; // Atualiza a variável local
 
   if (tamanhoOpcaoSelecionada.value !== "") {
-    precoFinalChococream += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+    novoPreco += precoTamanho * (tamanhoSelect.selectedIndex + 1);
   }
 
   if (acompanhamentoOpcaoSelecionada.value !== "") {
-    precoFinalChococream += precoAcompanhamento;
+    novoPreco += precoAcompanhamento;
   }
 
-  precoElement.textContent = "R$" + precoFinalChococream.toFixed(2);
+  var quantidade = quantidadeInput.value;
+  if (quantidade !== "" && !isNaN(quantidade)) {
+    novoPreco *= parseFloat(quantidade);
+  }
 
-  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+  precoFinalChococream = novoPreco; // Atualiza a variável global
+
+  precoElement.textContent = "R$" + novoPreco.toFixed(2);
 }
 
-function atualizarFinalFinalizar() {
-  precoFinalFinalizar = 0; // Inicializa com 0 antes de somar os produtos
 
-  if (precoFinalSaborPink !== undefined) {
-    precoFinalFinalizar += precoFinalSaborPink;
-  }
 
-  if (precoFinalCasquinha !== undefined) {
-    precoFinalFinalizar += precoFinalCasquinha;
-  }
-
-  if (precoFinalDalmaflocos !== undefined) {
-    precoFinalFinalizar += precoFinalDalmaflocos;
-  }
-
-  if (precoFinalBurguerQueen !== undefined) {
-    precoFinalFinalizar += precoFinalBurguerQueen;
-  }
-
-  if (precoFinalChocomalti !== undefined) {
-    precoFinalFinalizar += precoFinalChocomalti;
-  }
-
-  if (precoFinalChococream !== undefined) {
-    precoFinalFinalizar += precoFinalChococream;
-  }
-
-  var precoFinalElement = document.getElementById("precoFinal");
-  precoFinalElement.textContent = precoFinalFinalizar.toFixed(2);
-
-  console.log(precoFinalFinalizar);
-}
 
 
 

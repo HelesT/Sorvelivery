@@ -1,92 +1,204 @@
-<?php
-// Conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sorvelivery";
+var precoFinalSaborPink;
+var precoFinalCasquinha;
+var precoFinalDalmaflocos;
+var precoFinalBurguerQueen;
+var precoFinalChocomalti;
+var precoFinalChococream;
+var precoFinalFinalizar;
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+function atualizarSaborPink() {
+  var precoBase = 11.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+  var tamanhoSelect = document.getElementsByName("tamanho_saborpink")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_saborpink")[0];
+  var precoElement = document.getElementById("preco_saborpink");
+
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+  var novoPreco = precoBase; // Atualiza a variável local
+
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    novoPreco += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
+
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    novoPreco += precoAcompanhamento;
+  }
+
+  precoFinalSaborPink = novoPreco; // Atualiza a variável global
+
+  precoElement.textContent = "R$" + novoPreco.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
 }
 
-// Consulta para obter os valores salvos na base de dados
-$sql = "SELECT tamanho_produto, acompanhamento_produto, preco_produto FROM produtos WHERE nome_produto = 'chococream'";
-$result = $conn->query($sql);
+function atualizarCasquinha() {
+  var precoBase = 6.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
 
-if ($result->num_rows > 0) {
-    // Loop pelos resultados
-    while ($row = $result->fetch_assoc()) {
-        $tamanhoSelecionado = $row["tamanho_produto"];
-        $acompanhamentoSelecionado = $row["acompanhamento_produto"];
-        $precoProduto = $row["preco_produto"];
-    }
-} else {
-    // Não foram encontrados resultados na base de dados
-    $tamanhoSelecionado = "";
-    $acompanhamentoSelecionado = "";
-    $precoProduto = 0;
+  var tamanhoSelect = document.getElementsByName("tamanho_casquinha")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_casquinha")[0];
+  var precoElement = document.getElementById("preco_casquinha");
+
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+  precoFinalCasquinha = precoBase;
+
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalCasquinha += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
+
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalCasquinha += precoAcompanhamento;
+  }
+
+  precoElement.textContent = "R$" + precoFinalCasquinha.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
 }
 
-// Fechar a conexão com o banco de dados
-$conn->close();
+function atualizarDalmaFlocos() {
+  var precoBase = 9.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+  var tamanhoSelect = document.getElementsByName("tamanho_dalmaflocos")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_dalmaflocos")[0];
+  var precoElement = document.getElementById("preco_dalmaflocos");
+
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+  precoFinalDalmaflocos = precoBase;
+
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalDalmaflocos += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
+
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalDalmaflocos += precoAcompanhamento;
+  }
+
+  precoElement.textContent = "R$" + precoFinalDalmaflocos.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
 }
 
-// Consulta para obter os valores salvos na base de dados
-$sql = "SELECT tamanho_produto, acompanhamento_produto, preco_produto FROM produtos WHERE nome_produto = 'chococream'";
-$result = $conn->query($sql);
+function atualizarBurguerQueen() {
+  var precoBase = 15.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
 
-if ($result->num_rows > 0) {
-    // Loop pelos resultados
-    while ($row = $result->fetch_assoc()) {
-        $tamanhoSelecionado = $row["tamanho_produto"];
-        $acompanhamentoSelecionado = $row["acompanhamento_produto"];
-        $precoProduto = $row["preco_produto"];
-    }
-} else {
-    // Não foram encontrados resultados na base de dados
-    $tamanhoSelecionado = "";
-    $acompanhamentoSelecionado = "";
-    $precoProduto = 0;
+  var tamanhoSelect = document.getElementsByName("tamanho_burguerqueen")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_burguerqueen")[0];
+  var precoElement = document.getElementById("preco_burguerqueen");
+
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+  precoFinalBurguerQueen = precoBase;
+
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalBurguerQueen += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
+
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalBurguerQueen += precoAcompanhamento;
+  }
+
+  precoElement.textContent = "R$" + precoFinalBurguerQueen.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
 }
 
-$conn->close();
-?>
+function atualizarChocomalti() {
+  var precoBase = 12.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
 
-<option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Pequeno") echo "selected"; ?>>Pequeno</option>
-                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Normal") echo "selected"; ?>>Normal</option>
-                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Grande") echo "selected"; ?>>Grande</option>
-                            <option style="font-size: 15px;" <?php if ($tamanhoSelecionado == "Gigante") echo "selected"; ?>>Gigante</option>
+  var tamanhoSelect = document.getElementsByName("tamanho_chocomalti")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_chocomalti")[0];
+  var precoElement = document.getElementById("preco_chocomalti");
 
-                            <option style="font-size: 15px;"></option>
-                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Leite em pó") echo "selected"; ?>>Leite em pó</option>
-                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Canudo de chocolate") echo "selected"; ?>>Canudo de chocolate</option>
-                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Nozes") echo "selected"; ?>>Nozes</option>
-                            <option style="font-size: 15px;" <?php if ($acompanhamentoSelecionado == "Creme") echo "selected"; ?>>Creme</option>
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
 
-                                // Obtendo o elemento do preço do produto
-    var precoChococreamElement = document.getElementById("preco_chococream");
+  precoFinalChocomalti = precoBase;
 
-    // Valor base do preço do produto
-    var precoBase = <?php echo $precoProduto; ?>;
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalChocomalti += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
 
-    // Verificando o valor de tamanho_produto
-    if ("<?php echo $tamanhoSelecionado; ?>" === "Normal") {
-        precoBase += 2;
-    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Grande") {
-        precoBase += 4;
-    } else if ("<?php echo $tamanhoSelecionado; ?>" === "Gigante") {
-        precoBase += 6;
-    }
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalChocomalti += precoAcompanhamento;
+  }
 
-    // Verificando o valor de acompanhamento_produto
-    if ("<?php echo $acompanhamentoSelecionado; ?>" !== "") {
-        precoBase += 3;
-    }
+  precoElement.textContent = "R$" + precoFinalChocomalti.toFixed(2);
 
-    // Atualizando o valor exibido no elemento do preço do produto
-    precoChococreamElement.textContent = "R$" + precoBase.toFixed(2);
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+}
+
+function atualizarChococream() {
+  var precoBase = 10.00;
+  var precoTamanho = 2.00;
+  var precoAcompanhamento = 3.00; // Valor fixo de R$3,00 para o acompanhamento
+
+  var tamanhoSelect = document.getElementsByName("tamanho_chococream")[0];
+  var acompanhamentoSelect = document.getElementsByName("acompanhamento_chococream")[0];
+  var precoElement = document.getElementById("preco_chococream");
+
+  var tamanhoOpcaoSelecionada = tamanhoSelect.options[tamanhoSelect.selectedIndex];
+  var acompanhamentoOpcaoSelecionada = acompanhamentoSelect.options[acompanhamentoSelect.selectedIndex];
+
+  precoFinalChococream = precoBase; // Atribui o valor a variável global
+
+  if (tamanhoOpcaoSelecionada.value !== "") {
+    precoFinalChococream += precoTamanho * (tamanhoSelect.selectedIndex + 1);
+  }
+
+  if (acompanhamentoOpcaoSelecionada.value !== "") {
+    precoFinalChococream += precoAcompanhamento;
+  }
+
+  precoElement.textContent = "R$" + precoFinalChococream.toFixed(2);
+
+  atualizarFinalFinalizar(); // Chama a função para atualizar o preço final
+}
+
+function atualizarFinalFinalizar() {
+  precoFinalFinalizar = 0; // Inicializa com 0 antes de somar os produtos
+
+  if (precoFinalSaborPink !== undefined) {
+    precoFinalFinalizar += precoFinalSaborPink;
+  }
+
+  if (precoFinalCasquinha !== undefined) {
+    precoFinalFinalizar += precoFinalCasquinha;
+  }
+
+  if (precoFinalDalmaflocos !== undefined) {
+    precoFinalFinalizar += precoFinalDalmaflocos;
+  }
+
+  if (precoFinalBurguerQueen !== undefined) {
+    precoFinalFinalizar += precoFinalBurguerQueen;
+  }
+
+  if (precoFinalChocomalti !== undefined) {
+    precoFinalFinalizar += precoFinalChocomalti;
+  }
+
+  if (precoFinalChococream !== undefined) {
+    precoFinalFinalizar += precoFinalChococream;
+  }
+
+  var precoFinalElement = document.getElementById("precoFinal");
+  precoFinalElement.textContent = precoFinalFinalizar.toFixed(2);
+
+  console.log(precoFinalFinalizar);
+}
