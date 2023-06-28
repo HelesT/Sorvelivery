@@ -171,23 +171,23 @@ if (isset($_POST['adicionarSaborpink'])) {
                     <div class="bloco2">
                         <div class="Partição1"><img src="Casquinha.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">Casquinha Hot Chilly Pappers</font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" name="tamanho_casquinha" id="tamanho_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 35px;">Casquinha Hot Chilly Pappers</font><br><br><br>
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" name="tamanho_casquinha" id="tamanho_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_casquinha" id="acompanhamento_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" name="acompanhamento_casquinha" id="acompanhamento_casquinha" onchange="atualizarCasquinha()" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;"></option>
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;" id="preco_casquinha">R$8,00</font>
+                            <font color="black" style="font-size: 35px;" id="preco_casquinha">R$8,00</font>
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarCasquinhahot" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -201,24 +201,24 @@ if (isset($_POST['adicionarSaborpink'])) {
                     <div class="bloco2">
                         <div class="Partição1"><img src="sorvete-produto-exemplo.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">Sabor Pink Floyd
+                            <font color="black" style="font-size: 35px;">Sabor Pink Floyd
                             </font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select class="tamanho_produto" name="tamanho_saborpink" id="tamanho_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select class="tamanho_produto" name="tamanho_saborpink" id="tamanho_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_saborpink" id="acompanhamento_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" name="acompanhamento_saborpink" id="acompanhamento_saborpink" onchange="atualizarSaborPink()" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;">
                                 <option style="font-size: 22px;"></option>
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;" id="preco_saborpink">R$13,00</font>
+                            <font color="black" style="font-size: 35px;" id="preco_saborpink">R$13,00</font>
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarSaborpink" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
