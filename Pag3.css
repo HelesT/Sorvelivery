@@ -10,9 +10,54 @@ body
             align-content: center;
             overflow-x: hidden;
         }
-
+        
+        .thumbnail4 {
+          margin-top: 80px;
+          background-color: rgb(255, 25, 25);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 200px;
+          width: 400px;
+          border-radius: 15px;
+        }
+        
+        .caption4{
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: -55px;
+       
+        }
+        
+        .caption4 h4 {
+          font-size: 30px;
+          color: white;
+          margin-bottom: 50px;
+          font-size: 30;
+          display: flex;
+          flex-direction: column;
+      
+        }
+        
+        
+        .caption a.btn4 {
+          margin-top: 10px;
+          margin-top: 10px;
+          border: 1px solid #000; /* Adiciona uma borda de 1px sólida */
+          background-color: yellow; /* Define a cor de fundo do botão */
+          padding: 8px 50px; /* Define o espaçamento interno do botão */
+          border-radius: 5px; /* Adiciona um arredondamento à borda do botão */
+          text-decoration: none; /* Remove a decoração de texto padrão */
+          color: #000; /* Define a cor do texto do botão */
+        }
+        .caption a.btn4:hover {
+          background-color: #8C52FF; /* Define a cor de fundo do botão ao passar o mouse */
+        }
         .thumbnail {
-            margin-top: 240px;
+            margin-top: 180px;
             background-color: white;
             display: flex;
             justify-content: center;
@@ -126,7 +171,7 @@ body
             display: flex;
             flex-direction: column;
           }
-          
+         
         .pmd
         {
             width: 100%;
