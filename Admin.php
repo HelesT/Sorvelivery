@@ -1,3 +1,31 @@
+<?php
+include("conecta.php");
+
+
+$query = "SELECT usuario_atual.nome_usuario, cadastro.nome_usuario, cadastro.nome_cadastro, usuario_atual.acesso, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional , cadastro.email_cadastro
+          FROM usuario_atual
+          INNER JOIN cadastro ON usuario_atual.nome_usuario = cadastro.nome_usuario WHERE usuario_atual.acesso = 's'";
+
+
+$resultado = mysqli_query($conexao, $query);
+
+if ($resultado && mysqli_num_rows($resultado) > 0) {
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $nomeCadastro = $row['nome_cadastro'];
+        $telefoneCadastro = $row['telefone_cadastro'];
+        $cep = $row["cep"];
+        $estado = $row["estado"];
+        $cidade = $row["cidade"];
+        $bairro = $row["bairro"];
+        $ruaAvenida = $row["rua/avenida"];
+        $numeroCasa = $row["numero"];
+        $complemento = $row["complemento"];
+        $informacaoAdicional = $row["informacao_adicional"];
+        $casaTrabalho = $row["casa/trabalho"];
+        $email = $row["email_cadastro"];  
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -138,13 +166,75 @@
             </div>
             <div class="essabagaça">
                 <div class="mais1">
-
+                    <input type="checkbox" style="display:flex;">
+                        <?php 
+                            include("conecta.php");
+                            $query = "SELECT nome_usuario
+                            FROM usuario_atual
+                            WHERE usuario_atual.acesso = 's'";
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                    $nomeUsuario = $row['nome_usuario'];
+                                }
+                            }
+                            echo $nomeUsuario
+                        ?>
+                    <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
+                    <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $email . '">' ?>
+                    
                 </div>
                 <div class="mais2">
-                    <input type="checkbox">
+                    <input type="checkbox" style="display:flex;">
+                    <?php 
+                            include("conecta.php");
+                            $query = "SELECT nome_usuario
+                            FROM usuario_atual
+                            WHERE usuario_atual.acesso = 's'";
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                    $nomeUsuario = $row['nome_usuario'];
+                                }
+                            }
+                            echo $nomeUsuario
+                        ?>
+                        <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
                 </div>
-                <div class="mais3"></div>
-                <div class="mais4"></div>
+                <div class="mais3">
+                    <input type="checkbox" style="display:flex;">
+                    <?php 
+                            include("conecta.php");
+                            $query = "SELECT nome_usuario
+                            FROM usuario_atual
+                            WHERE usuario_atual.acesso = 's'";
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                    $nomeUsuario = $row['nome_usuario'];
+                                }
+                            }
+                            echo $nomeUsuario
+                        ?>
+                        <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
+                </div>
+                <div class="mais4">
+                    <input type="checkbox" style="display:flex;">
+                    <?php 
+                            include("conecta.php");
+                            $query = "SELECT nome_usuario
+                            FROM usuario_atual
+                            WHERE usuario_atual.acesso = 's'";
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                    $nomeUsuario = $row['nome_usuario'];
+                                }
+                            }
+                            echo $nomeUsuario
+                        ?>
+                        <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
+                </div>
         </div>
     </div>
 
