@@ -157,6 +157,24 @@
     <div class="container">
     <div id="products" class="row list-group">
         <div class="item col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail4">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="caption4">
+                            <h4 class="group inner list-group-item-heading">Produtos</h4>
+                        </div>
+                        <div class="caption">
+                            <a class="btn4 btn-success" href="Cardapio.php">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container">
+    <div id="products" class="row list-group">
+        <div class="item col-xs-12 col-sm-6 col-md-4">
             <div class="thumbnail">
                 <div class="row">
                     <div class="col-xs-6">
@@ -191,7 +209,7 @@
                             <h4 class="group inner list-group-item-heading">Aquele milk shake animal!!!</h4>
                         </div>
                         <div class="caption">
-                            <p class="group inner list-group-item-text">Crocância e sabor irresistível, tudo isso em apenas um único milk shake. <br>Compre agora o novo Dalma Flocos.</p>
+                            <p class="group inner list-group-item-text">Crocância e sabor irresistível, tudo isso em apenas um único milkshake. <br>Compre agora o novo Dalma Flocos.</p>
                             <p class="lead">R$11,00</p>
                             <a class="btn btn-success" href="Produtos_milkshakes.php">Peça agora</a>
                         </div>

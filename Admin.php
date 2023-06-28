@@ -1,3 +1,31 @@
+<?php
+include("conecta.php");
+
+
+$query = "SELECT usuario_atual.nome_usuario, cadastro.nome_usuario, cadastro.nome_cadastro, usuario_atual.acesso, cadastro.telefone_cadastro, cadastro.cep, cadastro.estado, cadastro.cidade, cadastro.bairro, cadastro.`rua/avenida`, cadastro.numero, cadastro.complemento, cadastro.`casa/trabalho`, cadastro.informacao_adicional , cadastro.email_cadastro
+          FROM usuario_atual
+          INNER JOIN cadastro ON usuario_atual.nome_usuario = cadastro.nome_usuario WHERE usuario_atual.acesso = 's'";
+
+
+$resultado = mysqli_query($conexao, $query);
+
+if ($resultado && mysqli_num_rows($resultado) > 0) {
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $nomeCadastro = $row['nome_cadastro'];
+        $telefoneCadastro = $row['telefone_cadastro'];
+        $cep = $row["cep"];
+        $estado = $row["estado"];
+        $cidade = $row["cidade"];
+        $bairro = $row["bairro"];
+        $ruaAvenida = $row["rua/avenida"];
+        $numeroCasa = $row["numero"];
+        $complemento = $row["complemento"];
+        $informacaoAdicional = $row["informacao_adicional"];
+        $casaTrabalho = $row["casa/trabalho"];
+        $email = $row["email_cadastro"];  
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -119,21 +147,94 @@
 
     <div class="div1">
         <div class="principal">
-            <div class="usur">
                 <div class="usuario">
                     <div class="semcri">
+                        Usuários
+                        <button class="addusu">Adicionar Usuário</button>
+                    </div>
+                    <div class="semcri2">
+                        <input type="text" class="bpesq">
+                        <button class="pesq">Pesquisar Usuário</button>
+                    </div>
                 </div>
-                <div class="usuario"></div>
-            </div>
             <div class="adm">
-
+                Administrativo
+                <br><br>
+                <select style="width:15%; height:25%; font-size:15px;" value="Ações em massa"> <option >Ações em massa</option></select>
+                <select style="width:15%; height:25%; font-size:15px;" value="Ações em massa"> <option >Alterar Funções</option></select>
+                <button class="aplicar">Aplicar</button>
             </div>
             <div class="essabagaça">
-                <div class="mais1"></div>
-                <div class="mais2"></div>
-                <div class="mais3"></div>
-                <div class="mais4"></div>
-            </div>
+                <div class="mais1">
+                    <input type="checkbox" style="display:flex;">
+                        <?php 
+                            include("conecta.php");
+                            $query = "SELECT nome_usuario
+                            FROM usuario_atual
+                            WHERE usuario_atual.acesso = 's'";
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                    $nomeUsuario = $row['nome_usuario'];
+                                }
+                            }
+                            echo $nomeUsuario
+                        ?>
+                    <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
+                    <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $email . '">' ?>
+                    
+                </div>
+                <div class="mais2">
+                    <input type="checkbox" style="display:flex;">
+                    <?php 
+                            include("conecta.php");
+                            $query = "SELECT nome_usuario
+                            FROM usuario_atual
+                            WHERE usuario_atual.acesso = 's'";
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                    $nomeUsuario = $row['nome_usuario'];
+                                }
+                            }
+                            echo $nomeUsuario
+                        ?>
+                        <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
+                </div>
+                <div class="mais3">
+                    <input type="checkbox" style="display:flex;">
+                    <?php 
+                            include("conecta.php");
+                            $query = "SELECT nome_usuario
+                            FROM usuario_atual
+                            WHERE usuario_atual.acesso = 's'";
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                    $nomeUsuario = $row['nome_usuario'];
+                                }
+                            }
+                            echo $nomeUsuario
+                        ?>
+                        <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
+                </div>
+                <div class="mais4">
+                    <input type="checkbox" style="display:flex;">
+                    <?php 
+                            include("conecta.php");
+                            $query = "SELECT nome_usuario
+                            FROM usuario_atual
+                            WHERE usuario_atual.acesso = 's'";
+                            $resultado = mysqli_query($conexao, $query);
+                            if ($resultado && mysqli_num_rows($resultado) > 0) {
+                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                    $nomeUsuario = $row['nome_usuario'];
+                                }
+                            }
+                            echo $nomeUsuario
+                        ?>
+                        <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
+                </div>
         </div>
     </div>
 

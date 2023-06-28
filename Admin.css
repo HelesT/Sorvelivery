@@ -15,7 +15,7 @@ body
 {
     width: 95%;
     height: 100%;
-    background-color: #00f7ff;
+    background-color: #00000077;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -23,12 +23,13 @@ body
     align-content: center;
     align-items: center;
 }
+    
 .usur
 {
     width: 95%;
-    height: 10%;
+    height: 100%;
     background-color: #00000000;
-    flex-direction: row;
+    flex-direction: column;
     display: flex;
     justify-content: space-between;
     justify-items: center;
@@ -37,17 +38,83 @@ body
 }
 .usuario
 {
-    width: 30%;
-    height: 99%;
-    background-color: aliceblue;
+    width: 95%;
+    height: 20%;
+    background-color: rgba(240, 248, 255, 0);
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
 }
+    .semcri
+    {
+        width: 40%;
+        height:40%;
+        background-color: rgba(255, 255, 0, 0);
+        flex-direction: row;
+        display: flex;
+        /*justify-content: space-between;*/
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+        color: #00ffea;
+        font-size: 50px;
+    }
+        .addusu
+        {
+            width:40%;
+            height: 60%;
+            font-size: 20px;
+            margin:10px;
+            margin-top: 20px;
+        }
+    .semcri2
+    {
+        width: 40%;
+        height:40%;
+        background-color: rgba(255, 255, 0, 0);
+        flex-direction: row;
+        display: flex;
+        /*justify-content: space-between;*/
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+        color: #00ffea;
+        font-size: 50px;
+    }
+        .bpesq
+        {
+            width: 40%;
+            height: 50%;
+            margin-top: 5px;
+        }
+        .pesq
+        {
+            width: 40%;
+            height: 61%;
+            margin: 5px;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    
 .adm
 {
     margin: 0px;
     width: 95%;
     height: 20%;
-    background-color: #000000;
+    background-color: #00000000;
+    color:#00ffea;
+    font-size: 25px;
 }
+    .aplicar
+    {
+        margin: 5px;
+        width: 10%;
+        height: 20%;
+        font-size: 15px;
+    }
 .essabagaça
 {
     margin: 0px;
@@ -66,27 +133,49 @@ body
     width: 100%;
     height: 20%;
     background-color: aliceblue;
+    display: flex;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
 }
 .mais2
 {
     width: 100%;
     height: 20%;
-    background-color: aliceblue;
+    background-color: rgb(146, 146, 146);
+    display: flex;
 
+
+}
+.escritas
+{
+    width: 5%;
+    height: 5%;
+    margin: 10px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 30px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
 }
 .mais3
 {
     width: 100%;
     height: 20%;
     background-color: aliceblue;
+    display: flex;
 
 }
 .mais4
 {
     width: 100%;
     height: 20%;
-    background-color: aliceblue;
-
+    background-color: rgb(146, 146, 146);
+    display: flex;
 }
 nav
     {
@@ -301,7 +390,7 @@ nav
 
 input[type="checkbox"]
 {
-display: none;
+    display: none;
 }
 input[type="checkbox"]:checked ~ nav
 {
@@ -324,54 +413,57 @@ margin-bottom: 20px;
     align-content: center;
     z-index: 1;
     }
-    
+        .row100
+        {
+        display: flex;
+        margin-top: 5px;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        width: 100%;
+        height: 20px;
+        }
+            .caixadetexto
+            {
+            width: 75%;
+            height: 100%;
+            margin-bottom: 5px;
+            }
+            .enviartexto
+            {
+            width: 15%;
+            height: 125%;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            align-content: center;
+            }
+            .resposta
+        {
+        background-color: rgb(41, 41, 41);
+        width: 90%;
+        height: 85%;
+        padding: 3px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-y: scroll;
+        display: flex;
+        margin-bottom: 5px;
+        }
     .fale_conosco_texto
     {
     width: 110px;
     height: 22px;
     color: rgb(35, 200, 200) ;
     }
-    .caixadetexto
-    {
-    width: 75%;
-    height: 100%;
-    margin-bottom: 5px;
-    }
-    .enviartexto
-    {
-    width: 15%;
-    height: 125%;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    }
-    .resposta
-    {
-    background-color: rgb(41, 41, 41);
-    width: 90%;
-    height: 85%;
-    padding: 3px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-y: scroll;
-    display: flex;
-    margin-bottom: 5px;
-    }
-    .row100
-    {
-    display: flex;
-    margin-top: 5px;
-    flex-direction: row;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    width: 100%;
-    height: 20px;
-    }
+    
+    
+    
+    
 ::-webkit-scrollbar
 {
 width: 20px;
