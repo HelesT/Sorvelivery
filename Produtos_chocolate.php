@@ -180,23 +180,23 @@ if (isset($_POST['adicionarChocomalti'])) {
                     <div class="bloco2">
                         <div class="Partição1"><img src="chococream.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                            <font color="white" style="font-size: 35px;">chococream</font><br><br><br>
-                            <font color="white" style="font-size: 22px;">Tamanho:</font>
-                            <select name="tamanho_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;" id="tamanho_chococream" onchange="atualizarPrecoChococream()">
+                            <font color="black" style="font-size: 35px;">chococream</font><br><br><br>
+                            <font color="black" style="font-size: 22px;">Tamanho:</font>
+                            <select name="tamanho_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;" id="tamanho_chococream" onchange="atualizarPrecoChococream()">
                                 <option style="font-size: 22px;">Pequeno</option>
                                 <option style="font-size: 22px">Normal</option>
                                 <option style="font-size: 22px">Grande</option>
                                 <option style="font-size: 22px">Gigante</option>
                             </select><br><br>
-                            <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                            <select class="tamanho_produto" name="acompanhamento_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;" id="acompanhamento_chococream" onchange="atualizarPrecoChococream()">
+                            <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                            <select class="tamanho_produto" name="acompanhamento_chococream" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;" id="acompanhamento_chococream" onchange="atualizarPrecoChococream()">
                                 <option style="font-size: 22px;"></option>
                                 <option style="font-size: 22px;">Leite em pó</option>
                                 <option style="font-size: 22px">Canudo de chocolate</option>
                                 <option style="font-size: 22px">Nozes</option>
                                 <option style="font-size: 22px">Creme</option>
                             </select><br><br><br>
-                            <font color="white" style="font-size: 35px;" id="preco_chococream">R$12,00</font>
+                            <font color="black" style="font-size: 35px;" id="preco_chococream">R$12,00</font>
                         </div>
                         <div class="Partição3">                           
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChococream" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
@@ -210,23 +210,23 @@ if (isset($_POST['adicionarChocomalti'])) {
                     <div class="bloco2">
                         <div class="Partição1"><img src="chocomalti.png" class="sorvete-produto-exemplo" width="300px"></div>
                         <div class="Partição2">
-                        <font color="white" style="font-size: 35px;">Chocomalti</font><br><br><br>
-                        <font color="white" style="font-size: 22px;">Tamanho:</font>
-                        <select class="tamanho_produto" name="tamanho_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;" onchange="atualizarPrecoChocomalti()">
+                        <font color="black" style="font-size: 35px;">Chocomalti</font><br><br><br>
+                        <font color="black" style="font-size: 22px;">Tamanho:</font>
+                        <select class="tamanho_produto" name="tamanho_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;" onchange="atualizarPrecoChocomalti()">
                             <option style="font-size: 22px;">Pequeno</option>
                             <option style="font-size: 22px">Normal</option>
                             <option style="font-size: 22px">Grande</option>
                             <option style="font-size: 22px">Gigante</option>
                         </select><br><br>
-                        <font color="white" style="font-size: 22px;">Acompanhamento:</font>
-                        <select class="tamanho_produto" name="acompanhamento_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: white; font-size: 19px;" onchange="atualizarPrecoChocomalti()">
+                        <font color="black" style="font-size: 22px;">Acompanhamento:</font>
+                        <select class="tamanho_produto" name="acompanhamento_chocomalti" style="border: 0px none; background-color:rgb(28, 221, 221); color: black; font-size: 19px;" onchange="atualizarPrecoChocomalti()">
                             <option style="font-size: 22px;"></option>
                             <option style="font-size: 22px;">Leite em pó</option>
                             <option style="font-size: 22px">Canudo de chocolate</option>
                             <option style="font-size: 22px">Nozes</option>
                             <option style="font-size: 22px">Creme</option>
                         </select><br><br><br>
-                        <font id="preco_chocomalti" color="white" style="font-size: 35px;">R$14,00</font>
+                        <font id="preco_chocomalti" color="black" style="font-size: 35px;">R$14,00</font>
                         </div>
                         <div class="Partição3">
                                 <button style="border: none; background-color: rgb(28, 221, 221);margin-top:60px" type="submit"name="adicionarChocomalti" class="adicionar chococream"><img src="adicionar.png" width="50px"></button>
