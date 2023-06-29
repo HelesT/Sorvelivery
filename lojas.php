@@ -189,7 +189,7 @@ function MensagemRecebida(message) {
 }
 
 function Enviar() {
-    texto = mensagem.value;
+      texto = "<?php echo $nomeUsuario ?>:" + " " + mensagem.value;
 
     message = new Paho.MQTT.Message(texto);
     message.destinationName = topico;
