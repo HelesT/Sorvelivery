@@ -55,8 +55,11 @@
             </div>
         </div>
         <div class="cabecalho3">
-        <div class="pequenininha" style="width: 50px;height: 50px;">
-            <?php
+            <div class="pequenininha" style="width: 50px;height: 50px;">
+
+
+
+                <?php
                             include("salvar_imagem.php");
                             if ($resultado) {
                                 $linha = $comando->fetch(PDO::FETCH_ASSOC);
@@ -71,15 +74,20 @@
                             } else {
                                 echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
                             }
-                        ?>
+                ?>
+
+
+
             </div>
-            <a href="Pag5.php" width="40px">
-                <img src="carrinho.png" width="40px" >
-            </a>
+                <a href="Pag5.php" width="40px">
+                    <img src="carrinho.png" width="40px" >
+                </a>
         </div>
     </div>
+
+
     <div class="caixausu" >
-    <div class="pequenininha2">
+        <div class="pequenininha2">
             <?php
                             include("salvar_imagem.php");
                             if ($resultado) {
@@ -95,23 +103,25 @@
                             } else {
                                 echo "Erro ao recuperar a imagem do banco de dados: " . $pdo->errorInfo()[2];
                             }
-                        ?>
-            </div>
-        <div style="color:white;margin-top:-5px"><?php 
-        include("conecta.php");
-        $query = "SELECT nome_usuario
-          FROM usuario_atual
-          WHERE usuario_atual.acesso = 's'";
-          $resultado = mysqli_query($conexao, $query);
-          if ($resultado && mysqli_num_rows($resultado) > 0) {
-            while ($row = mysqli_fetch_assoc($resultado)) {
-                $nomeUsuario = $row['nome_usuario'];
-            }
-        }
-        echo $nomeUsuario
-        ?></div>   
-        <a href="cadastro2.php" style="margin-top:5px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Editar Perfil</button></a>
-        <a href="Login.php" style="margin-top:2px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Sair</button></a>                 
+                ?>
+        </div>
+        <div style="color:white;margin-top:-5px">
+                <?php 
+                include("conecta.php");
+                $query = "SELECT nome_usuario
+                FROM usuario_atual
+                WHERE usuario_atual.acesso = 's'";
+                $resultado = mysqli_query($conexao, $query);
+                if ($resultado && mysqli_num_rows($resultado) > 0) {
+                    while ($row = mysqli_fetch_assoc($resultado)) {
+                        $nomeUsuario = $row['nome_usuario'];
+                    }
+                }
+                echo $nomeUsuario
+                ?>
+        </div>   
+            <a href="cadastro2.php" style="margin-top:5px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Editar Perfil</button></a>
+            <a href="Login.php" style="margin-top:2px"><button class="Sair2" style="width: 80px;height: 15px;border-radius: 10px;font-size: 10px;display: flex;justify-content: center;justify-items: center;align-content: center;align-items: center;cursor:pointer;">Sair</button></a>                 
     
     </div>
 
