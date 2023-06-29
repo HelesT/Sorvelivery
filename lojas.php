@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorvelivery-Lojas</title>
     <link rel="stylesheet" href="lojas.css" type="text/css">
+    <link rel="icon" href="Logo2.png" type="image/png">
     <script src="jquery-3.7.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
 </head>

@@ -33,14 +33,14 @@ while ($linhas = $comando->fetch()) {
 }
 
 if ($n == 0) {
-    header("Location: login.html");
+    header("Location: login.php");
     exit;
 } elseif ($admin == "s") {
     $comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET acesso = 's' WHERE codigo_usuario = :codigo_cadastro");
     $comandoAtualizacao->bindParam(":codigo_cadastro", $codigo_cadastro);
     $comandoAtualizacao->execute();
 
-    header("Location: pag3admin.html");
+    header("Location: pag3admin.php");
     exit;
 } else {
     $comandoAtualizacao = $pdo->prepare("UPDATE usuario_atual SET acesso = 's' WHERE codigo_usuario = :codigo_cadastro");
