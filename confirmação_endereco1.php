@@ -1,11 +1,5 @@
 <?php
-// Conectar ao banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sorvelivery";
-
-$conexao = new mysqli($servername, $username, $password, $dbname);
+include("conecta.php");
 
 $sqlAtualizacao = "UPDATE produtos SET carrinho_produto = 'n'";
 $stmtAtualizacao = mysqli_prepare($conexao, $sqlAtualizacao);

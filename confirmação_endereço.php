@@ -93,6 +93,7 @@ $totalSomaGeral = $somaGeral + $somaTamanhoGeral + $somaAcompanhamentoGeral;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorvelivery</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <link rel="icon" href="Logo2.png" type="image/png">
     <script src="jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="confirmação_endereco.css" type="text/css">
 </head>
