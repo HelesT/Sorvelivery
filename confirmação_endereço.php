@@ -388,7 +388,7 @@ topico = "nyltoneduardoconstancio";
         client.subscribe(topico);  // Tópico (variável) criado no servidor MQTT
     }
 
-    function ConexaoPerdida(responseObject) {
+    function ConexaoPerdida(responseObject) {A
         if (responseObject.errorCode !== 0) {
             resposta.innerHTML += "Desconectado";
         }
