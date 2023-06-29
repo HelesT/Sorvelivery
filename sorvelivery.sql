@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/06/2023 às 12:52
+-- Tempo de geração: 29/06/2023 às 02:54
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -52,7 +52,7 @@ CREATE TABLE `cadastro` (
 --
 
 INSERT INTO `cadastro` (`codigo_cadastro`, `nome_cadastro`, `nome_usuario`, `telefone_cadastro`, `cep`, `estado`, `cidade`, `bairro`, `rua/avenida`, `numero`, `complemento`, `casa/trabalho`, `informacao_adicional`, `email_cadastro`, `senha_cadastro`, `admim_cadastro`, `foto`) VALUES
-(6, 'Nylton Eduardo Constâncio', 'Nylton', '47989130277', '89210-755', 'Santa Catarina', 'Joinville', 'Itaum', 'São Valentim', 22, 'Casa', 'trabalho', 'Muro Branco', 'nyltondudu@gmail.com', '123', 's', ''),
+(6, 'Nylton Eduardo Constâncio', 'Nylton', '47989130277', '89210-755', 'Santa Catarina', 'Joinville', 'Itaum', 'São Valentim', 22, 'Casa', 'trabalho', 'Muro Branco', '', '123', 's', ''),
 (12, '', 'mateus', '991910111', '', '', '', '', '', 0, '', '', '', 'Mateus', '123', NULL, '');
 
 -- --------------------------------------------------------
@@ -64,6 +64,7 @@ INSERT INTO `cadastro` (`codigo_cadastro`, `nome_cadastro`, `nome_usuario`, `tel
 CREATE TABLE `produtos` (
   `nome_produto` varchar(255) NOT NULL,
   `preco_produto` decimal(3,0) NOT NULL,
+  `quantidade_produto` int(2) NOT NULL,
   `tamanho_produto` varchar(45) NOT NULL,
   `acompanhamento_produto` varchar(45) NOT NULL,
   `carrinho_produto` varchar(1) NOT NULL,
@@ -74,13 +75,13 @@ CREATE TABLE `produtos` (
 -- Despejando dados para a tabela `produtos`
 --
 
-INSERT INTO `produtos` (`nome_produto`, `preco_produto`, `tamanho_produto`, `acompanhamento_produto`, `carrinho_produto`, `imagem`) VALUES
-('burguerqueen', 17, 'Grande', 'Nozes', 'n', ''),
-('chococream', 12, 'Normal', 'Canudo de chocolate', 'n', ''),
-('chocomalti', 14, 'Pequeno', 'Leite em pó', 'n', ''),
-('dalmaflocos', 11, 'Pequeno', 'Leite em pó', 'n', ''),
-('hotchillypapers', 8, 'Gigante', 'Creme', 'n', ''),
-('saborpinkfloyd', 13, 'Grande', 'Leite em pó', 'n', '');
+INSERT INTO `produtos` (`nome_produto`, `preco_produto`, `quantidade_produto`, `tamanho_produto`, `acompanhamento_produto`, `carrinho_produto`, `imagem`) VALUES
+('burguerqueen', 17, 1, 'Pequeno', '', 'n', ''),
+('chococream', 12, 2, 'Grande', 'Nozes', 's', ''),
+('chocomalti', 14, 1, 'Pequeno', '', 'n', ''),
+('dalmaflocos', 11, 99, 'Gigante', 'Leite em pó', 'n', ''),
+('hotchillypapers', 8, 1, 'Pequeno', '', 'n', ''),
+('saborpinkfloyd', 13, 1, 'Pequeno', '', 'n', '');
 
 -- --------------------------------------------------------
 
@@ -99,8 +100,9 @@ CREATE TABLE `usuario_atual` (
 --
 
 INSERT INTO `usuario_atual` (`codigo_usuario`, `nome_usuario`, `acesso`) VALUES
-(6, 'Nylton', 'n'),
-(12, 'mateus', 'n');
+(6, 'Nylton', 's'),
+(12, 'mateus', 'n'),
+(13, 'batata', 'n');
 
 --
 -- Índices para tabelas despejadas
@@ -132,13 +134,13 @@ ALTER TABLE `usuario_atual`
 -- AUTO_INCREMENT de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `codigo_cadastro` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `codigo_cadastro` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `usuario_atual`
 --
 ALTER TABLE `usuario_atual`
-  MODIFY `codigo_usuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `codigo_usuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
