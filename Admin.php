@@ -183,7 +183,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
                     <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $nomeCadastro . '">' ?>
                     <?php echo '<input type="text" name="nome_cadastro" class="escritas" value="' .  $email . '">' ?>
                     
-                </div>
+                </div>a
                 <div class="mais2">
                     <input type="checkbox" style="display:flex;">
                     <?php 
