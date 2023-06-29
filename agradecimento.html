@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+  <title>Agradecimento</title>
+  <style>
+    body {
+      background-color: black;
+      overflow: hidden;
+    }
+    #mensagem {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 100px;
+      text-align: center;
+    }
+  </style>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      animarLegenda();
+    });
+
+    function animarLegenda() {
+      var tamanhoInicial = 70;
+      var tamanhoFinal = 75;
+      var duracao = 1000;
+
+      $('#mensagem').css('font-size', tamanhoInicial + 'px');
+      setInterval(function() {
+        $('#mensagem').animate({
+          'font-size': tamanhoFinal + 'px'
+        }, duracao).animate({
+          'font-size': tamanhoInicial + 'px'
+        }, duracao);
+      }, duracao * 2);
+    }
+
+    setTimeout(function() {
+      ABRIR();
+    }, 10000);
+
+    function ABRIR() {
+      window.open("Pag3.php", "_SELF");
+    }
+  </script>
+</head>
+<body>
+    <img src="Fundo.png" width="100%" height="100%" style="opacity: 0.2;">
+  <div id="mensagem">
+    Agradecemos sua preferencia
+  </div>
+</body>
+</html>

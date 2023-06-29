@@ -36,6 +36,26 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     }
 }
 
+
+
+
+
+// Verificar se o botão "botaofinalizarcartao" foi clicado
+if (isset($_POST['botaofinalizarcartao'])) {
+    // Atualizar os dados na tabela "produtos"
+    $sql = "UPDATE produtos SET carrinho_produto = 'n'";
+    if ($conexao->query($sql) === TRUE) {
+        // Redirecionar para a página "agradecimento.html"
+        header("Location: agradecimento.html");
+        exit;
+    } else {
+        echo "Erro ao atualizar os dados: " . $conexao->error;
+    }
+}
+
+
+
+
 $tamanhoSql = "SELECT SUM(
   CASE tamanho_produto
       WHEN 'pequeno' THEN 0
@@ -342,7 +362,7 @@ $totalSomaGeral = $somaGeral + $somaTamanhoGeral + $somaAcompanhamentoGeral;
         <div class="linha" style="font-size: 17px;margin-top: 10px;">
         Total: &nbsp;<span id="valor-soma">R$<?php echo number_format($totalSomaGeral, 2, ',', '.')?></span>
         </div>
-        <button type="submit" style="width: 200px;height: 50px;cursor:pointer;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
+        <button id="botaofinalizarcartao" type="submit" style="width: 200px;height: 50px;cursor:pointer;border-radius: 10px;background-color: rgb(21, 122, 180); font-size: 15px;margin-top: 40px;" >Finalizar</button>
         </div>
     </div>
 </form>
